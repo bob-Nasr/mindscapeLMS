@@ -18,7 +18,7 @@ $CFG->dboptions = array (
   'dbcollation' => 'utf8mb4_0900_ai_ci',
 );
 
-$CFG->wwwroot   = 'http://localhost/m433/moodle';
+$CFG->wwwroot   = 'http://localhost/m433/mindscapeLMS/moodle';
 $CFG->dataroot  = 'C:\\wamp64\\moodledata';
 $CFG->admin     = 'admin';
 
