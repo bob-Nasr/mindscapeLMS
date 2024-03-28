@@ -117,7 +117,7 @@ def insert_users_roles(user_data, role_id):
 
 # Fetch and process student data
 logging.debug('Processing student data')
-source_cursor.execute("SELECT fName, lName, phone FROM `student`")
+source_cursor.execute("SELECT studentFirstName, studentLastName, phoneNb FROM `student`")
 student_data = [(student[0].lower() + student[1].lower(), f"{student[0].lower() + student[1].lower()}@example.com", student[0].lower() + "123", student[0], student[1]) for student in source_cursor.fetchall()]
 insert_users_roles(student_data, STUDENT_ROLE_ID)
 
