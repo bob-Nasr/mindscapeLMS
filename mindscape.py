@@ -82,9 +82,14 @@ target_conn = mysql.connector.connect(host="localhost", user="root", password=""
 target_cursor = target_conn.cursor()
 
 # Define role IDs (replace these with the actual role IDs from your Moodle database)
+GUEST_ID = 6
 STUDENT_ROLE_ID = 5  # Example ID, replace with actual student role ID
 TEACHER_ROLE_ID = 4  # Example ID, replace with actual non-editing teacher role ID
+EDITINGTEACHER_ROLE_ID = 3
+COURSECREATOR_ROLE_ID = 2
+MANAGER_ROLE_ID = 1
 
+#User roles
 def insert_users_roles(user_data, role_id):
     user_data_to_export = []
 
