@@ -1,135 +1,107 @@
-# import pyodbc
-# import logging
-
-# # Configure logging
-# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
-# # Connect to the source database (MarianneDB)
-# logging.debug('Connecting to source database (MarianneDB)')
-# source_conn = pyodbc.connect(
-#     r'Driver={SQL Server};'
-#     r'Server=DESKTOP-NA9IB30;'
-#     r'Database=MarianneDB;'
-#     r'Trusted_Connection=yes;'
-# )
-# source_cursor = source_conn.cursor()
-
-# # Connect to the target database (moodlefyp)
-# logging.debug('Connecting to target database (moodlefyp)')
-# target_conn = pyodbc.connect(
-#     r'Driver={SQL Server};'
-#     r'Server=DESKTOP-NA9IB30;'
-#     r'Database=moodlefyp;'
-#     r'Trusted_Connection=yes;'
-# )
-# target_cursor = target_conn.cursor()
-
-# # Fetch data from the source student table
-# logging.debug('Fetching data from source student table')
-# source_cursor.execute("SELECT fName, lName, phone FROM [dbo].[student]")
-# student_data = source_cursor.fetchall()
-# logging.debug(f'Fetched {len(student_data)} rows from source student table')
-
-# # Create the target user table if it doesn't exist
-# logging.debug('Creating target user table if it does not exist')
-# target_cursor.execute("""
-#     IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='user' and xtype='U')
-#     CREATE TABLE [dbo].[user] (
-#         fname VARCHAR(50),
-#         lname VARCHAR(50),
-#         phone VARCHAR(20)
-#     )
-# """)
-
-# # Insert data into the target user table, skipping duplicates
-# logging.debug('Inserting data into target user table, skipping duplicates')
-# insert_query = """
-#     INSERT INTO [dbo].[user] (fname, lname, phone)
-#     SELECT s.fName, s.lName, s.phone
-#     FROM (
-#         VALUES %s
-#     ) s(fName, lName, phone)
-#     LEFT JOIN [dbo].[user] u
-#         ON s.fName = u.fname
-#         AND s.lName = u.lname
-#         AND s.phone = u.phone
-#     WHERE u.fname IS NULL
-# """ % ', '.join(["(?, ?, ?)"] * len(student_data))
-
-# target_cursor.execute(insert_query, [item for row in student_data for item in row])
-
-# # Commit changes and close connections
-# logging.debug('Committing changes and closing connections')
-# target_conn.commit()
-# source_conn.close()
-# target_conn.close()
-# logging.debug('Script execution completed')
-
 import logging
-import bcrypt
 import mysql.connector
+import bcrypt
+import secrets # For passwords
+import string
+import pandas as pd  # For excel
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# Connect to databases
+# Connect to the source database (mindscapes)
 logging.debug('Connecting to source database (mindscapes)')
 source_conn = mysql.connector.connect(host="localhost", user="root", password="", database="mindscapes")
 source_cursor = source_conn.cursor()
 
+# Connect to the Moodle database (moodlefyp)
 logging.debug('Connecting to Moodle database (moodlefyp)')
 target_conn = mysql.connector.connect(host="localhost", user="root", password="", database="moodlefyp")
 target_cursor = target_conn.cursor()
 
-# Define role IDs (replace these with the actual role IDs from your Moodle database)
-STUDENT_ROLE_ID = 5  # Example ID, replace with actual student role ID
-TEACHER_ROLE_ID = 4  # Example ID, replace with actual non-editing teacher role ID
+# Initialize a list to store user data for the Excel export
+users_for_excel = []
 
-def insert_users_roles(user_data, role_id):
-    user_data_to_export = []
+# Generate a random password
+def generate_password(length=12):
+    alphabet = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(secrets.choice(alphabet) for i in range(length))
+    return password
 
+def insert_users_with_dynamic_role_check(user_data):
     for user in user_data:
-        username, email, password, firstname, lastname = user
-        password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        username, email, firstName, lastName, role_name = user
+        plain_password = generate_password()
 
-        # Insert into mdl_user
-        insert_query = """
-        INSERT INTO `mdl_user` (username, password, firstname, lastname, email, mnethostid)
-        VALUES (%s, %s, %s, %s, %s, 1)
-        ON DUPLICATE KEY UPDATE id=id
-        """
-        target_cursor.execute(insert_query, (username, password_hash, firstname, lastname, email, 1))
-        user_id = target_cursor.lastrowid
+        # Check if the role exists in Moodle and get its ID
+        check_role_sql = "SELECT id FROM mdl_role WHERE shortname = %s"
+        target_cursor.execute(check_role_sql, (role_name,))
+        role_result = target_cursor.fetchone()
+        
+        if not role_result:
+            logging.debug(f"Role {role_name} not found in Moodle. Skipping user {username}.")
+            continue
 
-        # Insert into mdl_role_assignments
-        role_assign_query = """
-        INSERT INTO `mdl_role_assignments` (roleid, contextid, userid, modifierid, timemodified)
-        VALUES (%s, 1, %s, 2, UNIX_TIMESTAMP())
-        """
-        target_cursor.execute(role_assign_query, (role_id, user_id))
+        role_id = role_result[0]
 
-        user_data_to_export.append((username, password, firstname, lastname, email))
+        # Check if user already exists in Moodle
+        check_user_sql = "SELECT id FROM mdl_user WHERE username = %s"
+        target_cursor.execute(check_user_sql, (username,))
+        if target_cursor.fetchone():
+            logging.debug(f"User {username} already exists. Skipping.")
+        else:
+            # Add user details to the list before inserting them into the database
+            users_for_excel.append([username, plain_password, firstName, lastName, email, role_name])
 
-    # Export user data to a file
-    with open(f'exported_users_role_{role_id}.txt', 'w') as file:
-        for data in user_data_to_export:
-            file.write(f"{data[0]},{data[1]},{data[2]},{data[3]},{data[4]}\n")
+            password_hash = bcrypt.hashpw(plain_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
-# Fetch and process student data
-logging.debug('Processing student data')
-source_cursor.execute("SELECT studentFirstName, studentLastName, phoneNb FROM `student`")
-student_data = [(student[0].lower() + student[1].lower(), f"{student[0].lower() + student[1].lower()}@example.com", student[0].lower() + "123", student[0], student[1]) for student in source_cursor.fetchall()]
-insert_users_roles(student_data, STUDENT_ROLE_ID)
+            # Insert user into Moodle database with confirmed and mnethostid set to 1
+            insert_user_sql = """
+            INSERT INTO mdl_user (username, password, firstname, lastname, email, confirmed, mnethostid)
+            VALUES (%s, %s, %s, %s, %s, 1, 1)
+            """
+            target_cursor.execute(insert_user_sql, (username, password_hash, firstName, lastName, email))
 
-# Fetch and process teacher data
-logging.debug('Processing teacher data')
-source_cursor.execute("SELECT fName, lName, phone FROM `teacher`")
-teacher_data = [(teacher[0].lower() + teacher[1].lower(), f"{teacher[0].lower() + teacher[1].lower()}@example.com", teacher[0].lower() + "123", teacher[0], teacher[1]) for teacher in source_cursor.fetchall()]
-insert_users_roles(teacher_data, TEACHER_ROLE_ID)
+            user_id = target_cursor.lastrowid
 
-# Commit changes and close connections
-logging.debug('Committing changes and closing connections')
-target_conn.commit()
+            # Assign role to user
+            insert_role_sql = """
+            INSERT INTO mdl_role_assignments (roleid, userid, contextid, timemodified, modifierid)
+            VALUES (%s, %s, 1, UNIX_TIMESTAMP(), 2)
+            """
+            target_cursor.execute(insert_role_sql, (role_id, user_id))
+
+    target_conn.commit()
+
+# Combine students and employees into one dataset and process
+logging.debug('Combining and processing student and employee data with role check')
+
+# Fetch and combine student data
+source_cursor.execute("""
+    SELECT LOWER(CONCAT(studentFirstName, studentLastName)), CONCAT(LOWER(studentFirstName), '@example.com'), studentFirstName, studentLastName, 'student' AS role_name
+    FROM Student
+""")
+student_data = source_cursor.fetchall()
+
+# Fetch and combine employee data
+source_cursor.execute("""
+    SELECT LOWER(CONCAT(first_name, last_name)), email, first_name, last_name, (
+        SELECT role FROM Employee_Role WHERE idemployee_role = Employee.role
+    ) AS role_name
+    FROM Employee
+""")
+employee_data = source_cursor.fetchall()
+
+# Combine both datasets
+combined_data = student_data + employee_data
+
+# Process combined data
+insert_users_with_dynamic_role_check(combined_data)
+
+# After processing all users, create a pandas DataFrame and export it to an Excel file
+df = pd.DataFrame(users_for_excel, columns=['Username', 'Password', 'First Name', 'Last Name', 'Email', 'Role'])
+df.to_excel('exported_users.xlsx', index=False)
+
+# Close connections
 source_conn.close()
 target_conn.close()
 logging.debug('Script execution completed')
