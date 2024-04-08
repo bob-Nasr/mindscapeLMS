@@ -1,0 +1,32 @@
+<XMLDB PATH="local/guardians/db" VERSION="2010103000"
+    COMMENT="XMLDB file for Moodle local/guardians">
+    <TABLES>
+        <TABLE NAME="legalguardians" COMMENT="Legal Guardians details">
+            <FIELDS>
+                <FIELD NAME="guardianid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="namelegalguardians" TYPE="char" LENGTH="255" NOTNULL="true"
+                    SEQUENCE="false" />
+                <FIELD NAME="phonenumber" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="address" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="legalguardians_relationships" COMMENT="Link between legal guardians and students">
+            <FIELDS>
+                <FIELD NAME="idguardiansstudents" TYPE="int" LENGTH="10" NOTNULL="true"
+                    SEQUENCE="true" />
+                <FIELD NAME="guardianid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"
+                    COMMENT="References legalguardians(guardianid)" />
+                <FIELD NAME="relationship" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"
+                    COMMENT="References user(userid)" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="idguardiansstudents" />
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
