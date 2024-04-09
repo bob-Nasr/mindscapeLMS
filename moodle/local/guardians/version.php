@@ -8,3 +8,7 @@
  $plugin->maturity  = MATURITY_STABLE;
  $plugin->release   = '1.1 (Build: 2023040301)';
  
+// Register the user profile view callback
+$handlers = array(
+    'myprofile_navigation' => 'local_guardians_myprofile_navigation',
+);

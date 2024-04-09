@@ -103,6 +103,9 @@ class renderer extends \plugin_renderer_base {
             $header .= $this->render($icon);
         }
         $content = $node->content;
+        if ($content instanceof \renderable) {
+            $content = $this->render($content);
+        }
         $classes = $node->classes;
         if (!empty($content)) {
             if ($header) {
@@ -126,4 +129,9 @@ class renderer extends \plugin_renderer_base {
 
         return $return;
     }
+
+    public function render_local_guardians_node_content(\local_guardians\output\local_guardians_node_content $content) {
+        return $this->render_from_template('local_guardians/node_content', ['content' => $content->get_content()]);
+    }
+        
 }
