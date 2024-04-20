@@ -11080,19 +11080,7 @@ INSERT INTO `mdl_course_categories` (`id`, `name`, `idnumber`, `description`, `d
 (6, 'SeniorBot', '', '<p>Developing abilities to think critically, find innovative solutions in a fun and engaging way.</p>', 1, 1, 30000, 0, 1, 1, 1710697370, 2, '/1/6', NULL),
 (7, 'Activity', '', '<p>An activity represents a session scheduled for a specific date and event, assigned by either the administrator or course coordinator. </p>', 1, 0, 40000, 0, 1, 1, 1712502643, 1, '/7', NULL),
 (8, 'Easter', '', '', 1, 7, 50000, 0, 1, 1, 1712502674, 2, '/7/8', NULL),
-(9, 'Scratch', '', '', 1, 8, 60000, 0, 1, 1, 1712502700, 3, '/7/8/9', NULL),
-(10, 'level', NULL, NULL, 0, 0, 0, 0, 1, 1, 0, 0, '/1/', NULL),
-(11, 'KinderBot', NULL, NULL, 0, 10, 0, 0, 1, 1, 0, 1, '/1/1/', NULL),
-(12, 'JuniorBot', NULL, NULL, 0, 11, 0, 0, 1, 1, 0, 1, '/1/2/', NULL),
-(13, 'SeniorBot', NULL, NULL, 0, 12, 0, 0, 1, 1, 0, 1, '/1/3/', NULL),
-(14, 'Activity', NULL, NULL, 0, 0, 0, 0, 1, 1, 0, 0, '/2/', NULL),
-(15, 'Camp', NULL, NULL, 0, 0, 0, 0, 1, 1, 0, 0, '/3/', NULL),
-(16, 'level', NULL, NULL, 0, 0, 0, 0, 1, 1, 0, 0, '/1/', NULL),
-(17, 'KinderBot', NULL, NULL, 0, 16, 0, 0, 1, 1, 0, 1, '/1/1/', NULL),
-(18, 'JuniorBot', NULL, NULL, 0, 17, 0, 0, 1, 1, 0, 1, '/1/2/', NULL),
-(19, 'SeniorBot', NULL, NULL, 0, 18, 0, 0, 1, 1, 0, 1, '/1/3/', NULL),
-(20, 'Activity', NULL, NULL, 0, 0, 0, 0, 1, 1, 0, 0, '/2/', NULL),
-(21, 'Camp', NULL, NULL, 0, 0, 0, 0, 1, 1, 0, 0, '/3/', NULL);
+(9, 'Scratch', '', '', 1, 8, 60000, 0, 1, 1, 1712502700, 3, '/7/8/9', NULL);
 
 -- --------------------------------------------------------
 
