@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 20, 2024 at 10:37 PM
+-- Generation Time: Apr 23, 2024 at 01:32 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -153,16 +153,21 @@ CREATE TABLE IF NOT EXISTS `education` (
   `startDate` date DEFAULT NULL,
   `endDate` date DEFAULT NULL,
   `Education_Type_idEdType` int UNSIGNED NOT NULL,
+  `student_idStudent` int UNSIGNED NOT NULL,
   PRIMARY KEY (`ideducation`),
-  KEY `fk_education_Education_Type1_idx` (`Education_Type_idEdType`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `fk_education_Education_Type1_idx` (`Education_Type_idEdType`),
+  KEY `fk_education_student1_idx` (`student_idStudent`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `education`
 --
 
-INSERT INTO `education` (`ideducation`, `startDate`, `endDate`, `Education_Type_idEdType`) VALUES
-(1, '2017-09-20', NULL, 2);
+INSERT INTO `education` (`ideducation`, `startDate`, `endDate`, `Education_Type_idEdType`, `student_idStudent`) VALUES
+(1, NULL, NULL, 1, 1),
+(2, '2020-09-28', NULL, 5, 2),
+(3, NULL, NULL, 3, 3),
+(4, NULL, NULL, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -173,22 +178,25 @@ INSERT INTO `education` (`ideducation`, `startDate`, `endDate`, `Education_Type_
 DROP TABLE IF EXISTS `education_type`;
 CREATE TABLE IF NOT EXISTS `education_type` (
   `idEdType` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `EductaionType_name` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `Institution_idInstitution` int UNSIGNED NOT NULL,
+  `EductaionType_name` varchar(45) NOT NULL,
   `location_idlocation` int UNSIGNED NOT NULL,
+  `Institution_idInstitution` int UNSIGNED NOT NULL,
   PRIMARY KEY (`idEdType`),
   UNIQUE KEY `idSchool_UNIQUE` (`idEdType`),
   KEY `fk_school_location1_idx` (`location_idlocation`),
   KEY `fk_Education_Type_Institution1_idx` (`Institution_idInstitution`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `education_type`
 --
 
-INSERT INTO `education_type` (`idEdType`, `EductaionType_name`, `Institution_idInstitution`, `location_idlocation`) VALUES
-(1, 'College des Soeurs du Rosaire', 1, 1),
-(2, 'College des Freres Maristes', 1, 1);
+INSERT INTO `education_type` (`idEdType`, `EductaionType_name`, `location_idlocation`, `Institution_idInstitution`) VALUES
+(1, 'Beit Hebbak', 1, 1),
+(2, 'College des Soeurs du Rosaire', 1, 1),
+(3, 'Freres Maristes', 1, 1),
+(4, 'Saint Joseph', 1, 1),
+(5, 'Monsif International School', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -263,7 +271,17 @@ CREATE TABLE IF NOT EXISTS `guardians_students` (
   UNIQUE KEY `idguardians_students_UNIQUE` (`idguardians_students`),
   KEY `idLegalGuardian_idx` (`idLegalGuardians`),
   KEY `idStudent_idx` (`idStudent`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guardians_students`
+--
+
+INSERT INTO `guardians_students` (`idguardians_students`, `idLegalGuardians`, `relationShip`, `idStudent`) VALUES
+(1, 1, 'Mother', 1),
+(2, 2, 'Mother', 2),
+(3, 3, 'Mother', 3),
+(4, 4, 'Mother', 4);
 
 -- --------------------------------------------------------
 
@@ -329,9 +347,20 @@ CREATE TABLE IF NOT EXISTS `legal_guardians` (
   `nameLegalGuardians` varchar(45) NOT NULL,
   `phoneNumber` varchar(45) NOT NULL,
   `address` varchar(45) NOT NULL,
+  `Emergency` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idLegalGuardians`),
   UNIQUE KEY `idContact_UNIQUE` (`idLegalGuardians`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `legal_guardians`
+--
+
+INSERT INTO `legal_guardians` (`idLegalGuardians`, `nameLegalGuardians`, `phoneNumber`, `address`, `Emergency`) VALUES
+(1, 'Reine', '70216053', '', NULL),
+(2, 'Tamara', '03468483', '', NULL),
+(3, 'Elise', '03944521', '', '70934575'),
+(4, 'Eveline', '03533405', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -345,7 +374,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `locationName` varchar(45) NOT NULL,
   PRIMARY KEY (`idlocation`),
   UNIQUE KEY `idlocation_UNIQUE` (`idlocation`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `location`
@@ -357,7 +386,8 @@ INSERT INTO `location` (`idlocation`, `locationName`) VALUES
 (3, 'Jounieh'),
 (4, 'Batroun'),
 (5, 'Achrafieh'),
-(6, 'Keserwan');
+(6, 'Keserwan'),
+(7, 'Monsif');
 
 -- --------------------------------------------------------
 
@@ -503,10 +533,18 @@ CREATE TABLE IF NOT EXISTS `student` (
   `grade` varchar(45) NOT NULL,
   `phoneNb` varchar(45) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
-  `education_ideducation` int UNSIGNED NOT NULL,
-  PRIMARY KEY (`idStudent`),
-  KEY `fk_student_education1_idx` (`education_ideducation`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`idStudent`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`idStudent`, `studentFirstName`, `studentLastName`, `DateOfBirth`, `grade`, `phoneNb`, `email`) VALUES
+(1, 'Chris', 'Houwayek', '2018-08-30', '1', NULL, ''),
+(2, 'Luke', 'Hawat', '2017-07-07', '', NULL, ''),
+(3, 'Cesar', 'Ghanem', '2018-07-03', '', NULL, ''),
+(4, 'Ghadi', 'Mouawad', '2017-03-08', '', NULL, '');
 
 --
 -- Constraints for dumped tables
@@ -544,7 +582,8 @@ ALTER TABLE `course_type`
 -- Constraints for table `education`
 --
 ALTER TABLE `education`
-  ADD CONSTRAINT `fk_education_Education_Type1` FOREIGN KEY (`Education_Type_idEdType`) REFERENCES `education_type` (`idEdType`);
+  ADD CONSTRAINT `fk_education_Education_Type1` FOREIGN KEY (`Education_Type_idEdType`) REFERENCES `education_type` (`idEdType`),
+  ADD CONSTRAINT `fk_education_student1` FOREIGN KEY (`student_idStudent`) REFERENCES `student` (`idStudent`);
 
 --
 -- Constraints for table `education_type`
@@ -618,12 +657,6 @@ ALTER TABLE `section`
   ADD CONSTRAINT `idCourse` FOREIGN KEY (`idCourse`) REFERENCES `course` (`idcourse`),
   ADD CONSTRAINT `instructor` FOREIGN KEY (`instructor`) REFERENCES `employee` (`idemployee`),
   ADD CONSTRAINT `semester` FOREIGN KEY (`idSemester`) REFERENCES `semester` (`idsemester`);
-
---
--- Constraints for table `student`
---
-ALTER TABLE `student`
-  ADD CONSTRAINT `fk_student_education1` FOREIGN KEY (`education_ideducation`) REFERENCES `education` (`ideducation`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
