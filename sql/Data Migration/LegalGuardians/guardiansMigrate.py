@@ -22,9 +22,8 @@ guardians_for_excel = []
 def map_student_ids(student_first_name, student_last_name, phone_nb):
     target_cursor.execute("""
         SELECT id FROM mdl_user WHERE 
-        firstname = %s AND lastname = %s AND 
-        (phone1 = %s OR phone2 = %s)
-    """, (student_first_name, student_last_name, phone_nb, phone_nb))
+        firstname = %s AND lastname = %s 
+    """, (student_first_name, student_last_name))
     
     result = target_cursor.fetchone()
     if result:

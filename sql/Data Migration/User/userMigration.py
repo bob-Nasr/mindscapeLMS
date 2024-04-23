@@ -10,12 +10,12 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 # Connect to the source database (mindscapes)
 logging.debug('Connecting to source database (mindscapes)')
-source_conn = mysql.connector.connect(host="localhost", user="root", password="", database="mindscapes")
+source_conn = mysql.connector.connect(host="localhost", user="root", password="", port="3308", database="mindscapes")
 source_cursor = source_conn.cursor()
 
 # Connect to the Moodle database (moodlefyp)
 logging.debug('Connecting to Moodle database (moodlefyp)')
-target_conn = mysql.connector.connect(host="localhost", user="root", password="", database="moodlefyp")
+target_conn = mysql.connector.connect(host="localhost", user="root", password="", port="3308", database="moodlefyp")
 target_cursor = target_conn.cursor()
 
 # Initialize a list to store user data for the Excel export
