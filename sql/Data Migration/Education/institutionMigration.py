@@ -42,7 +42,7 @@ for idEdType, EductaionType_name, location_idlocation, institution_idInstitution
         if not existing_education_type:  # Education type does not exist in Moodle, insert it
             # Get Moodle IDs for location and institution
             moodle_location_id = get_moodle_id(location_idlocation, 'location', 'idlocation', 'locationName', 'mdl_location', 'locationname', 'locationid')
-            moodle_institution_id = get_moodle_id(institution_idInstitution, 'institution', 'idInstitution', 'institutionname', 'mdl_institution', 'institutionname', 'institutionid')
+            moodle_institution_id = get_moodle_id(institution_idInstitution, 'institution', 'idInstitution', 'Institution_name', 'mdl_institution', 'institutiontype', 'institutionid')
             target_cursor.execute('INSERT INTO mdl_education_type (education_typename, location_id, institution_id) VALUES (%s, %s, %s)', (EductaionType_name, moodle_location_id, moodle_institution_id))
             target_conn.commit()
             # Add the inserted name to the set

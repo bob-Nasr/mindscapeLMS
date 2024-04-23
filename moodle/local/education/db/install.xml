@@ -53,7 +53,7 @@
                     COMMENT="Primary key" />
                 <FIELD NAME="start_date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"
                     COMMENT="Start date of education" />
-                <FIELD NAME="end_date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"
+                <FIELD NAME="end_date" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"
                     COMMENT="End date of education" />
                 <FIELD NAME="education_type_id" TYPE="int" LENGTH="10" NOTNULL="true"
                     SEQUENCE="false" COMMENT="Foreign key to education type" />
