@@ -44,6 +44,15 @@ function local_guardians_user_deleted(\lib\classes\event\user_deleted $event) {
    $DB->delete_records('guardians_students', array('userid' => $userid));
 }
 
+/**
+ * Extends navigation for user settings.
+ *
+ * @param navigation_node $navigation The navigation node.
+ * @param stdClass $user The user object.
+ * @param context $context The context.
+ * @param stdClass $course The course object.
+ * @param context $coursecontext The course context.
+ */
 function local_guardians_extend_navigation_user_settings($navigation, $user, $context, $course, $coursecontext) {
    global $PAGE;
    if (!empty($PAGE->url) && $PAGE->url->compare(new moodle_url('/user/profile.php'), URL_MATCH_BASE)) {
@@ -73,10 +82,8 @@ function local_guardians_myprofile_navigation(core_user\output\myprofile\tree $t
            WHERE ls.userid = $user->id";
    $params = array('student_id' => $user->id);
    $legalguardians = $DB->get_records_sql($sql, $params);
-   debug_to_console("Test1");
 
    if (!empty($legalguardians)) {
-    debug_to_console("Test2");
 
        // Create a new category for legal guardians
        $categoryname = get_string('legalguardians', 'local_guardians');
@@ -84,10 +91,6 @@ function local_guardians_myprofile_navigation(core_user\output\myprofile\tree $t
 
        // Add legal guardians' information as nodes to the category
        foreach ($legalguardians as $guardian) {
-        debug_to_console("Test3");
-        debug_to_console( $guardian->guardianid);
-        debug_to_console( $guardian->namelegalguardians);
-        debug_to_console( $guardian->phonenumber);
 
         $content = new \local_guardians\output\local_guardians_node_content($guardian->namelegalguardians);
 

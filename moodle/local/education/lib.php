@@ -51,15 +51,6 @@ function local_education_user_deleted(\core\event\user_deleted $event)
     $DB->delete_records('education', array('user_id' => $userid));
 }
 
-/**
- * Extends navigation for user settings.
- *
- * @param navigation_node $navigation The navigation node.
- * @param stdClass $user The user object.
- * @param context $context The context.
- * @param stdClass $course The course object.
- * @param context $coursecontext The course context.
- */
 function local_education_extend_navigation_user_settings($navigation, $user, $context, $course, $coursecontext)
 {
     global $PAGE;
@@ -72,28 +63,19 @@ function local_education_extend_navigation_user_settings($navigation, $user, $co
     }
 }
 
-/**
- * Navigation callback to display education in user profile.
- *
- * @param core_user\output\myprofile\tree $tree The profile tree.
- * @param stdClass $user The user object.
- * @param bool $iscurrentuser True if the user is the current user, false otherwise.
- * @param stdClass $course The course object.
- */
 function local_education_myprofile_navigation(core_user\output\myprofile\tree $tree, $user, $iscurrentuser, $course)
 {
     global $DB;
 
     // Query to fetch the education records
-    $sql = "SELECT e.educationid, e.start_date, e.end_date, e.education_type_id
+    $sql = "SELECT e.educationid, e.start_date, e.end_date, e.education_type_id, et.education_typename
            FROM {education} e
+           LEFT JOIN {education_type} et ON e.education_type_id = et.education_typeid
            WHERE e.user_id = ?";
     $params = array($user->id);
     $educations = $DB->get_records_sql($sql, $params);
-    debug_to_console("Test1");
 
     if (!empty($educations)) {
-        debug_to_console("Test2");
 
         // Create a new category for education
         $categoryname = get_string('education', 'local_education');
@@ -101,26 +83,31 @@ function local_education_myprofile_navigation(core_user\output\myprofile\tree $t
 
         // Add education records as nodes to the category
         foreach ($educations as $education) {
-            debug_to_console("Test3");
-            debug_to_console( $education->educationid);
-            debug_to_console( $education->start_date);
-            debug_to_console( $education->end_date);
-            debug_to_console( $education->education_type_id);
-            debug_to_console( "dONE");
+            // Check if end date is null and set it to "Present"
+            $end_date_display = ($education->end_date === null) ? "Present" : $education->end_date;
 
             // Format education information for display
-
-            // $content = "Start Year: " . $education->start_date . ", End Year: " . $education->end_date;
-            $content = new \local_education\output\local_education_node_content($education->start_date);
-            $node = new core_user\output\myprofile\node('education', 'education'.$education->educationid, '', null, null,
-                                                         $education->educationid, $content);
+            // Bro bshrafak rja3 shouf haida
+            // Hiye guardian la2anno tdarret, bas mish mafroud tkoun hek
+            // Lezim tkoun education, bas 3am ya3tik "not found"
+            // --- !!!!!!!!!!!!!!!!!!!!! ---
+            $content = new \local_guardians\output\local_guardians_node_content(
+                "$education->education_typename"
+            );
+            $node = new core_user\output\myprofile\node(
+                'education',
+                'education' . $education->educationid,
+                '',
+                null,
+                null,
+                "$education->start_date - $end_date_display",
+                $content
+            );
 
             $category->add_node($node);
-
         }
 
         // Add the category to the tree
         $tree->add_category($category);
-
     }
 }
