@@ -26,8 +26,8 @@ if (!defined('MOODLE_INTERNAL')) {
     die('Direct access to this script is forbidden.');    //  It must be included from a Moodle page.
 }
 
-require_once($CFG->dirroot.'/lib/formslib.php');
-require_once($CFG->dirroot.'/user/lib.php');
+require_once ($CFG->dirroot . '/lib/formslib.php');
+require_once ($CFG->dirroot . '/user/lib.php');
 
 /**
  * Class user_editadvanced_form.
@@ -35,12 +35,14 @@ require_once($CFG->dirroot.'/user/lib.php');
  * @copyright 1999 Martin Dougiamas  http://dougiamas.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class user_editadvanced_form extends moodleform {
+class user_editadvanced_form extends moodleform
+{
 
     /**
      * Define the form.
      */
-    public function definition() {
+    public function definition()
+    {
         global $USER, $CFG, $COURSE;
 
         $mform = $this->_form;
@@ -56,7 +58,7 @@ class user_editadvanced_form extends moodleform {
         $userid = $user->id;
 
         // Accessibility: "Required" is bad legend text.
-        $strgeneral  = get_string('general');
+        $strgeneral = get_string('general');
         $strrequired = get_string('required');
 
         // Add some extra hidden fields.
@@ -120,10 +122,19 @@ class user_editadvanced_form extends moodleform {
         }
 
         $purpose = user_edit_map_field_purpose($userid, 'password');
-        $mform->addElement('passwordunmask', 'newpassword', get_string('newpassword'),
-            'maxlength="'.MAX_PASSWORD_CHARACTERS.'" size="20"' . $purpose);
-        $mform->addRule('newpassword', get_string('maximumchars', '', MAX_PASSWORD_CHARACTERS),
-            'maxlength', MAX_PASSWORD_CHARACTERS, 'client');
+        $mform->addElement(
+            'passwordunmask',
+            'newpassword',
+            get_string('newpassword'),
+            'maxlength="' . MAX_PASSWORD_CHARACTERS . '" size="20"' . $purpose
+        );
+        $mform->addRule(
+            'newpassword',
+            get_string('maximumchars', '', MAX_PASSWORD_CHARACTERS),
+            'maxlength',
+            MAX_PASSWORD_CHARACTERS,
+            'client'
+        );
         $mform->addHelpButton('newpassword', 'newpassword');
         $mform->setType('newpassword', core_user::get_property_type('password'));
         $mform->disabledIf('newpassword', 'createpassword', 'checked');
@@ -149,11 +160,32 @@ class user_editadvanced_form extends moodleform {
         $mform->addHelpButton('preference_auth_forcepasswordchange', 'forcepasswordchange');
         $mform->disabledIf('preference_auth_forcepasswordchange', 'createpassword', 'checked');
 
+
         // Shared fields.
         useredit_shared_definition($mform, $editoroptions, $filemanageroptions, $user);
 
         // Next the customisable profile fields.
         profile_definition($mform, $userid);
+
+        // Add elements related to the Legal Guardian section.
+        $mform->addElement('header', 'legalguardian_section', 'Legal Guardians');
+        $mform->addElement('text', 'guardian_name', 'Guardian Name', 'size="30"');
+        $mform->setType('guardian_name', PARAM_TEXT);
+        $mform->addElement('text', 'guardian_number', 'Guardian Number', 'size="30"');
+        $mform->setType('guardian_number', PARAM_TEXT);
+        $mform->addElement('text', 'guardian_relation', 'Guardian Relation', 'size="30"');
+        $mform->setType('guardian_relation', PARAM_TEXT);
+        // Add more elements as needed for the Legal Guardian section.
+
+        // Add elements related to the Legal Guardian section.
+        $mform->addElement('header', 'education_section', 'Education');
+        $mform->addElement('text', 'education_name', 'Education Name', 'size="30"');
+        $mform->setType('education_name', PARAM_TEXT);
+        $mform->addElement('text', 'education_type', 'Education Type', 'size="30"');
+        $mform->setType('education_type', PARAM_TEXT);
+        $mform->addElement('text', 'education_location', 'Education Location', 'size="30"');
+        $mform->setType('education_location', PARAM_TEXT);
+        // Add more elements as needed for the Legal Guardian section.
 
         if ($userid == -1) {
             $btnstring = get_string('createuser');
@@ -169,7 +201,8 @@ class user_editadvanced_form extends moodleform {
     /**
      * Extend the form definition after data has been parsed.
      */
-    public function definition_after_data() {
+    public function definition_after_data()
+    {
         global $USER, $CFG, $DB, $OUTPUT;
 
         $mform = $this->_form;
@@ -251,10 +284,11 @@ class user_editadvanced_form extends moodleform {
      * @param array $files
      * @return array|bool
      */
-    public function validation($usernew, $files) {
+    public function validation($usernew, $files)
+    {
         global $CFG, $DB;
 
-        $usernew = (object)$usernew;
+        $usernew = (object) $usernew;
         $usernew->username = trim($usernew->username);
 
         $user = $DB->get_record('user', array('id' => $usernew->id));
