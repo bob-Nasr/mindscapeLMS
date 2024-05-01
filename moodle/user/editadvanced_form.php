@@ -43,9 +43,11 @@ class user_editadvanced_form extends moodleform
      */
     public function definition()
     {
-        global $USER, $CFG, $COURSE;
+        global $USER, $CFG, $COURSE, $DB;  // Include global DB
 
         $mform = $this->_form;
+        $user = $this->_customdata['user'];
+        $userid = $user->id;
         $editoroptions = null;
         $filemanageroptions = null;
 
@@ -167,14 +169,27 @@ class user_editadvanced_form extends moodleform
         // Next the customisable profile fields.
         profile_definition($mform, $userid);
 
-        // Add elements related to the Legal Guardian section.
+        // Fetch legal guardian info
+        if (!empty($userid)) {
+            // Assuming the user ID in the user table is linked to legal guardian details
+            $guardian_info = $DB->get_record_sql('SELECT lg.namelegalguardians, lg.phonenumber, lgr.relationship
+                                              FROM {legalguardians} lg
+                                              JOIN {legalguardians_relationships} lgr ON lg.guardianid = lgr.guardianid
+                                              WHERE lgr.userid = ?', [$userid]);
+        }
+
+        // Add elements related to the Legal Guardian section
         $mform->addElement('header', 'legalguardian_section', 'Legal Guardians');
         $mform->addElement('text', 'guardian_name', 'Guardian Name', 'size="30"');
         $mform->setType('guardian_name', PARAM_TEXT);
-        $mform->addElement('text', 'guardian_number', 'Guardian Number', 'size="30"');
-        $mform->setType('guardian_number', PARAM_TEXT);
+        $mform->setDefault('guardian_name', $guardian_info->name ?? '');  // Set fetched name
+        $mform->addElement('text', 'guardian_phone', 'Guardian Phone', 'size="30"');
+        $mform->setType('guardian_phone', PARAM_TEXT);
+        $mform->setDefault('guardian_phone', $guardian_info->phone ?? '');  // Set fetched phone
         $mform->addElement('text', 'guardian_relation', 'Guardian Relation', 'size="30"');
         $mform->setType('guardian_relation', PARAM_TEXT);
+        $mform->setDefault('guardian_relation', $guardian_info->relation ?? '');  // Set fetched relation
+
         // Add more elements as needed for the Legal Guardian section.
 
         // Add elements related to the Legal Guardian section.

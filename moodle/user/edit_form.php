@@ -26,7 +26,7 @@ if (!defined('MOODLE_INTERNAL')) {
     die('Direct access to this script is forbidden.');    //  It must be included from a Moodle page.
 }
 
-require_once($CFG->dirroot.'/lib/formslib.php');
+require_once ($CFG->dirroot . '/lib/formslib.php');
 
 /**
  * Class user_edit_form.
@@ -34,13 +34,15 @@ require_once($CFG->dirroot.'/lib/formslib.php');
  * @copyright 1999 Martin Dougiamas  http://dougiamas.com
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class user_edit_form extends moodleform {
+class user_edit_form extends moodleform
+{
 
     /**
      * Define the form.
      */
-    public function definition () {
-        global $CFG, $COURSE, $USER;
+    public function definition()
+    {
+        global $USER, $CFG, $COURSE, $DB;  // Include global DB
 
         $mform = $this->_form;
         $editoroptions = null;
@@ -61,7 +63,7 @@ class user_edit_form extends moodleform {
         }
 
         // Accessibility: "Required" is bad legend text.
-        $strgeneral  = get_string('general');
+        $strgeneral = get_string('general');
         $strrequired = get_string('required');
 
         // Add some extra hidden fields.
@@ -104,6 +106,39 @@ class user_edit_form extends moodleform {
         // Next the customisable profile fields.
         profile_definition($mform, $userid);
 
+        // Fetch legal guardian info
+        if (!empty($userid)) {
+            // Assuming the user ID in the user table is linked to legal guardian details
+            $guardian_info = $DB->get_record_sql('SELECT lg.namelegalguardians, lg.phonenumber, lgr.relationship
+                                                      FROM {legalguardians} lg
+                                                      JOIN {legalguardians_relationships} lgr ON lg.guardianid = lgr.guardianid
+                                                      WHERE lgr.userid = ?', [$userid]);
+            echo "<script>console.log('Guardian Info:', " . json_encode($guardian_info) . ");</script>";
+        }
+
+        // Add elements related to the Legal Guardian section
+        $mform->addElement('header', 'legalguardian_section', 'Legal Guardians');
+        $mform->addElement('text', 'guardian_name', 'Guardian Name', 'size="30"');
+        $mform->setType('guardian_name', PARAM_TEXT);
+        $mform->setDefault('guardian_name', $guardian_info->namelegalguardians ?? 'test');  // Set fetched name
+        $mform->addElement('text', 'guardian_phone', 'Guardian Phone', 'size="30"');
+        $mform->setType('guardian_phone', PARAM_TEXT);
+        $mform->setDefault('guardian_phone', $guardian_info->phonenumber ?? '');  // Set fetched phone
+        $mform->addElement('text', 'guardian_relation', 'Guardian Relation', 'size="30"');
+        $mform->setType('guardian_relation', PARAM_TEXT);
+        $mform->setDefault('guardian_relation', $guardian_info->relationship ?? '');  // Set fetched relation
+
+
+        // Add elements related to the Legal Guardian section.
+        $mform->addElement('header', 'education_section', 'Education');
+        $mform->addElement('text', 'education_name', 'Education Name', 'size="30"');
+        $mform->setType('education_name', PARAM_TEXT);
+        $mform->addElement('text', 'education_type', 'Education Type', 'size="30"');
+        $mform->setType('education_type', PARAM_TEXT);
+        $mform->addElement('text', 'education_location', 'Education Location', 'size="30"');
+        $mform->setType('education_location', PARAM_TEXT);
+        // Add more elements as needed for the Legal Guardian section.
+
         $this->add_action_buttons(true, get_string('updatemyprofile'));
 
         $this->set_data($user);
@@ -112,8 +147,9 @@ class user_edit_form extends moodleform {
     /**
      * Extend the form definition after the data has been parsed.
      */
-    public function definition_after_data() {
-        global $CFG, $DB, $OUTPUT;
+    public function definition_after_data()
+    {
+        global $CFG, $DB, $OUTPUT, $USER;
 
         $mform = $this->_form;
         $userid = $mform->getElementValue('id');
@@ -197,13 +233,14 @@ class user_edit_form extends moodleform {
      * @param array $files
      * @return array
      */
-    public function validation($usernew, $files) {
+    public function validation($usernew, $files)
+    {
         global $CFG, $DB;
 
         $errors = parent::validation($usernew, $files);
 
-        $usernew = (object)$usernew;
-        $user    = $DB->get_record('user', array('id' => $usernew->id));
+        $usernew = (object) $usernew;
+        $user = $DB->get_record('user', array('id' => $usernew->id));
 
         // Validate email.
         if (!isset($usernew->email)) {

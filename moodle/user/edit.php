@@ -22,12 +22,12 @@
  * @package core_user
  */
 
-require_once('../config.php');
-require_once($CFG->libdir.'/gdlib.php');
-require_once($CFG->dirroot.'/user/edit_form.php');
-require_once($CFG->dirroot.'/user/editlib.php');
-require_once($CFG->dirroot.'/user/profile/lib.php');
-require_once($CFG->dirroot.'/user/lib.php');
+require_once ('../config.php');
+require_once ($CFG->libdir . '/gdlib.php');
+require_once ($CFG->dirroot . '/user/edit_form.php');
+require_once ($CFG->dirroot . '/user/editlib.php');
+require_once ($CFG->dirroot . '/user/profile/lib.php');
+require_once ($CFG->dirroot . '/user/lib.php');
 
 $userid = optional_param('id', $USER->id, PARAM_INT);    // User id.
 $course = optional_param('course', SITEID, PARAM_INT);   // Course id (defaults to Site).
@@ -44,7 +44,7 @@ if ($course->id != SITEID) {
     require_login($course);
 } else if (!isloggedin()) {
     if (empty($SESSION->wantsurl)) {
-        $SESSION->wantsurl = $CFG->wwwroot.'/user/edit.php';
+        $SESSION->wantsurl = $CFG->wwwroot . '/user/edit.php';
     }
     redirect(get_login_url());
 } else {
@@ -97,7 +97,7 @@ if ($course->id == SITEID) {
 } else {
     $coursecontext = context_course::instance($course->id);   // Course context.
 }
-$systemcontext   = context_system::instance();
+$systemcontext = context_system::instance();
 $personalcontext = context_user::instance($user->id);
 
 // Check access control.
@@ -152,28 +152,32 @@ profile_load_data($user);
 
 // Prepare the editor and create form.
 $editoroptions = array(
-    'maxfiles'   => EDITOR_UNLIMITED_FILES,
-    'maxbytes'   => $CFG->maxbytes,
-    'trusttext'  => false,
+    'maxfiles' => EDITOR_UNLIMITED_FILES,
+    'maxbytes' => $CFG->maxbytes,
+    'trusttext' => false,
     'forcehttps' => false,
-    'context'    => $personalcontext
+    'context' => $personalcontext
 );
 
 $user = file_prepare_standard_editor($user, 'description', $editoroptions, $personalcontext, 'user', 'profile', 0);
 // Prepare filemanager draft area.
 $draftitemid = 0;
 $filemanagercontext = $editoroptions['context'];
-$filemanageroptions = array('maxbytes'       => $CFG->maxbytes,
-                             'subdirs'        => 0,
-                             'maxfiles'       => 1,
-                             'accepted_types' => 'optimised_image');
+$filemanageroptions = array(
+    'maxbytes' => $CFG->maxbytes,
+    'subdirs' => 0,
+    'maxfiles' => 1,
+    'accepted_types' => 'optimised_image'
+);
 file_prepare_draft_area($draftitemid, $filemanagercontext->id, 'user', 'newicon', 0, $filemanageroptions);
 $user->imagefile = $draftitemid;
 // Create form.
 $userform = new user_edit_form(new moodle_url($PAGE->url, array('returnto' => $returnto)), array(
     'editoroptions' => $editoroptions,
     'filemanageroptions' => $filemanageroptions,
-    'user' => $user));
+    'user' => $user
+)
+);
 
 $emailchanged = false;
 
@@ -191,6 +195,73 @@ if ($returnto === 'profile') {
 if ($userform->is_cancelled()) {
     redirect($returnurl);
 } else if ($usernew = $userform->get_data()) {
+
+    // Haida kermel update l Legal Guardian
+    
+    if (isset($usernew->guardian_name) && !empty($usernew->guardian_name)) {
+        // Fetch existing guardian ID for the user from the relationship table
+        $guardian_relationship = $DB->get_record('legalguardians_relationships', ['userid' => $userid], '*', MUST_EXIST);
+
+        if ($guardian_relationship) {
+            // Fetch existing guardian details including the id
+            $existing_guardian = $DB->get_record('legalguardians', ['guardianid' => $guardian_relationship->guardianid]);
+            echo "<script>console.log('Existing Guardian Info:', " . json_encode($existing_guardian) . ");</script>";
+
+            if ($existing_guardian) {
+                echo "<script>console.log('Test1 Guardian Info:', " . json_encode($existing_guardian) . ");</script>";
+
+                // Prepare SQL update statement
+                $sql1 = "UPDATE {legalguardians} 
+                SET namelegalguardians = :name, 
+                    phonenumber = :phone 
+                WHERE guardianid = :id";
+
+                $sql2 = "UPDATE {legalguardians_relationships} 
+                SET relationship = :relation 
+                WHERE guardianid = :id";
+
+                // Parameters to be bound to the query
+                $params = [
+                    'name' => $usernew->guardian_name,
+                    'phone' => $usernew->guardian_phone,
+                    'relation' => $usernew->guardian_relation,
+                    'id' => $guardian_relationship->guardianid
+                ];
+
+                // Execute the update
+                $DB->execute($sql1, $params);
+                $DB->execute($sql2, $params);
+            } else {
+                echo "<script>console.log('Test2 Guardian Info:', " . json_encode($existing_guardian) . ");</script>";
+
+                // Insert a new guardian if not found
+                $new_guardian_data = new stdClass();
+                $new_guardian_data->namelegalguardians = $usernew->guardian_name;
+                $new_guardian_data->phonenumber = $usernew->guardian_phone;
+                $new_guardian_data->relationship = $usernew->guardian_relation;
+                $new_guardian_id = $DB->insert_record('legalguardians', $new_guardian_data);
+
+                // Create a new relationship record
+                $new_relationship = new stdClass();
+                $new_relationship->userid = $userid;
+                $new_relationship->guardianid = $new_guardian_id;
+                $DB->insert_record('legalguardians_relationships', $new_relationship);
+            }
+        } else {
+            // If no relationship exists, create both guardian and relationship
+            $new_guardian_data = new stdClass();
+            $new_guardian_data->namelegalguardians = $usernew->guardian_name;
+            $new_guardian_data->phonenumber = $usernew->guardian_phone;
+            $new_guardian_data->relationship = $usernew->guardian_relation;
+            $new_guardian_id = $DB->insert_record('legalguardians', $new_guardian_data);
+
+            // Create a new relationship record
+            $new_relationship = new stdClass();
+            $new_relationship->userid = $userid;
+            $new_relationship->guardianid = $new_guardian_id;
+            $DB->insert_record('legalguardians_relationships', $new_relationship);
+        }
+    }
 
     $emailchangedhtml = '';
 
@@ -281,7 +352,7 @@ if ($userform->is_cancelled()) {
 
     if ($USER->id == $user->id) {
         // Override old $USER session variable if needed.
-        foreach ((array)$user as $variable => $value) {
+        foreach ((array) $user as $variable => $value) {
             if ($variable === 'description' or $variable === 'password') {
                 // These are not set for security nad perf reasons.
                 continue;
@@ -305,8 +376,8 @@ if ($userform->is_cancelled()) {
 
 // Display page header.
 $streditmyprofile = get_string('editmyprofile');
-$strparticipants  = get_string('participants');
-$userfullname     = fullname($user, true);
+$strparticipants = get_string('participants');
+$userfullname = fullname($user, true);
 
 $PAGE->set_title("$course->shortname: $streditmyprofile");
 $PAGE->set_heading($userfullname);
