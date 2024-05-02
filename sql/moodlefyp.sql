@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 01, 2024 at 10:25 AM
+-- Generation Time: May 02, 2024 at 01:52 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -877,7 +877,29 @@ CREATE TABLE IF NOT EXISTS `mdl_attendance` (
   `showextrauserdetails` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `mdl_atte_cou_ix` (`course`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Attendance module table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Attendance module table' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_attendance`
+--
+
+INSERT INTO `mdl_attendance` (`id`, `course`, `name`, `grade`, `timemodified`, `intro`, `introformat`, `subnet`, `sessiondetailspos`, `showsessiondetails`, `showextrauserdetails`) VALUES
+(1, 4, 'Attendance', 100, 1714643467, '', 1, '', 'left', 1, 1),
+(2, 5, 'Attendance', 100, 0, '', 1, '', 'left', 1, 1),
+(3, 4, 'Attendance', 100, 1714643659, '', 1, '', 'left', 1, 1),
+(4, 4, 'Attendance', 100, 1714643820, '', 1, '', 'left', 1, 1),
+(5, 4, 'Attendance', 100, 1714643849, '', 1, '', 'left', 1, 1),
+(6, 4, 'Attendance', 100, 1714643791, '', 1, '', 'left', 1, 1),
+(7, 4, 'Attendance', 100, 1714644164, '', 1, '', 'left', 1, 1),
+(8, 4, 'Attendance', 100, 1714644157, '', 1, '', 'left', 1, 1),
+(9, 4, 'Attendance', 100, 0, '', 1, '', 'left', 1, 1),
+(10, 4, 'Attendance', 100, 1714644151, '', 1, '', 'left', 1, 1),
+(11, 4, 'Attendance', 100, 1714644137, '', 1, '', 'left', 1, 1),
+(12, 4, 'Attendance', 100, 1714644144, '', 1, '', 'left', 1, 1),
+(13, 4, 'Attendance', 100, 1714644315, '', 1, '', 'left', 1, 1),
+(14, 4, 'Attendance', 100, 1714644320, '', 1, '', 'left', 1, 1),
+(15, 4, 'Attendance', 100, 0, '', 1, '', 'left', 1, 1),
+(16, 4, 'Attendance', 100, 1714644309, '', 1, '', 'left', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1082,7 +1104,111 @@ CREATE TABLE IF NOT EXISTS `mdl_attendance_sessions` (
   KEY `mdl_attesess_gro_ix` (`groupid`),
   KEY `mdl_attesess_ses_ix` (`sessdate`),
   KEY `mdl_attesess_cal_ix` (`caleventid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='attendance_sessions table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='attendance_sessions table' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_attendance_sessions`
+--
+
+INSERT INTO `mdl_attendance_sessions` (`id`, `attendanceid`, `groupid`, `sessdate`, `duration`, `lasttaken`, `lasttakenby`, `timemodified`, `description`, `descriptionformat`, `studentscanmark`, `studentsearlyopentime`, `autoassignstatus`, `studentpassword`, `subnet`, `automark`, `automarkcompleted`, `statusset`, `absenteereport`, `preventsharedip`, `preventsharediptime`, `caleventid`, `calendarevent`, `includeqrcode`, `rotateqrcode`, `rotateqrcodesecret`, `automarkcmid`) VALUES
+(1, 1, 1, 1714809600, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 9, 1, 0, 0, '', 0),
+(2, 1, 1, 1715414400, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 10, 1, 0, 0, '', 0),
+(3, 1, 1, 1716019200, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 11, 1, 0, 0, '', 0),
+(4, 1, 1, 1716624000, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 12, 1, 0, 0, '', 0),
+(5, 1, 1, 1717228800, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 13, 1, 0, 0, '', 0),
+(6, 1, 1, 1717833600, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 14, 1, 0, 0, '', 0),
+(7, 1, 1, 1718438400, 7200, NULL, 0, 1714643547, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 15, 1, 0, 0, '', 0),
+(8, 3, 1, 1714809600, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 16, 1, 0, 0, '', 0),
+(9, 3, 1, 1715414400, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 17, 1, 0, 0, '', 0),
+(10, 3, 1, 1716019200, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 18, 1, 0, 0, '', 0),
+(11, 3, 1, 1716624000, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 19, 1, 0, 0, '', 0),
+(12, 3, 1, 1717228800, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 20, 1, 0, 0, '', 0),
+(13, 3, 1, 1717833600, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 21, 1, 0, 0, '', 0),
+(14, 3, 1, 1718438400, 7200, NULL, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 22, 1, 0, 0, '', 0),
+(15, 4, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 23, 1, 0, 0, NULL, 0),
+(16, 4, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 24, 1, 0, 0, NULL, 0),
+(17, 4, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 25, 1, 0, 0, NULL, 0),
+(18, 4, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 26, 1, 0, 0, NULL, 0),
+(19, 4, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 27, 1, 0, 0, NULL, 0),
+(20, 4, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 28, 1, 0, 0, NULL, 0),
+(21, 4, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 29, 1, 0, 0, NULL, 0),
+(22, 5, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 30, 1, 0, 0, NULL, 0),
+(23, 5, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 31, 1, 0, 0, NULL, 0),
+(24, 5, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 32, 1, 0, 0, NULL, 0),
+(25, 5, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 33, 1, 0, 0, NULL, 0),
+(26, 5, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 34, 1, 0, 0, NULL, 0),
+(27, 5, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 35, 1, 0, 0, NULL, 0),
+(28, 5, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 36, 1, 0, 0, NULL, 0),
+(29, 7, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 37, 1, 0, 0, NULL, 0),
+(30, 7, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 38, 1, 0, 0, NULL, 0),
+(31, 7, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 39, 1, 0, 0, NULL, 0),
+(32, 7, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 40, 1, 0, 0, NULL, 0),
+(33, 7, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 41, 1, 0, 0, NULL, 0),
+(34, 7, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 42, 1, 0, 0, NULL, 0),
+(35, 7, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 43, 1, 0, 0, NULL, 0),
+(36, 8, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 44, 1, 0, 0, NULL, 0),
+(37, 8, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 45, 1, 0, 0, NULL, 0),
+(38, 8, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 46, 1, 0, 0, NULL, 0),
+(39, 8, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 47, 1, 0, 0, NULL, 0),
+(40, 8, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 48, 1, 0, 0, NULL, 0),
+(41, 8, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 49, 1, 0, 0, NULL, 0),
+(42, 8, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 50, 1, 0, 0, NULL, 0),
+(43, 9, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 51, 1, 0, 0, NULL, 0),
+(44, 9, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 52, 1, 0, 0, NULL, 0),
+(45, 9, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 53, 1, 0, 0, NULL, 0),
+(46, 9, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 54, 1, 0, 0, NULL, 0),
+(47, 9, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 55, 1, 0, 0, NULL, 0),
+(48, 9, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 56, 1, 0, 0, NULL, 0),
+(49, 9, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 57, 1, 0, 0, NULL, 0),
+(50, 10, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 58, 1, 0, 0, NULL, 0),
+(51, 10, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 59, 1, 0, 0, NULL, 0),
+(52, 10, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 60, 1, 0, 0, NULL, 0),
+(53, 10, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 61, 1, 0, 0, NULL, 0),
+(54, 10, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 62, 1, 0, 0, NULL, 0),
+(55, 10, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 63, 1, 0, 0, NULL, 0),
+(56, 10, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 64, 1, 0, 0, NULL, 0),
+(57, 11, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 65, 1, 0, 0, NULL, 0),
+(58, 11, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 66, 1, 0, 0, NULL, 0),
+(59, 11, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 67, 1, 0, 0, NULL, 0),
+(60, 11, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 68, 1, 0, 0, NULL, 0),
+(61, 11, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 69, 1, 0, 0, NULL, 0),
+(62, 11, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 70, 1, 0, 0, NULL, 0),
+(63, 11, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 71, 1, 0, 0, NULL, 0),
+(64, 12, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 79, 1, 0, 0, NULL, 0),
+(65, 12, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 80, 1, 0, 0, NULL, 0),
+(66, 12, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 81, 1, 0, 0, NULL, 0),
+(67, 12, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 82, 1, 0, 0, NULL, 0),
+(68, 12, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 83, 1, 0, 0, NULL, 0),
+(69, 12, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 84, 1, 0, 0, NULL, 0),
+(70, 12, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 85, 1, 0, 0, NULL, 0),
+(71, 13, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 86, 1, 0, 0, NULL, 0),
+(72, 13, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 87, 1, 0, 0, NULL, 0),
+(73, 13, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 88, 1, 0, 0, NULL, 0),
+(74, 13, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 89, 1, 0, 0, NULL, 0),
+(75, 13, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 90, 1, 0, 0, NULL, 0),
+(76, 13, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 91, 1, 0, 0, NULL, 0),
+(77, 13, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 92, 1, 0, 0, NULL, 0),
+(78, 14, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 93, 1, 0, 0, NULL, 0),
+(79, 14, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 94, 1, 0, 0, NULL, 0),
+(80, 14, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 95, 1, 0, 0, NULL, 0),
+(81, 14, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 96, 1, 0, 0, NULL, 0),
+(82, 14, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 97, 1, 0, 0, NULL, 0),
+(83, 14, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 98, 1, 0, 0, NULL, 0),
+(84, 14, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 99, 1, 0, 0, NULL, 0),
+(85, 15, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 100, 1, 0, 0, NULL, 0),
+(86, 15, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 101, 1, 0, 0, NULL, 0),
+(87, 15, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 102, 1, 0, 0, NULL, 0),
+(88, 15, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 103, 1, 0, 0, NULL, 0),
+(89, 15, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 104, 1, 0, 0, NULL, 0),
+(90, 15, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 105, 1, 0, 0, NULL, 0),
+(91, 15, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 106, 1, 0, 0, NULL, 0),
+(92, 16, 1, 1714809600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 107, 1, 0, 0, NULL, 0),
+(93, 16, 1, 1715414400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 108, 1, 0, 0, NULL, 0),
+(94, 16, 1, 1716019200, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 109, 1, 0, 0, NULL, 0),
+(95, 16, 1, 1716624000, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 110, 1, 0, 0, NULL, 0),
+(96, 16, 1, 1717228800, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 111, 1, 0, 0, NULL, 0),
+(97, 16, 1, 1717833600, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 112, 1, 0, 0, NULL, 0),
+(98, 16, 1, 1718438400, 7200, 0, 0, 1714643688, '', 1, 0, 0, 0, '', '', 0, 0, 0, 1, 0, 0, 113, 1, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1106,17 +1232,81 @@ CREATE TABLE IF NOT EXISTS `mdl_attendance_statuses` (
   KEY `mdl_attestat_att_ix` (`attendanceid`),
   KEY `mdl_attestat_vis_ix` (`visible`),
   KEY `mdl_attestat_del_ix` (`deleted`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='attendance_statuses table retrofitted from MySQL' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='attendance_statuses table retrofitted from MySQL' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_attendance_statuses`
 --
 
 INSERT INTO `mdl_attendance_statuses` (`id`, `attendanceid`, `acronym`, `description`, `grade`, `studentavailability`, `setunmarked`, `visible`, `deleted`, `setnumber`) VALUES
-(1, 0, 'P', 'Present', 2.00, NULL, NULL, 1, 0, 0),
-(2, 0, 'A', 'Absent', 0.00, NULL, NULL, 1, 0, 0),
-(3, 0, 'L', 'Late', 1.00, NULL, NULL, 1, 0, 0),
-(4, 0, 'E', 'Excused', 1.00, NULL, NULL, 1, 0, 0);
+(1, 0, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(2, 0, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(3, 0, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(4, 0, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(5, 1, 'P', 'Present', 2.00, NULL, NULL, 1, 0, 0),
+(6, 1, 'A', 'Absent', 0.00, NULL, NULL, 1, 0, 0),
+(7, 1, 'L', 'Late', 1.00, NULL, NULL, 1, 0, 0),
+(8, 1, 'E', 'Excused', 1.00, NULL, NULL, 1, 0, 0),
+(9, 2, 'P', 'Present', 2.00, NULL, NULL, 1, 0, 0),
+(10, 2, 'A', 'Absent', 0.00, NULL, NULL, 1, 0, 0),
+(11, 2, 'L', 'Late', 1.00, NULL, NULL, 1, 0, 0),
+(12, 2, 'E', 'Excused', 1.00, NULL, NULL, 1, 0, 0),
+(13, 3, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(14, 3, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(15, 3, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(16, 3, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(17, 4, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(18, 4, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(19, 4, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(20, 4, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(21, 5, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(22, 5, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(23, 5, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(24, 5, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(25, 6, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(26, 6, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(27, 6, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(28, 6, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(29, 7, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(30, 7, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(31, 7, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(32, 7, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(33, 8, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(34, 8, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(35, 8, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(36, 8, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(37, 9, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(38, 9, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(39, 9, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(40, 9, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(41, 10, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(42, 10, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(43, 10, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(44, 10, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(45, 11, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(46, 11, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(47, 11, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(48, 11, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(49, 12, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(50, 12, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(51, 12, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(52, 12, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(53, 13, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(54, 13, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(55, 13, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(56, 13, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(57, 14, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(58, 14, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(59, 14, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(60, 14, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(61, 15, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(62, 15, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(63, 15, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(64, 15, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0),
+(65, 16, 'P', 'Present', 2.00, NULL, 0, 1, 0, 0),
+(66, 16, 'A', 'Absent', 0.00, NULL, 0, 1, 0, 0),
+(67, 16, 'L', 'Late', 1.00, NULL, 0, 1, 0, 0),
+(68, 16, 'S', 'Switch', 2.00, NULL, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1252,7 +1442,7 @@ CREATE TABLE IF NOT EXISTS `mdl_backup_controllers` (
   KEY `mdl_backcont_typite_ix` (`type`,`itemid`),
   KEY `mdl_backcont_useite_ix` (`userid`,`itemid`),
   KEY `mdl_backcont_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='To store the backup_controllers as they are used' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='To store the backup_controllers as they are used' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_backup_controllers`
@@ -1264,7 +1454,38 @@ INSERT INTO `mdl_backup_controllers` (`id`, `backupid`, `operation`, `type`, `it
 INSERT INTO `mdl_backup_controllers` (`id`, `backupid`, `operation`, `type`, `itemid`, `format`, `interactive`, `purpose`, `userid`, `status`, `execution`, `executiontime`, `checksum`, `timecreated`, `timemodified`, `progress`, `controller`) VALUES
 (3, '4e28ca8705e674f4f086cd522ff60913', 'backup', 'course', 1, 'moodle2', 1, 10, 2, 500, 1, 0, '75604bbc4415587fffe66f0de7422dc7', 1711037309, 0, 0.00000000000000, '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'),
 (4, '17ceb82bbe1dbc2804e43eb8127b728e', 'backup', 'course', 3, 'moodle2', 1, 20, 2, 1000, 1, 0, '2b186b687533063ea7c56a8cfb33f93a', 1711296833, 1711296856, 0.00000000000000, ''),
-(5, 'dfad2b929cdd3c366c98315a3e7a77cf', 'restore', 'course', 3, 'moodle2', 1, 20, 2, 1000, 1, 0, '53a1700de6a1fe109a241a94107c9dbd', 1711296856, 1711296858, 0.00000000000000, '');
+(5, 'dfad2b929cdd3c366c98315a3e7a77cf', 'restore', 'course', 3, 'moodle2', 1, 20, 2, 1000, 1, 0, '53a1700de6a1fe109a241a94107c9dbd', 1711296856, 1711296858, 0.00000000000000, ''),
+(6, '43f04b7abc227513b91949ac6aedd75b', 'backup', 'course', 3, 'moodle2', 1, 20, 2, 1000, 1, 0, '454382b42dd08313fc5671789755225a', 1714559978, 1714559996, 0.00000000000000, ''),
+(7, 'ab63c570aae488b01326f47840dba5cd', 'restore', 'course', 4, 'moodle2', 1, 20, 2, 1000, 1, 0, 'a3a4ff130d6b748b6f2737ced208092a', 1714559997, 1714559998, 0.00000000000000, ''),
+(8, 'ad422b04ab8ce92f09c3dfb0b8b478fb', 'backup', 'course', 3, 'moodle2', 0, 50, 2, 1000, 1, 0, '11ef898609e1f12783d4042c8d5d25bf', 1714560134, 1714560134, 0.00000000000000, ''),
+(9, '580a8df7a6d86bbf1703df22a4afdabe', 'backup', 'course', 4, 'moodle2', 1, 20, 2, 1000, 1, 0, 'ae222789be71fb21c2d60a1e1e732a2e', 1714567563, 1714567582, 0.00000000000000, ''),
+(10, 'ff87c7996cda584f8d9af423285972cc', 'restore', 'course', 5, 'moodle2', 1, 20, 2, 1000, 1, 0, 'f454d6cef2f405c074a23504258b3db7', 1714567582, 1714567584, 0.00000000000000, ''),
+(11, 'cd5a7e8dcbf1812ffbd1d2c999d9eabe', 'backup', 'activity', 18, 'moodle2', 0, 20, 2, 1000, 1, 0, '88ba1971e66b65965f130c22b9388697', 1714643753, 1714643754, 0.00000000000000, ''),
+(12, '32a21241c6a7fdfc726deefd7e43e2ce', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, 'fb72a1e5cf21f52665afae9cc18ef70a', 1714643754, 1714643756, 0.00000000000000, ''),
+(13, '39a5415e8e7872aaba0dca2660a06066', 'backup', 'activity', 18, 'moodle2', 0, 20, 2, 1000, 1, 0, '56118438ea876236f7947758ee99df16', 1714643768, 1714643768, 0.00000000000000, ''),
+(14, '622f9aafd578e06bb23e65161b937723', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, '72a1624c2061a3ceb5e39246dd6a0608', 1714643768, 1714643768, 0.00000000000000, ''),
+(15, '1b8f14c802e6a56ab7b291400018c638', 'backup', 'activity', 18, 'moodle2', 0, 20, 2, 1000, 1, 0, '53371c74b4bb8e7c76fcac1d2518dbb6', 1714643877, 1714643877, 0.00000000000000, ''),
+(16, '6debc2ecb5e67ec9a9dcd530de320926', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, 'a56b2ae529067b126ac164c9fa4bc15d', 1714643877, 1714643877, 0.00000000000000, ''),
+(17, '6f2063c40751234d05eac10183d060dd', 'backup', 'activity', 19, 'moodle2', 0, 20, 2, 1000, 1, 0, '99486309bad317c7f3416a275ae28314', 1714644044, 1714644044, 0.00000000000000, ''),
+(18, '38164866d5afd375a3ee7b4872259d7c', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, '0bfdd4425ef0e6f8901ca09ec10a2def', 1714644044, 1714644044, 0.00000000000000, ''),
+(19, '2f29ab168b19ecdb76da5394e58d8f0e', 'backup', 'activity', 18, 'moodle2', 0, 20, 2, 1000, 1, 0, 'cfc11ce55b791ba08c6d88d549afc1e3', 1714644050, 1714644050, 0.00000000000000, ''),
+(20, '18a901025b578bb45bc693f97e09ec7d', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, '98e0b61f2eeaceae5121ac44f07e628d', 1714644050, 1714644050, 0.00000000000000, ''),
+(21, '708cb839c69cd3fe4feea8c2c663811b', 'backup', 'activity', 20, 'moodle2', 0, 20, 2, 1000, 1, 0, '1299897b3a3d842783d1af34cf8e4275', 1714644059, 1714644059, 0.00000000000000, ''),
+(22, '82fc4d588469f6fd56b4cf478bdc10cd', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, 'c626edec771473ac03ff7181880b3ae7', 1714644059, 1714644060, 0.00000000000000, ''),
+(23, '0be479afac36c831f5c152969ec69054', 'backup', 'activity', 25, 'moodle2', 0, 20, 2, 1000, 1, 0, '96667ded43a96174c28c10f9ca45e1e2', 1714644100, 1714644100, 0.00000000000000, ''),
+(24, 'c8b47d190ce3fca215dcd6fe83ea2399', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, 'c5c12a85e9333dd9852f2e171a4f3453', 1714644100, 1714644101, 0.00000000000000, ''),
+(25, '2a5076b1d2c91f8fd563da4f99ce3e3d', 'backup', 'activity', 26, 'moodle2', 0, 20, 2, 1000, 1, 0, '9c397539547789268641ba6263dc8204', 1714644116, 1714644116, 0.00000000000000, ''),
+(26, '521f1adc9082aa0856bc9f1b7d10ea25', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, 'e1fc69c7dcb30f5bfcc8ff84e8fca02e', 1714644116, 1714644117, 0.00000000000000, ''),
+(27, 'aa04984118ba2a02e37810662373dc6c', 'backup', 'activity', 19, 'moodle2', 0, 20, 2, 1000, 1, 0, '92c713ecf7f76fb12a61d5d3ca7ec9ee', 1714644186, 1714644186, 0.00000000000000, ''),
+(28, '053f004728b07f85fee755f6f3051328', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, '97da619f1f0b0f40ac45490e78e2c1d8', 1714644186, 1714644187, 0.00000000000000, ''),
+(29, '332a79fb8a42f78ed215cbf135616f9f', 'backup', 'activity', 18, 'moodle2', 0, 20, 2, 1000, 1, 0, '29c3922a78866cca31fdce9d1e512fa0', 1714644194, 1714644194, 0.00000000000000, ''),
+(30, 'c760df5d56a5c61d05e93265cd0430fe', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, '10858a13ed7a7971b363fd6068d8a471', 1714644194, 1714644195, 0.00000000000000, ''),
+(31, 'c79c6e19f8753bebc9262305919467da', 'backup', 'activity', 24, 'moodle2', 0, 20, 2, 1000, 1, 0, '18911b8ee61385b3d54616c5eac53d42', 1714644200, 1714644201, 0.00000000000000, ''),
+(32, '42c90653b7ff2e164736b9f29603a704', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, '52b9d71d8d00390d696261ea3e5100c6', 1714644201, 1714644201, 0.00000000000000, ''),
+(33, '82b2f3a21e116a7b0fa0a4b986adb802', 'backup', 'activity', 27, 'moodle2', 0, 20, 2, 1000, 1, 0, '029634b79a99a2ed1b2099ea9df6c739', 1714644273, 1714644273, 0.00000000000000, ''),
+(34, '06dced3be8df7a93922648a047556b1f', 'restore', 'activity', 4, 'moodle2', 0, 20, 2, 1000, 1, 0, 'e110c8e5eecb4aac47bf57202979cbdc', 1714644273, 1714644274, 0.00000000000000, '');
+INSERT INTO `mdl_backup_controllers` (`id`, `backupid`, `operation`, `type`, `itemid`, `format`, `interactive`, `purpose`, `userid`, `status`, `execution`, `executiontime`, `checksum`, `timecreated`, `timemodified`, `progress`, `controller`) VALUES
+(35, '05190a29fdbc36171a88d8f2868ca6ef', 'backup', 'activity', 12, 'moodle2', 1, 10, 2, 500, 1, 0, '0f70ea60cda0d6e6a0ac040a5ef76c52', 1714646879, 0, 0.00000000000000, 'TzoxNzoiYmFja3VwX2NvbnRyb2xsZXIiOjIxOntzOjExOiIAKgBwcm9ncmVzcyI7TzoyOToiY29yZVxwcm9ncmVzc1xkaXNwbGF5X2lmX3Nsb3ciOjE0OntzOjE5OiIAKgBsYXN0cHJvZ3Jlc3N0aW1lIjtOO3M6ODoiACoAY291bnQiO047czoxNToiACoAZGVzY3JpcHRpb25zIjthOjA6e31zOjg6IgAqAG1heGVzIjthOjA6e31zOjExOiIAKgBjdXJyZW50cyI7YTowOnt9czoxNToiACoAcGFyZW50Y291bnRzIjthOjA6e31zOjI2OiIAY29yZVxwcm9ncmVzc1xkaXNwbGF5AGJhciI7TjtzOjEzOiIAKgBsYXN0d2liYmxlIjtOO3M6MTU6IgAqAGN1cnJlbnRzdGF0ZSI7aTowO3M6MTI6IgAqAGRpcmVjdGlvbiI7aToxO3M6MTU6IgAqAGRpc3BsYXluYW1lcyI7YjowO3M6NToiACoAaWQiO047czoxMDoiACoAaGVhZGluZyI7czoyNToiUHJlcGFyaW5nIHRvIGRpc3BsYXkgcGFnZSI7czoxMjoiACoAc3RhcnR0aW1lIjtpOjE3MTQ2NDY4ODQ7fXM6OToiACoAbG9nZ2VyIjtPOjE2OiJlcnJvcl9sb2dfbG9nZ2VyIjo0OntzOjg6IgAqAGxldmVsIjtpOjMwO3M6MTE6IgAqAHNob3dkYXRlIjtiOjA7czoxMjoiACoAc2hvd2xldmVsIjtiOjA7czo3OiIAKgBuZXh0IjtPOjExOiJmaWxlX2xvZ2dlciI6NTp7czo4OiIAKgBsZXZlbCI7aTozMDtzOjExOiIAKgBzaG93ZGF0ZSI7YjoxO3M6MTI6IgAqAHNob3dsZXZlbCI7YjoxO3M6NzoiACoAbmV4dCI7TzoxNToiZGF0YWJhc2VfbG9nZ2VyIjo5OntzOjg6IgAqAGxldmVsIjtpOjMwO3M6MTE6IgAqAHNob3dkYXRlIjtiOjE7czoxMjoiACoAc2hvd2xldmVsIjtiOjE7czo3OiIAKgBuZXh0IjtOO3M6MTA6IgAqAGRhdGVjb2wiO3M6MTE6InRpbWVjcmVhdGVkIjtzOjExOiIAKgBsZXZlbGNvbCI7czo4OiJsb2dsZXZlbCI7czoxMzoiACoAbWVzc2FnZWNvbCI7czo3OiJtZXNzYWdlIjtzOjExOiIAKgBsb2d0YWJsZSI7czoxMToiYmFja3VwX2xvZ3MiO3M6MTA6IgAqAGNvbHVtbnMiO2E6MTp7czo4OiJiYWNrdXBpZCI7czozMjoiMDUxOTBhMjlmZGJjMzYxNzFhODhkOGYyODY4Y2E2ZWYiO319czoxMToiACoAZnVsbHBhdGgiO3M6NzA6IkM6XHdhbXA2NFxtb29kbGVkYXRhXHRlbXAvYmFja3VwLy8wNTE5MGEyOWZkYmMzNjE3MWE4OGQ4ZjI4NjhjYTZlZi5sb2ciO319czoxNzoiACoAcmVsZWFzZXNlc3Npb24iO2I6MTtzOjc6IgAqAGNvcHkiO047czo3OiIAKgBtb2RlIjtpOjEwO3M6MTE6IgAqAGJhY2t1cGlkIjtzOjMyOiIwNTE5MGEyOWZkYmMzNjE3MWE4OGQ4ZjI4NjhjYTZlZiI7czo3OiIAKgB0eXBlIjtzOjg6ImFjdGl2aXR5IjtzOjU6IgAqAGlkIjtpOjEyO3M6MTE6IgAqAGNvdXJzZWlkIjtzOjE6IjQiO3M6OToiACoAZm9ybWF0IjtzOjc6Im1vb2RsZTIiO3M6MTQ6IgAqAGludGVyYWN0aXZlIjtiOjE7czo5OiIAKgB1c2VyaWQiO3M6MToiMiI7czoxMjoiACoAb3BlcmF0aW9uIjtzOjY6ImJhY2t1cCI7czo5OiIAKgBzdGF0dXMiO2k6NTAwO3M6NzoiACoAcGxhbiI7TzoxMToiYmFja3VwX3BsYW4iOjk6e3M6NzoiACoAbmFtZSI7czoxMToiYmFja3VwX3BsYW4iO3M6MTE6IgAqAHNldHRpbmdzIjthOjIzOntzOjg6ImZpbGVuYW1lIjtPOjIzOiJiYWNrdXBfZmlsZW5hbWVfc2V0dGluZyI6MTE6e3M6NzoiACoAbmFtZSI7czo4OiJmaWxlbmFtZSI7czo4OiIAKgB2YWx1ZSI7czoxMDoiYmFja3VwLm1ieiI7czoxNjoiACoAdW5sb2NrZWR2YWx1ZSI7czoxMDoiYmFja3VwLm1ieiI7czo4OiIAKgB2dHlwZSI7czo0OiJmaWxlIjtzOjEzOiIAKgB2aXNpYmlsaXR5IjtpOjE7czo5OiIAKgBzdGF0dXMiO2k6MztzOjE1OiIAKgBkZXBlbmRlbmNpZXMiO2E6MDp7fXM6MTQ6IgAqAGRlcGVuZGVudG9uIjthOjA6e31zOjEyOiIAKgB1aXNldHRpbmciO086MjI6ImJhY2t1cF9zZXR0aW5nX3VpX3RleHQiOjc6e3M6NzoiACoAbmFtZSI7czoxMzoicm9vdF9maWxlbmFtZSI7czo4OiIAKgBsYWJlbCI7czo4OiJGaWxlbmFtZSI7czoxMzoiACoAYXR0cmlidXRlcyI7YTowOnt9czo3OiIAKgB0eXBlIjtpOjQwO3M6NzoiACoAaWNvbiI7YjowO3M6MTA6IgAqAHNldHRpbmciO3I6NTI7czoxMDoiACoAb3B0aW9ucyI7YToxOntzOjQ6InNpemUiO2k6NTA7fX1zOjc6IgAqAGhlbHAiO2E6MDp7fXM6ODoiACoAbGV2ZWwiO2k6MTt9czo1OiJ1c2VycyI7TzoyMDoiYmFja3VwX3VzZXJzX3NldHRpbmciOjExOntzOjc6IgAqAG5hbWUiO3M6NToidXNlcnMiO3M6ODoiACoAdmFsdWUiO2k6MTtzOjE2OiIAKgB1bmxvY2tlZHZhbHVlIjtpOjE7czo4OiIAKgB2dHlwZSI7czo0OiJib29sIjtzOjEzOiIAKgB2aXNpYmlsaXR5IjtpOjE7czo5OiIAKgBzdGF0dXMiO2k6MztzOjE1OiIAKgBkZXBlbmRlbmNpZXMiO2E6OTp7czo5OiJhbm9ueW1pemUiO086NDE6InNldHRpbmdfZGVwZW5kZW5jeV9kaXNhYmxlZGlmX25vdF9jaGVja2VkIjo1OntzOjEwOiIAKgBzZXR0aW5nIjtyOjcyO3M6MTk6IgAqAGRlcGVuZGVudHNldHRpbmciO086MjQ6ImJhY2t1cF9hbm9ueW1pemVfc2V0dGluZyI6MTE6e3M6NzoiACoAbmFtZSI7czo5OiJhbm9ueW1pemUiO3M6ODoiACoAdmFsdWUiO2k6MDtzOjE2OiIAKgB1bmxvY2tlZHZhbHVlIjtpOjA7czo4OiIAKgB2dHlwZSI7czo0OiJib29sIjtzOjEzOiIAKgB2aXNpYmlsaXR5IjtpOjE7czo5OiIAKgBzdGF0dXMiO2k6MztzOjE1OiIAKgBkZXBlbmRlbmNpZXMiO2E6MDp7fXM6MTQ6IgAqAGRlcGVuZGVudG9uIjthOjE6e3M6NToidXNlcnMiO3I6ODA7fXM6MTI6IgAqAHVpc2V0dGluZyI7TzoyNjoiYmFja3VwX3NldHRpbmdfdWlfY2hlY2tib3giOjk6e3M6NzoiACoAbmFtZSI7czoxNDoicm9vdF9hbm9ueW1pemUiO3M6ODoiACoAbGFiZWwiO3M6MjY6IkFub255bWl6ZSB1c2VyIGluZm9ybWF0aW9uIjtzOjEzOiIAKgBhdHRyaWJ1dGVzIjthOjA6e31zOjc6IgAqAHR5cGUiO2k6MTA7czo3OiIAKgBpY29uIjtiOjA7czoxMDoiACoAc2V0dGluZyI7cjo4MjtzOjEwOiIAKgBvcHRpb25zIjthOjA6e31zOjEzOiIAKgBjaGFuZ2VhYmxlIjtiOjE7czo3OiIAKgB0ZXh0IjtOO31zOjc6IgAqAGhlbHAiO2E6MDp7fXM6ODoiACoAbGV2ZWwiO2k6MTt9czoxNToiACoAZGVmYXVsdHZhbHVlIjtiOjA7czoxMjoiACoAbGFzdHZhbHVlIjtpOjA7czo4OiIAKgB2YWx1ZSI7YjowO31zOjE2OiJyb2xlX2Fzc2lnbm1lbnRzIjtPOjQxOiJzZXR0aW5nX2RlcGVuZGVuY3lfZGlzYWJsZWRpZl9ub3RfY2hlY2tlZCI6NTp7czoxMDoiACoAc2V0dGluZyI7cjo3MjtzOjE5OiIAKgBkZXBlbmRlbnRzZXR0aW5nIjtPOjMxOiJiYWNrdXBfcm9sZV9hc3NpZ25tZW50c19zZXR0aW5nIjoxMTp7czo3OiIAKgBuYW1lIjtzOjE2OiJyb2xlX2Fzc2lnbm1lbnRzIjtzOjg6IgAqAHZhbHVlIjtpOjE7czoxNjoiACoAdW5sb2NrZWR2YWx1ZSI7aToxO3M6ODoiACoAdnR5cGUiO3M6NDoiYm9vbCI7czoxMzoiACoAdmlzaWJpbGl0eSI7aToxO3M6OToiACoAc3RhdHVzIjtpOjM7czoxNToiACoAZGVwZW5kZW5jaWVzIjthOjA6e31zOjE0OiIAKgBkZXBlbmRlbnRvbiI7YToxOntzOjU6InVzZXJzIjtyOjEwNzt9czoxMjoiACoAdWlzZXR0aW5nIjtPOjI2OiJiYWNrdXBfc2V0dGluZ191aV9jaGVja2JveCI6OTp7czo3OiIAKgBuYW1lIjtzOjIxOiJyb290X3JvbGVfYXNzaWdubWVudHMiO3M6ODoiACoAbGFiZWwiO3M6Mjk6IkluY2x1ZGUgdXNlciByb2xlIGFzc2lnbm1lbnRzIjtzOjEzOiIAKgBhdHRyaWJ1dGVzIjthOjA6e31zOjc6IgAqAHR5cGUiO2k6MTA7czo3OiIAKgBpY29uIjtiOjA7czoxMDoiACoAc2V0dGluZyI7cjoxMDk7czoxMDoiACoAb3B0aW9ucyI7YTowOnt9czoxMzoiACoAY2hhbmdlYWJsZSI7YjoxO3M6NzoiACoAdGV4dCI7Tjt9czo3OiIAKgBoZWxwIjthOjA6e31zOjg6IgAqAGxldmVsIjtpOjE7fXM6MTU6IgAqAGRlZmF1bHR2YWx1ZSI7YjowO3M6MTI6IgAqAGxhc3R2YWx1ZSI7aToxO3M6ODoiACoAdmFsdWUiO2I6MDt9czo4OiJjb21tZW50cyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6IgAqAHNldHRpbmciO3I6NzI7czoxOToiACoAZGVwZW5kZW50c2V0dGluZyI7TzoyMzoiYmFja3VwX2NvbW1lbnRzX3NldHRpbmciOjExOntzOjc6IgAqAG5hbWUiO3M6ODoiY29tbWVudHMiO3M6ODoiACoAdmFsdWUiO2k6MTtzOjE2OiIAKgB1bmxvY2tlZHZhbHVlIjtpOjE7czo4OiIAKgB2dHlwZSI7czo0OiJib29sIjtzOjEzOiIAKgB2aXNpYmlsaXR5IjtpOjE7czo5OiIAKgBzdGF0dXMiO2k6MztzOjE1OiIAKgBkZXBlbmRlbmNpZXMiO2E6MDp7fXM6MTQ6IgAqAGRlcGVuZGVudG9uIjthOjE6e3M6NToidXNlcnMiO3I6MTM0O31zOjEyOiIAKgB1aXNldHRpbmciO086MjY6ImJhY2t1cF9zZXR0aW5nX3VpX2NoZWNrYm94Ijo5OntzOjc6IgAqAG5hbWUiO3M6MTM6InJvb3RfY29tbWVudHMiO3M6ODoiACoAbGFiZWwiO3M6MTY6IkluY2x1ZGUgY29tbWVudHMiO3M6MTM6IgAqAGF0dHJpYnV0ZXMiO2E6MDp7fXM6NzoiACoAdHlwZSI7aToxMDtzOjc6IgAqAGljb24iO2I6MDtzOjEwOiIAKgBzZXR0aW5nIjtyOjEzNjtzOjEwOiIAKgBvcHRpb25zIjthOjA6e31zOjEzOiIAKgBjaGFuZ2VhYmxlIjtiOjE7czo3OiIAKgB0ZXh0IjtOO31zOjc6IgAqAGhlbHAiO2E6MDp7fXM6ODoiACoAbGV2ZWwiO2k6MTt9czoxNToiACoAZGVmYXVsdHZhbHVlIjtiOjA7czoxMjoiACoAbGFzdHZhbHVlIjtpOjE7czo4OiIAKgB2YWx1ZSI7YjowO31zOjY6ImJhZGdlcyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6IgAqAHNldHRpbmciO3I6NzI7czoxOToiACoAZGVwZW5kZW50c2V0dGluZyI7TzoyMToiYmFja3VwX2JhZGdlc19zZXR0aW5nIjoxMTp7czo3OiIAKgBuYW1lIjtzOjY6ImJhZGdlcyI7czo4OiIAKgB2YWx1ZSI7aToxO3M6MTY6IgAqAHVubG9ja2VkdmFsdWUiO2k6MTtzOjg6IgAqAHZ0eXBlIjtzOjQ6ImJvb2wiO3M6MTM6IgAqAHZpc2liaWxpdHkiO2k6MTtzOjk6IgAqAHN0YXR1cyI7aTozO3M6MTU6IgAqAGRlcGVuZGVuY2llcyI7YTowOnt9czoxNDoiACoAZGVwZW5kZW50b24iO2E6Mjp7czoxMDoiYWN0aXZpdGllcyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6IgAqAHNldHRpbmciO086MjU6ImJhY2t1cF9hY3Rpdml0aWVzX3NldHRpbmciOjExOntzOjc6IgAqAG5hbWUiO3M6MTA6ImFjdGl2aXRpZXMiO3M6ODoiACoAdmFsdWUiO2k6MTtzOjE2OiIAKgB1bmxvY2tlZHZhbHVlIjtpOjE7czo4OiIAKgB2dHlwZSI7czo0OiJib29sIjtzOjEzOiIAKgB2aXNpYmlsaXR5IjtpOjE7czo5OiIAKgBzdGF0dXMiO2k6MztzOjE1OiIAKgBkZXBlbmRlbmNpZXMiO2E6Mzp7czo2OiJiYWRnZXMiO3I6MTcyO3M6MTU6ImdyYWRlX2hpc3RvcmllcyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6IgAqAHNldHRpbmciO3I6MTczO3M6MTk6IgAqAGRlcGVuZGVudHNldHRpbmciO086MjI6ImJhY2t1cF9nZW5lcmljX3NldHRpbmciOjExOntzOjc6IgAqAG5hbWUiO3M6MTU6ImdyYWRlX2hpc3RvcmllcyI7czo4OiIAKgB2YWx1ZSI7aTowO3M6MTY6IgAqAHVubG9ja2VkdmFsdWUiO2k6MTtzOjg6IgAqAHZ0eXBlIjtzOjQ6ImJvb2wiO3M6MTM6IgAqAHZpc2liaWxpdHkiO2k6MTtzOjk6IgAqAHN0YXR1cyI7aTozO3M6MTU6IgAqAGRlcGVuZGVuY2llcyI7YTowOnt9czoxNDoiACoAZGVwZW5kZW50b24iO2E6Mjp7czo1OiJ1c2VycyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6IgAqAHNldHRpbmciO3I6NzI7czoxOToiACoAZGVwZW5kZW50c2V0dGluZyI7cjoxODQ7czoxNToiACoAZGVmYXVsdHZhbHVlIjtiOjA7czoxMjoiACoAbGFzdHZhbHVlIjtpOjE7czo4OiIAKgB2YWx1ZSI7YjowO31zOjEwOiJhY3Rpdml0aWVzIjtyOjE4Mjt9czoxMjoiACoAdWlzZXR0aW5nIjtPOjI2OiJiYWNrdXBfc2V0dGluZ191aV9jaGVja2JveCI6OTp7czo3OiIAKgBuYW1lIjtzOjIwOiJyb290X2dyYWRlX2hpc3RvcmllcyI7czo4OiIAKgBsYWJlbCI7czoyMToiSW5jbHVkZSBncmFkZSBoaXN0b3J5IjtzOjEzOiIAKgBhdHRyaWJ1dGVzIjthOjA6e31zOjc6IgAqAHR5cGUiO2k6MTA7czo3OiIAKgBpY29uIjtiOjA7czoxMDoiACoAc2V0dGluZyI7cjoxODQ7czoxMDoiACoAb3B0aW9ucyI7YTowOnt9czoxMzoiACoAY2hhbmdlYWJsZSI7YjoxO3M6NzoiACoAdGV4dCI7Tjt9czo3OiIAKgBoZWxwIjthOjA6e31zOjg6IgAqAGxldmVsIjtpOjE7fXM6MTU6IgAqAGRlZmF1bHR2YWx1ZSI7YjowO3M6MTI6IgAqAGxhc3R2YWx1ZSI7aToxO3M6ODoiACoAdmFsdWUiO2I6MDt9czoyMDoicmVzb3VyY2VfMTJfaW5jbHVkZWQiO086NDE6InNldHRpbmdfZGVwZW5kZW5jeV9kaXNhYmxlZGlmX25vdF9jaGVja2VkIjo1OntzOjEwOiIAKgBzZXR0aW5nIjtyOjE3MztzOjE5OiIAKgBkZXBlbmRlbnRzZXR0aW5nIjtPOjMxOiJiYWNrdXBfYWN0aXZpdHlfZ2VuZXJpY19zZXR0aW5nIjoxMTp7czo3OiIAKgBuYW1lIjtzOjIwOiJyZXNvdXJjZV8xMl9pbmNsdWRlZCI7czo4OiIAKgB2YWx1ZSI7aToxO3M6MTY6IgAqAHVubG9ja2VkdmFsdWUiO2k6MTtzOjg6IgAqAHZ0eXBlIjtzOjQ6ImJvb2wiO3M6MTM6IgAqAHZpc2liaWxpdHkiO2k6MTtzOjk6IgAqAHN0YXR1cyI7aTozO3M6MTU6IgAqAGRlcGVuZGVuY2llcyI7YToxOntzOjIwOiJyZXNvdXJjZV8xMl91c2VyaW5mbyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6IgAqAHNldHRpbmciO3I6MjE3O3M6MTk6IgAqAGRlcGVuZGVudHNldHRpbmciO086MzI6ImJhY2t1cF9hY3Rpdml0eV91c2VyaW5mb19zZXR0aW5nIjoxMTp7czo3OiIAKgBuYW1lIjtzOjIwOiJyZXNvdXJjZV8xMl91c2VyaW5mbyI7czo4OiIAKgB2YWx1ZSI7aToxO3M6MTY6IgAqAHVubG9ja2VkdmFsdWUiO2k6MTtzOjg6IgAqAHZ0eXBlIjtzOjQ6ImJvb2wiO3M6MTM6IgAqAHZpc2liaWxpdHkiO2k6MTtzOjk6IgAqAHN0YXR1cyI7aTozO3M6MTU6IgAqAGRlcGVuZGVuY2llcyI7YTowOnt9czoxNDoiACoAZGVwZW5kZW50b24iO2E6Mjp7czo1OiJ1c2VycyI7Tzo0MToic2V0dGluZ19kZXBlbmRlbmN5X2Rpc2FibGVkaWZfbm90X2NoZWNrZWQiOjU6e3M6MTA6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');
 
 -- --------------------------------------------------------
 
@@ -1952,7 +2173,15 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompcoutopi_mm` (
   PRIMARY KEY (`id`),
   KEY `mdl_blocexacmm_cou2_ix` (`courseid`),
   KEY `mdl_blocexacmm_top2_ix` (`topicid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='In dieser Tabelle werden die Zuordnungen der einzelnen Kurse' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='In dieser Tabelle werden die Zuordnungen der einzelnen Kurse' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompcoutopi_mm`
+--
+
+INSERT INTO `mdl_block_exacompcoutopi_mm` (`id`, `courseid`, `topicid`) VALUES
+(1, 4, 1),
+(2, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -2111,14 +2340,15 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompdescriptors` (
   KEY `mdl_blocexac_niv_ix` (`niveauid`),
   KEY `mdl_blocexac_ski_ix` (`skillid`),
   KEY `mdl_blocexac_cat_ix` (`catid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='die Bildungsstandards=Deskriptoren' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='die Bildungsstandards=Deskriptoren' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block_exacompdescriptors`
 --
 
 INSERT INTO `mdl_block_exacompdescriptors` (`id`, `title`, `crdate`, `skillid`, `niveauid`, `sorting`, `sourceid`, `source`, `exampletext`, `additionalinfo`, `profoundness`, `parentid`, `epop`, `requirement`, `benefit`, `knowledgecheck`, `catid`, `creatorid`, `author`, `editor`) VALUES
-(-1, 'free_materials', NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(-1, 'free_materials', NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 'competence title', NULL, NULL, 1, 1, NULL, 3, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 2, 'Marianne Arif', 'Marianne Arif');
 
 -- --------------------------------------------------------
 
@@ -2153,7 +2383,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompdescrtopic_mm` (
   PRIMARY KEY (`id`),
   KEY `mdl_blocexacmm_des_ix` (`descrid`),
   KEY `mdl_blocexacmm_top_ix` (`topicid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='zuordnung Deskriptoren zu schwerpunkten' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='zuordnung Deskriptoren zu schwerpunkten' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompdescrtopic_mm`
+--
+
+INSERT INTO `mdl_block_exacompdescrtopic_mm` (`id`, `descrid`, `topicid`, `sorting`) VALUES
+(1, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -2172,7 +2409,15 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompdescrvisibility` (
   KEY `mdl_blocexac_cou5_ix` (`courseid`),
   KEY `mdl_blocexac_des_ix` (`descrid`),
   KEY `mdl_blocexac_stu2_ix` (`studentid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Visibility of descriptor in context of course, topic and stu' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Visibility of descriptor in context of course, topic and stu' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompdescrvisibility`
+--
+
+INSERT INTO `mdl_block_exacompdescrvisibility` (`id`, `courseid`, `descrid`, `studentid`, `visible`) VALUES
+(1, 4, 1, 0, 1),
+(2, 5, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -2189,7 +2434,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompedulevels` (
   `source` smallint DEFAULT NULL,
   `disabled` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Ober oder Unterstufe, Kategorie für Schultypen' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Ober oder Unterstufe, Kategorie für Schultypen' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompedulevels`
+--
+
+INSERT INTO `mdl_block_exacompedulevels` (`id`, `sorting`, `title`, `sourceid`, `source`, `disabled`) VALUES
+(1, NULL, 'without a specific assignment', 0, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -2495,7 +2747,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompmdltype_mm` (
   PRIMARY KEY (`id`),
   KEY `mdl_blocexacmm_sti_ix` (`stid`),
   KEY `mdl_blocexacmm_cou_ix` (`courseid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Diese Tabelle speichert den Schultyp der jeweiligen Moodlein' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Diese Tabelle speichert den Schultyp der jeweiligen Moodlein' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompmdltype_mm`
+--
+
+INSERT INTO `mdl_block_exacompmdltype_mm` (`id`, `stid`, `courseid`) VALUES
+(1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -2514,7 +2773,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompniveaus` (
   `span` tinyint(1) DEFAULT '0',
   `numb` bigint DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Niveaus' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Niveaus' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompniveaus`
+--
+
+INSERT INTO `mdl_block_exacompniveaus` (`id`, `sorting`, `title`, `parentid`, `sourceid`, `source`, `span`, `numb`) VALUES
+(1, 1, 'difficulty level', 0, NULL, 3, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2580,7 +2846,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompschooltypes` (
   `disabled` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mdl_blocexac_eli_ix` (`elid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Schultypen, Kategorie der Gegensände' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Schultypen, Kategorie der Gegensände' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompschooltypes`
+--
+
+INSERT INTO `mdl_block_exacompschooltypes` (`id`, `sorting`, `title`, `elid`, `isoez`, `sourceid`, `source`, `description`, `epop`, `disabled`) VALUES
+(1, NULL, 'without a specific assignment', 1, 0, 0, 3, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2676,7 +2949,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacompsubjects` (
   PRIMARY KEY (`id`),
   KEY `mdl_blocexac_sti_ix` (`stid`),
   KEY `mdl_blocexac_cat2_ix` (`catid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Gegenstände, Kategorie der Schwerpunkte' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Gegenstände, Kategorie der Schwerpunkte' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacompsubjects`
+--
+
+INSERT INTO `mdl_block_exacompsubjects` (`id`, `sorting`, `disabled`, `title`, `stid`, `sourceid`, `source`, `titleshort`, `catid`, `description`, `infolink`, `epop`, `author`, `editor`, `isglobal`, `version`, `creatorid`, `class`, `is_editable`) VALUES
+(1, NULL, NULL, 'name1', 1, 0, 3, 'n', NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, 2, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -2757,7 +3037,14 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacomptopics` (
   `editor` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   PRIMARY KEY (`id`),
   KEY `mdl_blocexac_sub_ix` (`subjid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Schwerpunkte, Kategorie der Deskriptoren' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Schwerpunkte, Kategorie der Deskriptoren' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacomptopics`
+--
+
+INSERT INTO `mdl_block_exacomptopics` (`id`, `sorting`, `title`, `subjid`, `sourceid`, `source`, `description`, `titleshort`, `numb`, `parentid`, `epop`, `span`, `creatorid`, `author`, `editor`) VALUES
+(1, NULL, 'topic1', 1, 0, 3, NULL, NULL, '0', NULL, 0, 0, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2777,7 +3064,15 @@ CREATE TABLE IF NOT EXISTS `mdl_block_exacomptopicvisibility` (
   KEY `mdl_blocexac_cou7_ix` (`courseid`),
   KEY `mdl_blocexac_top_ix` (`topicid`),
   KEY `mdl_blocexac_stu4_ix` (`studentid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Visibility of topic in context of course and student' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Visibility of topic in context of course and student' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_block_exacomptopicvisibility`
+--
+
+INSERT INTO `mdl_block_exacomptopicvisibility` (`id`, `courseid`, `topicid`, `studentid`, `visible`, `niveauid`) VALUES
+(1, 4, 1, 0, 1, NULL),
+(2, 5, 1, 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -3162,7 +3457,7 @@ CREATE TABLE IF NOT EXISTS `mdl_block_instances` (
   KEY `mdl_blocinst_tim_ix` (`timemodified`),
   KEY `mdl_blocinst_blo_ix` (`blockname`),
   KEY `mdl_blocinst_par_ix` (`parentcontextid`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table stores block instances. The type of block this is' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table stores block instances. The type of block this is' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block_instances`
@@ -3175,7 +3470,7 @@ INSERT INTO `mdl_block_instances` (`id`, `blockname`, `parentcontextid`, `showin
 (4, 'calendar_month', 1, 0, 0, 'my-index', '2', 'content', 1, '', 1710415359, 1710415359),
 (5, 'myoverview', 1, 0, 0, 'my-index', '3', 'content', 0, '', 1710415359, 1710415359),
 (18, 'timeline', 5, 0, 0, 'my-index', '6', 'content', 0, '', 1710693413, 1710693413),
-(19, 'calendar_month', 5, 0, 0, 'my-index', '6', 'content', 2, '', 1710693413, 1711552165),
+(19, 'calendar_month', 5, 0, 0, 'my-index', '6', 'content', 2, '', 1710693413, 1714562002),
 (20, 'recentlyaccessedcourses', 5, 0, 0, 'my-index', '6', 'content', -2, '', 1710693443, 1711552170),
 (21, 'calendar_upcoming', 5, 0, 0, 'my-index', '6', 'side-pre', 0, '', 1710693550, 1710693550),
 (22, 'testblock', 5, 0, 0, 'my-index', '6', 'content', 3, '', 1711279048, 1711552161),
@@ -3183,8 +3478,14 @@ INSERT INTO `mdl_block_instances` (`id`, `blockname`, `parentcontextid`, `showin
 (27, 'recentlyaccesseditems', 50, 0, 0, 'my-index', '10', 'side-post', 0, '', 1711316106, 1711316106),
 (28, 'timeline', 50, 0, 0, 'my-index', '10', 'content', 0, '', 1711316106, 1711316106),
 (29, 'calendar_month', 50, 0, 0, 'my-index', '10', 'content', 1, '', 1711316106, 1711316106),
-(30, 'my_enrolled_courses', 5, 0, 0, 'my-index', '6', 'content', -1, '', 1711552154, 1711552170),
-(31, 'exastud', 5, 0, 0, 'my-index', '6', 'content', 6, '', 1711560884, 1711560884);
+(30, 'my_enrolled_courses', 5, 0, 0, 'my-index', '6', 'content', -1, '', 1711552154, 1714562021),
+(31, 'exastud', 5, 0, 0, 'my-index', '6', 'content', 6, '', 1711560884, 1711560884),
+(33, 'online_users', 5, 0, 0, 'my-index', '6', 'content', -3, '', 1714561983, 1714562017),
+(34, 'exacomp', 69, 0, 0, 'course-view-*', NULL, 'content', 0, '', 1714562762, 1714562762),
+(35, 'completionstatus', 69, 0, 0, 'course-view-*', NULL, 'content', 1, '', 1714566996, 1714566996),
+(36, 'completionstatus', 80, 0, 0, 'course-view-*', NULL, 'content', 1, '', 1714566996, 1714566996),
+(37, 'exacomp', 80, 0, 0, 'course-view-*', NULL, 'content', 0, '', 1714562762, 1714562762),
+(39, 'news_items', 69, 0, 0, 'course-view-*', NULL, 'content', 2, '', 1714650535, 1714650535);
 
 -- --------------------------------------------------------
 
@@ -3206,7 +3507,7 @@ CREATE TABLE IF NOT EXISTS `mdl_block_myenrolledcoursesorder` (
 --
 
 INSERT INTO `mdl_block_myenrolledcoursesorder` (`id`, `userid`, `courseorder`) VALUES
-(1, 2, '[\"3\"]');
+(1, 2, '[\"4\",\"5\"]');
 
 -- --------------------------------------------------------
 
@@ -3245,14 +3546,16 @@ CREATE TABLE IF NOT EXISTS `mdl_block_positions` (
   UNIQUE KEY `mdl_blocposi_bloconpagsub_uix` (`blockinstanceid`,`contextid`,`pagetype`,`subpage`),
   KEY `mdl_blocposi_blo_ix` (`blockinstanceid`),
   KEY `mdl_blocposi_con_ix` (`contextid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores the position of a sticky block_instance on a another ' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores the position of a sticky block_instance on a another ' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block_positions`
 --
 
 INSERT INTO `mdl_block_positions` (`id`, `blockinstanceid`, `contextid`, `pagetype`, `subpage`, `visible`, `region`, `weight`) VALUES
-(1, 26, 5, 'my-index', '6', 1, 'side-pre', -1);
+(1, 26, 5, 'my-index', '6', 1, 'side-pre', -1),
+(2, 39, 69, 'course-view-topics', '', 1, 'content', -2),
+(3, 34, 69, 'course-view-topics', '', 1, 'content', -1);
 
 -- --------------------------------------------------------
 
@@ -3272,19 +3575,15 @@ CREATE TABLE IF NOT EXISTS `mdl_block_recentlyaccesseditems` (
   KEY `mdl_blocrece_use_ix` (`userid`),
   KEY `mdl_blocrece_cou_ix` (`courseid`),
   KEY `mdl_blocrece_cmi_ix` (`cmid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Most recently accessed items accessed by a user' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Most recently accessed items accessed by a user' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block_recentlyaccesseditems`
 --
 
 INSERT INTO `mdl_block_recentlyaccesseditems` (`id`, `courseid`, `cmid`, `userid`, `timeaccess`) VALUES
-(2, 3, 3, 2, 1711108168),
-(3, 3, 4, 2, 1710696950),
-(4, 3, 5, 2, 1711108427),
-(5, 3, 2, 2, 1711296896),
-(6, 3, 6, 2, 1711296888),
-(7, 3, 7, 2, 1711299700);
+(8, 4, 32, 2, 1714644433),
+(9, 4, 11, 2, 1714650712);
 
 -- --------------------------------------------------------
 
@@ -3303,7 +3602,7 @@ CREATE TABLE IF NOT EXISTS `mdl_block_recent_activity` (
   `modname` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `mdl_blocreceacti_coutim_ix` (`courseid`,`timecreated`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Recent activity block' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Recent activity block' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block_recent_activity`
@@ -3314,7 +3613,34 @@ INSERT INTO `mdl_block_recent_activity` (`id`, `courseid`, `cmid`, `timecreated`
 (2, 3, 4, 1710696950, 2, 0, NULL),
 (3, 3, 5, 1711108404, 2, 0, NULL),
 (4, 3, 5, 1711108426, 2, 1, NULL),
-(5, 3, 2, 1711108552, 2, 1, NULL);
+(5, 3, 2, 1711108552, 2, 1, NULL),
+(6, 4, 15, 1714560315, 2, 0, NULL),
+(7, 4, 15, 1714643467, 2, 1, NULL),
+(8, 4, 18, 1714643659, 2, 0, NULL),
+(9, 4, 19, 1714643756, 2, 1, NULL),
+(10, 4, 20, 1714643768, 2, 1, NULL),
+(11, 4, 21, 1714643791, 2, 0, NULL),
+(12, 4, 19, 1714643820, 2, 1, NULL),
+(13, 4, 20, 1714643849, 2, 1, NULL),
+(14, 4, 22, 1714643877, 2, 1, NULL),
+(15, 4, 23, 1714644044, 2, 1, NULL),
+(16, 4, 24, 1714644050, 2, 0, NULL),
+(17, 4, 25, 1714644060, 2, 1, NULL),
+(18, 4, 26, 1714644101, 2, 0, NULL),
+(19, 4, 27, 1714644117, 2, 1, NULL),
+(20, 4, 26, 1714644137, 2, 1, NULL),
+(21, 4, 27, 1714644144, 2, 1, NULL),
+(22, 4, 25, 1714644151, 2, 1, NULL),
+(23, 4, 23, 1714644157, 2, 1, NULL),
+(24, 4, 22, 1714644164, 2, 1, NULL),
+(25, 4, 28, 1714644187, 2, 1, NULL),
+(26, 4, 29, 1714644195, 2, 1, NULL),
+(27, 4, 30, 1714644201, 2, 0, NULL),
+(28, 4, 31, 1714644274, 2, 1, NULL),
+(29, 4, 31, 1714644309, 2, 1, NULL),
+(30, 4, 28, 1714644315, 2, 1, NULL),
+(31, 4, 29, 1714644321, 2, 1, NULL),
+(32, 4, 32, 1714644432, 2, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -3454,24 +3780,41 @@ CREATE TABLE IF NOT EXISTS `mdl_cache_flags` (
   PRIMARY KEY (`id`),
   KEY `mdl_cachflag_fla_ix` (`flagtype`),
   KEY `mdl_cachflag_nam_ix` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Cache of time-sensitive flags' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Cache of time-sensitive flags' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_cache_flags`
 --
 
 INSERT INTO `mdl_cache_flags` (`id`, `flagtype`, `name`, `timemodified`, `value`, `expiry`) VALUES
-(1, 'userpreferenceschanged', '2', 1714558719, '1', 1714587519),
-(2, 'accesslib/dirtyusers', '2', 1711319418, '1', 1711348218),
+(1, 'userpreferenceschanged', '2', 1714650819, '1', 1714679619),
+(2, 'accesslib/dirtyusers', '2', 1714567642, '1', 1714596442),
 (3, 'accesslib/dirtycontexts', '/1/3/31', 1711032076, '1', 1711060876),
 (4, 'userpreferenceschanged', '3', 1711298973, '1', 1711327773),
-(5, 'accesslib/dirtyusers', '3', 1711319044, '1', 1711347844),
+(5, 'accesslib/dirtyusers', '3', 1714567634, '1', 1714596434),
 (6, 'userpreferenceschanged', '4', 1711315891, '1', 1711344691),
 (7, 'userpreferenceschanged', '5', 1711316110, '1', 1711344910),
-(8, 'accesslib/dirtyusers', '4', 1711319166, '1', 1711347966),
-(9, 'accesslib/dirtyusers', '5', 1711319202, '1', 1711348002),
+(8, 'accesslib/dirtyusers', '4', 1714560135, '1', 1714588935),
+(9, 'accesslib/dirtyusers', '5', 1714560135, '1', 1714588935),
 (10, 'userpreferenceschanged', '6', 1711319330, '1', 1711348130),
-(11, 'accesslib/dirtyusers', '6', 1711319384, '1', 1711348184);
+(11, 'accesslib/dirtyusers', '6', 1714567645, '1', 1714596445),
+(12, 'accesslib/dirtycontexts', '/1/61', 1714559762, '1', 1714588562),
+(13, 'accesslib/dirtycontexts', '/1/61/64', 1714559762, '1', 1714588562),
+(14, 'accesslib/dirtycontexts', '/1/61/65', 1714559762, '1', 1714588562),
+(15, 'accesslib/dirtycontexts', '/1/61/66', 1714559762, '1', 1714588562),
+(16, 'accesslib/dirtycontexts', '/1/61/67', 1714559762, '1', 1714588562),
+(17, 'accesslib/dirtycontexts', '/1/61/68', 1714559762, '1', 1714588562),
+(18, 'accesslib/dirtycontexts', '/1/62', 1714559762, '1', 1714588562),
+(19, 'accesslib/dirtycontexts', '/1/63', 1714559762, '1', 1714588562),
+(20, 'accesslib/dirtycontexts', '/1/3/27/33', 1714560135, '1', 1714588935),
+(21, 'accesslib/dirtyusers', '13', 1714563332, '1', 1714592132),
+(22, 'accesslib/dirtyusers', '11', 1714563333, '1', 1714592133),
+(23, 'accesslib/dirtyusers', '10', 1714563333, '1', 1714592133),
+(24, 'accesslib/dirtyusers', '9', 1714563333, '1', 1714592133),
+(25, 'accesslib/dirtyusers', '12', 1714563333, '1', 1714592133),
+(26, 'accesslib/dirtyusers', '15', 1714563333, '1', 1714592133),
+(27, 'accesslib/dirtyusers', '16', 1714563333, '1', 1714592133),
+(28, 'accesslib/dirtyusers', '14', 1714563346, '1', 1714592146);
 
 -- --------------------------------------------------------
 
@@ -5177,9 +5520,9 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (21, 'mnet_all_hosts_id', '2'),
 (22, 'siteguest', '1'),
 (23, 'siteadmins', '2'),
-(24, 'themerev', '1714557609'),
-(25, 'jsrev', '1714556999'),
-(26, 'templaterev', '1714556999'),
+(24, 'themerev', '1714559526'),
+(25, 'jsrev', '1714559526'),
+(26, 'templaterev', '1714559526'),
 (27, 'gdversion', '2'),
 (28, 'licenses', 'unknown,allrightsreserved,public,cc-4.0,cc-nc-4.0,cc-nd-4.0,cc-nc-nd-4.0,cc-nc-sa-4.0,cc-sa-4.0'),
 (29, 'sitedefaultlicense', 'unknown'),
@@ -5229,7 +5572,7 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (73, 'downloadcoursecontentallowed', '0'),
 (74, 'maxsizeperdownloadcoursefile', '52428800'),
 (75, 'enablecourserequests', '1'),
-(76, 'defaultrequestcategory', '1'),
+(76, 'defaultrequestcategory', '7'),
 (77, 'lockrequestcategory', '0'),
 (78, 'courserequestnotify', ''),
 (79, 'activitychoosertabmode', '3'),
@@ -5313,7 +5656,7 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (158, 'autolangusercreation', '1'),
 (159, 'langmenu', '1'),
 (160, 'langlist', ''),
-(161, 'langrev', '1714556999'),
+(161, 'langrev', '1714559526'),
 (162, 'langcache', '1'),
 (163, 'langstringcache', '1'),
 (164, 'locale', ''),
@@ -5589,8 +5932,8 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (435, 'profilinglifetime', '1440'),
 (436, 'profilingimportprefix', '(I)'),
 (437, 'release', '4.3.3 (Build: 20240212)'),
-(438, 'localcachedirpurged', '1714557001'),
-(439, 'scheduledtaskreset', '1714557001'),
+(438, 'localcachedirpurged', '1714559528'),
+(439, 'scheduledtaskreset', '1714559529'),
 (440, 'paygw_plugins_sortorder', 'paypal'),
 (441, 'allversionshash', '016f45e983b2af0d912c0059668c7ce10de482a6'),
 (442, 'allcomponenthash', '1fd5d0ad28d946c3884af45eda8ea026477c2418'),
@@ -5747,7 +6090,7 @@ CREATE TABLE IF NOT EXISTS `mdl_config_log` (
   PRIMARY KEY (`id`),
   KEY `mdl_conflog_tim_ix` (`timemodified`),
   KEY `mdl_conflog_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2331 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Changes done in server configuration through admin UI' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2332 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Changes done in server configuration through admin UI' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_config_log`
@@ -8086,7 +8429,8 @@ INSERT INTO `mdl_config_log` (`id`, `userid`, `timemodified`, `plugin`, `name`, 
 (2327, 2, 1714558011, 'theme_moove', 'numbersfrontpage', '0', '1'),
 (2328, 2, 1714558336, 'theme_moove', 'logo', '', '/hexlogo.png'),
 (2329, 2, 1714558413, 'theme_moove', 'logo', '/logo inverted.png', ''),
-(2330, 2, 1714558689, 'theme_moove', 'favicon', '/favicon.ico', '');
+(2330, 2, 1714558689, 'theme_moove', 'favicon', '/favicon.ico', ''),
+(2331, 2, 1714570878, 'theme_moove', 'logo', '/hexlogo.png', '/logo inverted.png');
 
 -- --------------------------------------------------------
 
@@ -10598,7 +10942,7 @@ INSERT INTO `mdl_config_plugins` (`id`, `plugin`, `name`, `value`) VALUES
 (2574, 'exastud', 'export_class_report_password', '0'),
 (2575, 'exastud', 'bildungsstandards', '5,6,7,8,9,10'),
 (2576, 'theme_moove', 'version', '2023100903'),
-(2578, 'theme_moove', 'logo', '/logo inverted.png'),
+(2578, 'theme_moove', 'logo', '/hexlogo.png'),
 (2579, 'theme_moove', 'favicon', '/favicon.ico'),
 (2580, 'theme_moove', 'preset', 'default.scss'),
 (2581, 'theme_moove', 'presetfiles', ''),
@@ -10724,7 +11068,7 @@ CREATE TABLE IF NOT EXISTS `mdl_context` (
   UNIQUE KEY `mdl_cont_conins_uix` (`contextlevel`,`instanceid`),
   KEY `mdl_cont_ins_ix` (`instanceid`),
   KEY `mdl_cont_pat_ix` (`path`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='one of these must be set' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='one of these must be set' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_context`
@@ -10733,7 +11077,6 @@ CREATE TABLE IF NOT EXISTS `mdl_context` (
 INSERT INTO `mdl_context` (`id`, `contextlevel`, `instanceid`, `path`, `depth`, `locked`) VALUES
 (1, 10, 0, '/1', 1, 0),
 (2, 50, 1, '/1/2', 2, 0),
-(3, 40, 1, '/1/3', 2, 0),
 (4, 30, 1, '/1/4', 2, 0),
 (5, 30, 2, '/1/5', 2, 0),
 (6, 80, 1, '/1/6', 2, 0),
@@ -10745,19 +11088,9 @@ INSERT INTO `mdl_context` (`id`, `contextlevel`, `instanceid`, `path`, `depth`, 
 (24, 80, 19, '/1/5/24', 3, 0),
 (25, 80, 20, '/1/5/25', 3, 0),
 (26, 80, 21, '/1/5/26', 3, 0),
-(27, 40, 2, '/1/3/27', 3, 0),
-(33, 50, 3, '/1/3/27/33', 4, 0),
-(34, 70, 2, '/1/3/27/33/34', 5, 0),
-(35, 70, 3, '/1/3/27/33/35', 5, 0),
-(36, 70, 4, '/1/3/27/33/36', 5, 0),
 (37, 40, 6, '/1/3/37', 3, 0),
-(38, 70, 5, '/1/3/27/33/38', 5, 0),
 (39, 80, 22, '/1/5/39', 3, 0),
 (43, 80, 26, '/1/5/43', 3, 0),
-(44, 70, 6, '/1/3/27/33/44', 5, 0),
-(45, 70, 7, '/1/3/27/33/45', 5, 0),
-(46, 70, 8, '/1/3/27/33/46', 5, 0),
-(47, 70, 9, '/1/3/27/33/47', 5, 0),
 (48, 30, 3, '/1/48', 2, 0),
 (49, 30, 4, '/1/49', 2, 0),
 (50, 30, 5, '/1/50', 2, 0),
@@ -10769,7 +11102,54 @@ INSERT INTO `mdl_context` (`id`, `contextlevel`, `instanceid`, `path`, `depth`, 
 (56, 30, 7, '/1/56', 2, 0),
 (57, 30, 8, '/1/57', 2, 0),
 (58, 80, 30, '/1/5/58', 3, 0),
-(59, 80, 31, '/1/5/59', 3, 0);
+(59, 80, 31, '/1/5/59', 3, 0),
+(61, 40, 7, '/1/61', 2, 0),
+(62, 40, 13, '/1/62', 2, 0),
+(63, 40, 14, '/1/63', 2, 0),
+(64, 40, 8, '/1/61/64', 3, 0),
+(65, 40, 9, '/1/61/65', 3, 0),
+(66, 40, 10, '/1/61/66', 3, 0),
+(67, 40, 11, '/1/61/67', 3, 0),
+(68, 40, 12, '/1/61/68', 3, 0),
+(69, 50, 4, '/1/61/65/69', 4, 0),
+(70, 70, 11, '/1/61/65/69/70', 5, 0),
+(71, 70, 12, '/1/61/65/69/71', 5, 0),
+(72, 70, 13, '/1/61/65/69/72', 5, 0),
+(73, 70, 14, '/1/61/65/69/73', 5, 0),
+(74, 70, 15, '/1/61/65/69/74', 5, 0),
+(75, 30, 13, '/1/75', 2, 0),
+(76, 80, 33, '/1/5/76', 3, 0),
+(77, 30, 14, '/1/77', 2, 0),
+(78, 80, 34, '/1/61/65/69/78', 5, 0),
+(79, 80, 35, '/1/61/65/69/79', 5, 0),
+(80, 50, 5, '/1/61/67/80', 4, 0),
+(81, 80, 36, '/1/61/67/80/81', 5, 0),
+(82, 80, 37, '/1/61/67/80/82', 5, 0),
+(83, 70, 16, '/1/61/67/80/83', 5, 0),
+(84, 70, 17, '/1/61/67/80/84', 5, 0),
+(85, 70, 18, '/1/61/65/69/85', 5, 0),
+(86, 70, 19, '/1/61/65/69/86', 5, 0),
+(87, 70, 20, '/1/61/65/69/87', 5, 0),
+(88, 70, 21, '/1/61/65/69/88', 5, 0),
+(89, 70, 22, '/1/61/65/69/89', 5, 0),
+(90, 70, 23, '/1/61/65/69/90', 5, 0),
+(91, 70, 24, '/1/61/65/69/91', 5, 0),
+(92, 70, 25, '/1/61/65/69/92', 5, 0),
+(93, 70, 26, '/1/61/65/69/93', 5, 0),
+(94, 70, 27, '/1/61/65/69/94', 5, 0),
+(95, 70, 28, '/1/61/65/69/95', 5, 0),
+(96, 70, 29, '/1/61/65/69/96', 5, 0),
+(97, 70, 30, '/1/61/65/69/97', 5, 0),
+(98, 70, 31, '/1/61/65/69/98', 5, 0),
+(99, 70, 32, '/1/61/65/69/99', 5, 0),
+(100, 50, 6, '/1/61/64/100', 4, 0),
+(101, 30, 11, '/1/101', 2, 0),
+(102, 30, 10, '/1/102', 2, 0),
+(103, 30, 9, '/1/103', 2, 0),
+(104, 30, 12, '/1/104', 2, 0),
+(105, 30, 15, '/1/105', 2, 0),
+(106, 30, 16, '/1/106', 2, 0),
+(108, 80, 39, '/1/61/65/69/108', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -10837,15 +11217,17 @@ CREATE TABLE IF NOT EXISTS `mdl_course` (
   KEY `mdl_cour_sho_ix` (`shortname`),
   KEY `mdl_cour_sor_ix` (`sortorder`),
   KEY `mdl_cour_ori_ix` (`originalcourseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Central course table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Central course table' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course`
 --
 
 INSERT INTO `mdl_course` (`id`, `category`, `sortorder`, `fullname`, `shortname`, `idnumber`, `summary`, `summaryformat`, `format`, `showgrades`, `newsitems`, `startdate`, `enddate`, `relativedatesmode`, `marker`, `maxbytes`, `legacyfiles`, `showreports`, `visible`, `visibleold`, `downloadcontent`, `groupmode`, `groupmodeforce`, `defaultgroupingid`, `lang`, `calendartype`, `theme`, `timecreated`, `timemodified`, `requested`, `enablecompletion`, `completionnotify`, `cacherev`, `originalcourseid`, `showactivitydates`, `showcompletionconditions`, `pdfexportfont`) VALUES
-(1, 0, 1, 'Mindscape-lb', 'Mindscape', '', '', 0, 'site', 1, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1710415266, 1711298604, 0, 0, 0, 1714556999, NULL, 0, NULL, NULL),
-(3, 2, 20001, 'Exploration Of Curiosity', 'Level 1', 'EOCl1', '<ul>\r\n<li>This program is 13 lessons long.</li>\r\n<li>Each lesson unfolds over 2 hours.</li>\r\n</ul>', 1, 'topics', 1, 5, 1710712800, 1721250000, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1710696473, 1711560611, 0, 1, 0, 1714556999, NULL, 1, 1, NULL);
+(1, 0, 1, 'Mindscape-lb', 'Mindscape', '', '', 0, 'site', 1, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1710415266, 1714650307, 0, 0, 0, 1714559526, NULL, 0, NULL, NULL),
+(4, 9, 30001, 'Exploration Of Curiosity', 'Level 2', '', '<ul>\r\n<li>This program is 13 lessons long.</li>\r\n<li>Each lesson unfolds over 2 hours.</li>\r\n</ul>', 1, 'topics', 1, 5, 1714597200, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 1, 0, 0, '', '', '', 1714559762, 1714643163, 0, 1, 0, 1714646792, NULL, 1, 1, NULL),
+(5, 11, 50001, 'Scout Beginnings', 'Level 1', '', '', 1, 'topics', 1, 5, 1714597200, 1746133200, 0, 0, 0, 0, 0, 1, 1, NULL, 1, 0, 0, '', '', '', 1714567451, 1714567451, 0, 1, 0, 1714567585, NULL, 1, 1, NULL),
+(6, 8, 20001, 'KinderBot', 'KG', '', '', 1, 'topics', 1, 5, 1714683600, 1746219600, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1714647047, 1714647047, 0, 1, 0, 0, NULL, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -10871,16 +11253,21 @@ CREATE TABLE IF NOT EXISTS `mdl_course_categories` (
   `theme` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `mdl_courcate_par_ix` (`parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Course categories' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Course categories' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course_categories`
 --
 
 INSERT INTO `mdl_course_categories` (`id`, `name`, `idnumber`, `description`, `descriptionformat`, `parent`, `sortorder`, `coursecount`, `visible`, `visibleold`, `timemodified`, `depth`, `path`, `theme`) VALUES
-(1, 'Module', '1', '<p class=\"MsoNormal\" style=\"text-align: justify;\"><span style=\"font-size: 12.0pt; line-height: 107%;\">Each module is thoughtfully designed to encompass various aspects of learning, ensuring a holistic and engaging approach to education in a supportive environment.</span></p>', 1, 0, 10000, 0, 1, 1, 1710695563, 1, '/1', NULL),
-(2, 'JuniorBot', '', '<h3>Developing abilities to think critically and exploring the block-based programming</h3>', 1, 1, 20000, 1, 1, 1, 1710695804, 2, '/1/2', NULL),
-(6, 'SeniorBot', '', '<p>Developing abilities to think critically, find innovative solutions in a fun and engaging way.</p>', 1, 1, 30000, 0, 1, 1, 1710697370, 2, '/1/6', NULL);
+(7, 'Level', NULL, NULL, 0, 0, 10000, 0, 1, 1, 0, 1, '/7', NULL),
+(8, 'KinderBot', NULL, 'Learn Robotics concepts, Psychomotor Skills, and Cognitive Development.', 0, 7, 20000, 1, 1, 1, 0, 2, '/7/8', NULL),
+(9, 'Tiny Adventurers', NULL, 'Developing abilities to think critically and exploring the block-based programming.', 0, 7, 30000, 1, 1, 1, 0, 2, '/7/9', NULL),
+(10, 'Robo Builders', NULL, 'Developing abilities to think critically, find innovative solutions in a fun and engaging way.', 0, 7, 40000, 0, 1, 1, 0, 2, '/7/10', NULL),
+(11, 'Knowledge Scouts', NULL, 'In an engaging and enjoyable manner, they explore engineering and programming skills.', 0, 7, 50000, 1, 1, 1, 0, 2, '/7/11', NULL),
+(12, 'World Explorers', NULL, 'Integrate engineering and programming seamlessly into interdisciplinary projects.', 0, 7, 60000, 0, 1, 1, 0, 2, '/7/12', NULL),
+(13, 'Activity', NULL, NULL, 0, 0, 70000, 0, 1, 1, 0, 1, '/13', NULL),
+(14, 'Camp', NULL, NULL, 0, 0, 80000, 0, 1, 1, 0, 1, '/14', NULL);
 
 -- --------------------------------------------------------
 
@@ -10921,17 +11308,17 @@ CREATE TABLE IF NOT EXISTS `mdl_course_completion_aggr_methd` (
   UNIQUE KEY `mdl_courcompaggrmeth_coucr_uix` (`course`,`criteriatype`),
   KEY `mdl_courcompaggrmeth_cou_ix` (`course`),
   KEY `mdl_courcompaggrmeth_cri_ix` (`criteriatype`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Course completion aggregation methods for criteria' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Course completion aggregation methods for criteria' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course_completion_aggr_methd`
 --
 
 INSERT INTO `mdl_course_completion_aggr_methd` (`id`, `course`, `criteriatype`, `method`, `value`) VALUES
-(9, 3, NULL, 1, NULL),
-(10, 3, 4, 1, NULL),
-(11, 3, 8, 1, NULL),
-(12, 3, 7, 2, NULL);
+(13, 4, NULL, 1, NULL),
+(14, 4, 4, 1, NULL),
+(15, 4, 7, 2, NULL),
+(16, 4, 8, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -10953,17 +11340,17 @@ CREATE TABLE IF NOT EXISTS `mdl_course_completion_criteria` (
   `role` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `mdl_courcompcrit_cou_ix` (`course`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Course completion criteria' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Course completion criteria' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course_completion_criteria`
 --
 
 INSERT INTO `mdl_course_completion_criteria` (`id`, `course`, `criteriatype`, `module`, `moduleinstance`, `courseinstance`, `enrolperiod`, `timeend`, `gradepass`, `role`) VALUES
-(11, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, 4),
-(13, 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, 3),
-(14, 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+(15, 4, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 4, 7, NULL, NULL, NULL, NULL, NULL, NULL, 4),
+(17, 4, 7, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(18, 4, 7, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -11035,7 +11422,7 @@ CREATE TABLE IF NOT EXISTS `mdl_course_format_options` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_courformopti_couforsec_uix` (`courseid`,`format`,`sectionid`,`name`),
   KEY `mdl_courformopti_cou_ix` (`courseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores format-specific options for the course or course sect' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores format-specific options for the course or course sect' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course_format_options`
@@ -11043,8 +11430,12 @@ CREATE TABLE IF NOT EXISTS `mdl_course_format_options` (
 
 INSERT INTO `mdl_course_format_options` (`id`, `courseid`, `format`, `sectionid`, `name`, `value`) VALUES
 (1, 1, 'site', 0, 'numsections', '1'),
-(4, 3, 'topics', 0, 'hiddensections', '1'),
-(5, 3, 'topics', 0, 'coursedisplay', '0');
+(6, 4, 'topics', 0, 'hiddensections', '1'),
+(7, 4, 'topics', 0, 'coursedisplay', '0'),
+(8, 5, 'topics', 0, 'hiddensections', '1'),
+(9, 5, 'topics', 0, 'coursedisplay', '0'),
+(10, 6, 'topics', 0, 'hiddensections', '1'),
+(11, 6, 'topics', 0, 'coursedisplay', '0');
 
 -- --------------------------------------------------------
 
@@ -11085,22 +11476,36 @@ CREATE TABLE IF NOT EXISTS `mdl_course_modules` (
   KEY `mdl_courmodu_ins_ix` (`instance`),
   KEY `mdl_courmodu_idncou_ix` (`idnumber`,`course`),
   KEY `mdl_courmodu_gro_ix` (`groupingid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='course_modules table retrofitted from MySQL' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='course_modules table retrofitted from MySQL' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course_modules`
 --
 
 INSERT INTO `mdl_course_modules` (`id`, `course`, `module`, `instance`, `section`, `idnumber`, `added`, `score`, `indent`, `visible`, `visibleoncoursepage`, `visibleold`, `groupmode`, `groupingid`, `completion`, `completiongradeitemnumber`, `completionview`, `completionexpected`, `completionpassgrade`, `showdescription`, `availability`, `deletioninprogress`, `downloadcontent`, `lang`) VALUES
-(2, 3, 10, 2, 4, NULL, 1710696473, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 1, 1, ''),
-(3, 3, 19, 1, 5, '', 1710696765, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 1, NULL, 0, 1, ''),
-(4, 3, 19, 2, 5, '', 1710696950, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, ''),
-(5, 3, 19, 3, 5, '', 1711108404, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, ''),
-(6, 3, 10, 3, 4, NULL, 1710696473, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 1, 1, ''),
-(7, 3, 19, 4, 5, '', 1710696765, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 1, NULL, 1, 1, ''),
-(8, 3, 19, 5, 5, '', 1710696950, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 1, 1, ''),
-(9, 3, 19, 6, 5, '', 1711108404, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 1, 1, ''),
-(10, 1, 10, 4, 18, NULL, 1711319502, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, NULL);
+(10, 1, 10, 4, 18, NULL, 1711319502, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, NULL),
+(11, 4, 10, 5, 19, NULL, 1714559903, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, NULL),
+(12, 4, 19, 7, 20, '', 1710696765, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 1, NULL, 0, 1, ''),
+(13, 4, 19, 8, 20, '', 1710696950, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, ''),
+(14, 4, 19, 9, 20, '', 1711108404, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, ''),
+(15, 4, 27, 1, 20, '', 1714560315, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"c\":[{\"type\":\"group\",\"id\":1}],\"showc\":[false]}', 1, 1, ''),
+(16, 5, 10, 6, 33, NULL, 1714559903, 0, 0, 1, 1, 1, 0, 0, 0, NULL, 0, 0, 0, 0, NULL, 0, 1, NULL),
+(17, 5, 27, 2, 34, '', 1714560315, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"c\":[{\"type\":\"group\"}],\"showc\":[true]}', 0, 1, ''),
+(18, 4, 27, 3, 21, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"c\":[{\"type\":\"group\",\"id\":1}],\"showc\":[false]}', 0, 1, ''),
+(19, 4, 27, 4, 20, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(20, 4, 27, 5, 22, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(21, 4, 27, 6, 20, '', 1714643791, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, NULL, 1, 1, ''),
+(22, 4, 27, 7, 23, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(23, 4, 27, 8, 24, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(24, 4, 27, 9, 47, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(25, 4, 27, 10, 25, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(26, 4, 27, 11, 48, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(27, 4, 27, 12, 26, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(28, 4, 27, 13, 28, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(29, 4, 27, 14, 29, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(30, 4, 27, 15, 49, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(31, 4, 27, 16, 27, '', 1714643659, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"showc\":[false],\"c\":[{\"type\":\"group\",\"id\":1}]}', 0, 1, ''),
+(32, 4, 18, 1, 20, '', 1714644432, 0, 0, 1, 1, 1, 1, 0, 0, NULL, 0, 0, 0, 0, '{\"op\":\"&\",\"c\":[{\"type\":\"group\",\"id\":1}],\"showc\":[false]}', 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -11200,7 +11605,7 @@ CREATE TABLE IF NOT EXISTS `mdl_course_sections` (
   `timemodified` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_coursect_cousec_uix` (`course`,`section`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='to define the sections for each course' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='to define the sections for each course' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_course_sections`
@@ -11208,21 +11613,35 @@ CREATE TABLE IF NOT EXISTS `mdl_course_sections` (
 
 INSERT INTO `mdl_course_sections` (`id`, `course`, `section`, `name`, `summary`, `summaryformat`, `sequence`, `visible`, `availability`, `timemodified`) VALUES
 (1, 1, 1, '', '<p><img class=\"img-fluid align-middle\" role=\"presentation\" src=\"@@PLUGINFILE@@/logo%20inverted.png\" alt=\"\" width=\"4321\" height=\"512\"></p>', 1, '', 1, '{\"op\":\"&\",\"c\":[],\"showc\":[]}', 1710449873),
-(4, 3, 0, NULL, '', 1, '2,6', 1, NULL, 1711296856),
-(5, 3, 1, NULL, '', 1, '3,4,5,7,8,9', 1, NULL, 1711296857),
-(6, 3, 2, NULL, '', 1, '', 1, NULL, 1710696473),
-(7, 3, 3, NULL, '', 1, '', 1, NULL, 1710696473),
-(8, 3, 4, NULL, '', 1, '', 1, NULL, 1710696473),
-(9, 3, 5, NULL, '', 1, '', 1, NULL, 1710696473),
-(10, 3, 6, NULL, '', 1, '', 1, NULL, 1710696473),
-(11, 3, 7, NULL, '', 1, '', 1, NULL, 1710696473),
-(12, 3, 8, NULL, '', 1, '', 1, NULL, 1710696473),
-(13, 3, 9, NULL, '', 1, '', 1, NULL, 1710696473),
-(14, 3, 10, NULL, '', 1, '', 1, NULL, 1710696473),
-(15, 3, 11, NULL, '', 1, '', 1, NULL, 1710696473),
-(16, 3, 12, NULL, '', 1, '', 1, NULL, 1710696473),
-(17, 3, 13, NULL, '', 1, '', 1, NULL, 1710696473),
-(18, 1, 0, NULL, '', 1, '10', 1, NULL, 1711319502);
+(18, 1, 0, NULL, '', 1, '10', 1, NULL, 1711319502),
+(19, 4, 0, NULL, '', 1, '11', 1, NULL, 1711296856),
+(20, 4, 1, '1.	Icebreaker: Exploring Technology Together', '', 1, '12,13,14,15,19,21,32', 1, NULL, 1714646607),
+(21, 4, 2, 'Introduction to Programming and Robotics', '', 1, '18', 1, NULL, 1714646628),
+(22, 4, 5, 'Motion Exploration', '', 1, '20', 1, NULL, 1714646665),
+(23, 4, 6, 'The Science Behind Pattern Recognition', '', 1, '22', 1, NULL, 1714646680),
+(24, 4, 7, 'Building a Citizenship in the Digital Community', '', 1, '23', 1, NULL, 1714646703),
+(25, 4, 8, 'Solving Challenges in Practical Settings', '', 1, '25', 1, NULL, 1714646719),
+(26, 4, 10, 'Introduction to 2D and 3D Design', '', 1, '27', 1, NULL, 1714646752),
+(27, 4, 11, 'Customizable Robotics and Personalization', '', 1, '31', 1, NULL, 1714646771),
+(28, 4, 12, 'Precision and Self-Review', '', 1, '28', 1, NULL, 1714646783),
+(29, 4, 13, 'Innovative Workshop', '', 1, '29', 1, NULL, 1714646792),
+(33, 5, 0, NULL, '', 1, '16', 1, NULL, 1714567583),
+(34, 5, 1, NULL, '', 1, '17', 1, NULL, 1714567583),
+(35, 5, 2, NULL, '', 1, '', 1, NULL, 1710696473),
+(36, 5, 3, NULL, '', 1, '', 1, NULL, 1710696473),
+(37, 5, 4, NULL, '', 1, '', 1, NULL, 1710696473),
+(38, 5, 5, NULL, '', 1, '', 1, NULL, 1710696473),
+(39, 5, 6, NULL, '', 1, '', 1, NULL, 1710696473),
+(40, 5, 7, NULL, '', 1, '', 1, NULL, 1710696473),
+(41, 5, 8, NULL, '', 1, '', 1, NULL, 1710696473),
+(42, 5, 9, NULL, '', 1, '', 1, NULL, 1710696473),
+(43, 5, 10, NULL, '', 1, '', 1, NULL, 1710696473),
+(44, 5, 11, NULL, '', 1, '', 1, NULL, 1710696473),
+(45, 5, 12, NULL, '', 1, '', 1, NULL, 1710696473),
+(46, 5, 13, NULL, '', 1, '', 1, NULL, 1710696473),
+(47, 4, 3, 'Life on Land: Animals of the Ground', '', 1, '24', 1, NULL, 1714646644),
+(48, 4, 9, 'Space Exploration: \"To infinity and Beyond...\"', '', 1, '26', 1, NULL, 1714646738),
+(49, 4, 4, 'Thinking in Algorithms', '', 1, '30', 1, NULL, 1714646655);
 
 -- --------------------------------------------------------
 
@@ -11384,7 +11803,7 @@ CREATE TABLE IF NOT EXISTS `mdl_customfield_category` (
   PRIMARY KEY (`id`),
   KEY `mdl_custcate_comareitesor_ix` (`component`,`area`,`itemid`,`sortorder`),
   KEY `mdl_custcate_con_ix` (`contextid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='core_customfield category table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='core_customfield category table' ROW_FORMAT=COMPRESSED;
 
 -- --------------------------------------------------------
 
@@ -11661,16 +12080,15 @@ CREATE TABLE IF NOT EXISTS `mdl_enrol` (
   KEY `mdl_enro_enr_ix` (`enrol`),
   KEY `mdl_enro_cou_ix` (`courseid`),
   KEY `mdl_enro_rol_ix` (`roleid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Instances of enrolment plugins used in courses, fields marke' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Instances of enrolment plugins used in courses, fields marke' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_enrol`
 --
 
 INSERT INTO `mdl_enrol` (`id`, `enrol`, `status`, `courseid`, `sortorder`, `name`, `enrolperiod`, `enrolstartdate`, `enrolenddate`, `expirynotify`, `expirythreshold`, `notifyall`, `password`, `cost`, `currency`, `roleid`, `customint1`, `customint2`, `customint3`, `customint4`, `customint5`, `customint6`, `customint7`, `customint8`, `customchar1`, `customchar2`, `customchar3`, `customdec1`, `customdec2`, `customtext1`, `customtext2`, `customtext3`, `customtext4`, `timecreated`, `timemodified`) VALUES
-(4, 'manual', 0, 3, 0, NULL, 0, 0, 0, 0, 86400, 0, NULL, NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1710696473, 1710696473),
-(5, 'guest', 1, 3, 1, NULL, 0, 0, 0, 0, 0, 0, '', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1710696473, 1710696473),
-(6, 'self', 1, 3, 2, NULL, 0, 0, 0, 0, 86400, 0, NULL, NULL, NULL, 5, 0, 0, 0, 1, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1710696473, 1710696473);
+(7, 'manual', 0, 4, 0, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1714563318, 1714563318),
+(8, 'manual', 0, 5, 0, NULL, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1714567618, 1714567618);
 
 -- --------------------------------------------------------
 
@@ -12111,7 +12529,111 @@ CREATE TABLE IF NOT EXISTS `mdl_event` (
   KEY `mdl_even_modinseve_ix` (`modulename`,`instance`,`eventtype`),
   KEY `mdl_even_cat_ix` (`categoryid`),
   KEY `mdl_even_sub_ix` (`subscriptionid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='For everything with a time associated to it' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='For everything with a time associated to it' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_event`
+--
+
+INSERT INTO `mdl_event` (`id`, `name`, `description`, `format`, `categoryid`, `courseid`, `groupid`, `userid`, `repeatid`, `component`, `modulename`, `instance`, `type`, `eventtype`, `timestart`, `timeduration`, `timesort`, `visible`, `uuid`, `sequence`, `timemodified`, `subscriptionid`, `priority`, `location`) VALUES
+(9, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(10, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(11, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(12, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(13, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(14, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(15, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 1, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714643547, NULL, NULL, NULL),
+(16, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(17, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(18, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(19, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(20, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(21, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(22, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 3, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714643688, NULL, NULL, NULL),
+(23, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(24, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(25, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(26, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(27, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(28, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(29, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 4, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714643755, NULL, NULL, NULL),
+(30, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(31, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(32, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(33, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(34, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(35, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(36, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 5, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714643768, NULL, NULL, NULL),
+(37, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(38, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(39, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(40, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(41, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(42, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(43, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 7, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714643877, NULL, NULL, NULL),
+(44, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(45, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(46, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(47, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(48, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(49, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(50, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 8, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644044, NULL, NULL, NULL),
+(51, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(52, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(53, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(54, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(55, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(56, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(57, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 9, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644050, NULL, NULL, NULL),
+(58, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(59, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(60, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(61, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(62, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(63, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(64, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 10, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644059, NULL, NULL, NULL),
+(65, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(66, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(67, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(68, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(69, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(70, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(71, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 11, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644101, NULL, NULL, NULL),
+(79, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(80, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(81, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(82, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(83, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(84, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(85, 'Attendance (copy) (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 12, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644116, NULL, NULL, NULL),
+(86, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644186, NULL, NULL, NULL),
+(87, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644187, NULL, NULL, NULL),
+(88, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644187, NULL, NULL, NULL),
+(89, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644187, NULL, NULL, NULL),
+(90, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644187, NULL, NULL, NULL),
+(91, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644187, NULL, NULL, NULL),
+(92, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 13, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644187, NULL, NULL, NULL),
+(93, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(94, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(95, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(96, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(97, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(98, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(99, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 14, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644194, NULL, NULL, NULL),
+(100, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(101, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(102, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(103, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(104, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(105, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(106, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 15, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644201, NULL, NULL, NULL),
+(107, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1714809600, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL),
+(108, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1715414400, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL),
+(109, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1716019200, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL),
+(110, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1716624000, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL),
+(111, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1717228800, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL),
+(112, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1717833600, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL),
+(113, 'Attendance (Group Group A)', '', 1, 0, 4, 1, 2, 0, NULL, 'attendance', 16, 0, 'attendance', 1718438400, 7200, NULL, 1, '', 1, 1714644273, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -14062,7 +14584,7 @@ CREATE TABLE IF NOT EXISTS `mdl_files` (
   KEY `mdl_file_con2_ix` (`contextid`),
   KEY `mdl_file_use_ix` (`userid`),
   KEY `mdl_file_ref_ix` (`referencefileid`)
-) ENGINE=InnoDB AUTO_INCREMENT=486 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='description of files, content is stored in sha1 file pool' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=609 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='description of files, content is stored in sha1 file pool' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_files`
@@ -14099,28 +14621,20 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (32, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '4a93c09c25c1f757f7f9ef76c153e00a31a73417', 5, 'user', 'draft', 562868936, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710687419, 1710687419, 0, NULL),
 (33, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', 'e2b2db8f095db6f69a057fb378749bbad51a9e36', 5, 'user', 'draft', 599810943, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:30:\"Composition - 2nd Session.docx\";}', 'Marianne Arif', 'unknown', 1710696761, 1710696761, 0, NULL),
 (34, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '639910734582f01bdad430e6a92eae729389cd44', 5, 'user', 'draft', 599810943, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710696761, 1710696761, 0, NULL),
-(35, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '2da525a0ef873a18d0b4999e6c5fbd72643731cb', 35, 'mod_resource', 'content', 0, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'Composition - 2nd Session.docx', 'Marianne Arif', 'unknown', 1710696761, 1710696765, 1, NULL),
-(36, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f9b711848e5af4debb4ec9f3fbee3616718aa1a0', 35, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710696761, 1710696765, 0, NULL),
 (37, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '53e310efc8af12b6a7567828c1a80ca035505bbd', 5, 'user', 'draft', 807747112, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:30:\"Composition - 2nd Session.docx\";s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTozNTtzOjk6ImNvbXBvbmVudCI7czoxMjoibW9kX3Jlc291cmNlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6NzoiY29udGVudCI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjMwOiJDb21wb3NpdGlvbiAtIDJuZCBTZXNzaW9uLmRvY3giO30=\";}', 'Marianne Arif', 'unknown', 1710696761, 1710696765, 1, NULL),
 (38, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f8972408b0df2351b749d68bbac5d8f0b7fb0837', 5, 'user', 'draft', 807747112, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710696774, 1710696774, 0, NULL),
 (39, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', 'f5d83584b4c9e9bc2b63a782b671aa4c7fddc2a1', 5, 'user', 'draft', 985711635, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:30:\"Composition - 2nd Session.docx\";}', 'Marianne Arif', 'unknown', 1710696947, 1710696947, 0, NULL),
 (40, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '6b542de7eb12498a2f757373acd74bc99f8f19a3', 5, 'user', 'draft', 985711635, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710696947, 1710696947, 0, NULL),
-(41, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', 'aab834c99c04cab635adc253345002e2e1e41183', 36, 'mod_resource', 'content', 0, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'Composition - 2nd Session.docx', 'Marianne Arif', 'unknown', 1710696947, 1710696950, 1, NULL),
-(42, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '595d66548aabba44cf0649081088a55f002d5b14', 36, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710696947, 1710696950, 0, NULL),
 (43, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '9376e9ee8a929f612faa79a9490da9aa3759e2f4', 5, 'user', 'draft', 337692491, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:30:\"Composition - 2nd Session.docx\";s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTozNTtzOjk6ImNvbXBvbmVudCI7czoxMjoibW9kX3Jlc291cmNlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6NzoiY29udGVudCI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjMwOiJDb21wb3NpdGlvbiAtIDJuZCBTZXNzaW9uLmRvY3giO30=\";}', 'Marianne Arif', 'unknown', 1710696761, 1710696765, 1, NULL),
 (44, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '60c81a9c55d1949b4dae22b6a41b90528825874c', 5, 'user', 'draft', 337692491, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710696984, 1710696984, 0, NULL),
 (45, '0ac356cceaa8b9a4ecd265d6b48d1af91b190e9c', '697012cc6b7a71ae00e3cea33f98b495bf314568', 5, 'user', 'draft', 200545798, '/', 'auth_emailadmin_moodle40_2030110100.zip', 2, 28475, 'application/zip', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:39:\"auth_emailadmin_moodle40_2030110100.zip\";}', 'Marianne Arif', 'unknown', 1710707400, 1710707400, 0, NULL),
 (46, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '5cabd0c9ddeca5d9fdcf346be79c1687ee5a5a34', 5, 'user', 'draft', 200545798, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710707400, 1710707400, 0, NULL),
 (47, '0ac356cceaa8b9a4ecd265d6b48d1af91b190e9c', '289d830c70962b5a5e41fa06f312d947ab616c0d', 5, 'user', 'draft', 427445900, '/', 'auth_emailadmin_moodle40_2030110100.zip', 2, 28475, 'application/zip', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:39:\"auth_emailadmin_moodle40_2030110100.zip\";}', 'Marianne Arif', 'unknown', 1710800325, 1710800325, 0, NULL),
 (48, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f18976c9fb15695a579dc1b6f23912d7df9dde30', 5, 'user', 'draft', 427445900, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1710800330, 1710800330, 0, NULL),
-(51, '83f2e7d4bbd6ae97bc0b047b10e703ca04e39fc3', 'e1598de8565205ce649991c0c265b4d07867b42b', 3, 'tool_recyclebin', 'recyclebin_coursecat', 1, '/', 'backup.mbz', 2, 6175, 'application/vnd.moodle.backup', 0, NULL, NULL, NULL, 1711032076, 1711032076, 0, NULL),
-(52, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1ec7bd786ee92d291a6557512577c77e6a4b2463', 3, 'tool_recyclebin', 'recyclebin_coursecat', 1, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711032076, 1711032076, 0, NULL),
 (53, '5f409560f06fce76b439b228819cec31796804f9', 'f7ddde3ac9a37f7f909fcb44dd769ea163e3eb81', 5, 'user', 'draft', 244006652, '/', 'tool_pluginskel_moodle41_2023020800.zip', 2, 521358, 'application/zip', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:39:\"tool_pluginskel_moodle41_2023020800.zip\";}', 'Marianne Arif', 'unknown', 1711104515, 1711104515, 0, NULL),
 (54, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '0d918b45e61030ef9803b8f21f734d6df445be53', 5, 'user', 'draft', 244006652, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711104516, 1711104516, 0, NULL),
 (55, '546ea79b8ed41ab74c4a9f1262bc837db47aae73', '7e98dac10ba58ae73a728b34b14ecb5971800309', 5, 'user', 'draft', 562120039, '/', 'Session 1.pptx', 2, 69164483, 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:14:\"Session 1.pptx\";}', 'Marianne Arif', 'unknown', 1711108221, 1711108221, 0, NULL),
 (56, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7422149c12efc20248e2899df6053cc00279112f', 5, 'user', 'draft', 562120039, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711108223, 1711108223, 0, NULL),
-(57, '546ea79b8ed41ab74c4a9f1262bc837db47aae73', '014e2dc7f932213b223b3d69f7538f3da28c51b4', 38, 'mod_resource', 'content', 0, '/', 'Session 1.pptx', 2, 69164483, 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 0, 'Session 1.pptx', 'Marianne Arif', 'unknown', 1711108221, 1711108404, 1, NULL),
-(58, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'a21179f5a97fbf263e02c755ef1a3a4307e2d3e2', 38, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711108223, 1711108413, 0, NULL),
 (59, '546ea79b8ed41ab74c4a9f1262bc837db47aae73', '05dfdf5c10b8f4cadd4cc625d3021cf834e779da', 5, 'user', 'draft', 282379397, '/', 'Session 1.pptx', 2, 69164483, 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:14:\"Session 1.pptx\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTozODtzOjk6ImNvbXBvbmVudCI7czoxMjoibW9kX3Jlc291cmNlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6NzoiY29udGVudCI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjE0OiJTZXNzaW9uIDEucHB0eCI7fQ==\";}', 'Marianne Arif', 'unknown', 1711108221, 1711108404, 1, NULL),
 (60, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '6f5349ad8aabb2f017260f073a7123721b4b36fd', 5, 'user', 'draft', 282379397, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711108413, 1711108413, 0, NULL),
 (61, '5f3b576ff07d96a4485354fd5c90b77eb08956c2', 'b36008ea61e5f9d973f5280f35d9f76dd3c56369', 5, 'user', 'draft', 795978079, '/', 'block_openai_chat_moodle43_2024021400.zip', 2, 50052, 'application/zip', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:41:\"block_openai_chat_moodle43_2024021400.zip\";}', 'Marianne Arif', 'unknown', 1711279638, 1711279638, 0, NULL),
@@ -14140,12 +14654,6 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (75, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ecdfa24caf98833132df9261aad4d517ded65988', 5, 'user', 'draft', 776848793, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711294778, 1711294778, 0, NULL),
 (76, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', 'eebf6419be6d82d86fa4e50a9876975cce2a05d0', 5, 'user', 'draft', 145162439, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:220:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjE0OiJtb2RfY3VzdG9tY2VydCI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjU6ImltYWdlIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTE6ImhleGxvZ28ucG5nIjt9\";}', 'Marianne Arif', 'unknown', 1711294627, 1711294631, 0, NULL),
 (77, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f1b18f221db9ecc85cda3120efe2f06e38d45cb6', 5, 'user', 'draft', 145162439, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711294781, 1711294781, 0, NULL),
-(78, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '5cb4a3b86dbbcf03d9bb09b362e1a18e9607463c', 45, 'mod_resource', 'content', 0, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'Composition - 2nd Session.docx', 'Marianne Arif', 'unknown', 1711296857, 1711296857, 1, NULL),
-(79, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '374707e9b669e1736adb495bd368f8002cec4d8e', 45, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711296857, 1711296857, 0, NULL),
-(80, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '3cf3fee0976441af5fada3971a499c7d731396a1', 46, 'mod_resource', 'content', 0, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'Composition - 2nd Session.docx', 'Marianne Arif', 'unknown', 1711296857, 1711296857, 1, NULL),
-(81, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7163fc595c3f340ee8cb9c394a7c2de54074021a', 46, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711296857, 1711296857, 0, NULL),
-(82, '546ea79b8ed41ab74c4a9f1262bc837db47aae73', '2c6ac7b50aa0df1fab9d7406f3459ca5a96865dd', 47, 'mod_resource', 'content', 0, '/', 'Session 1.pptx', 2, 69164483, 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 0, 'Session 1.pptx', 'Marianne Arif', 'unknown', 1711296857, 1711296857, 1, NULL),
-(83, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '37ec460b70fb637966e30a6841af53994b9d61ee', 47, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711296857, 1711296857, 0, NULL),
 (84, '911e2946af5fe65c731960cee1b9bbb305faf783', '79fb7d792f096e280625b0e37c3ce0495e7e60f1', 5, 'user', 'draft', 432676734, '/', 'enrol_coursecompleted_moodle43_2024032400.zip', 2, 68484, 'application/zip', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:45:\"enrol_coursecompleted_moodle43_2024032400.zip\";}', 'Marianne Arif', 'unknown', 1711374197, 1711374197, 0, NULL),
 (85, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '5b16dd522e69f9ab1cf707735e3b6194cfc4de31', 5, 'user', 'draft', 432676734, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711374197, 1711374197, 0, NULL),
 (86, 'de0827632d20bcdeb1fb1e125658104cc29059a2', '28bbd6a9574bb7495eda77b01cac94c85e774a52', 5, 'user', 'draft', 92100013, '/', 'mod_attendanceregister_moodle41_2023050402.zip', 2, 80185, 'application/zip', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:46:\"mod_attendanceregister_moodle41_2023050402.zip\";}', 'Marianne Arif', 'unknown', 1711374588, 1711374588, 0, NULL),
@@ -14231,8 +14739,7 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (166, '5788ad09c89b6d5b13700f8480f5d77b9e502a39', '3541171b8c204bb99eda0300caabd5f0e510c819', 5, 'user', 'draft', 478359958, '/', 'slide.svg', 2, 292, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzYiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo5OiJzbGlkZS5zdmciO30=\";}', NULL, NULL, 1711375190, 1711375190, 0, NULL),
 (167, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ad3fb433c3cf30418f04ba9d5b4dcb4f25b566e6', 5, 'user', 'draft', 478359958, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552357, 1711552357, 0, NULL),
 (168, 'aa33be74913bcee81c3379ff4f0e15a7e177fc94', '741b881b65d69dc93c80aa66c32efadeb08cc8f4', 5, 'user', 'draft', 364111214, '/', 'support.svg', 2, 637, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:244:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzciO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToic3VwcG9ydC5zdmciO30=\";}', NULL, NULL, 1711375190, 1711375190, 0, NULL),
-(169, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '35537dec3210f76de4ee04ceb24d5470748e20f1', 5, 'user', 'draft', 364111214, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552357, 1711552357, 0, NULL);
-INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `component`, `filearea`, `itemid`, `filepath`, `filename`, `userid`, `filesize`, `mimetype`, `status`, `source`, `author`, `license`, `timecreated`, `timemodified`, `sortorder`, `referencefileid`) VALUES
+(169, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '35537dec3210f76de4ee04ceb24d5470748e20f1', 5, 'user', 'draft', 364111214, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552357, 1711552357, 0, NULL),
 (170, 'c1369ab0de85916e0d102a167393e03a024bc1b3', '8f06f2e62e457d2b9d3affad4bab1b77bdabc1d1', 5, 'user', 'draft', 294326587, '/', 'download.svg', 2, 405, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:244:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzgiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMjoiZG93bmxvYWQuc3ZnIjt9\";}', NULL, NULL, 1711375190, 1711375190, 0, NULL),
 (171, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'e84e042984bd58892b42daaffe93ff378d1b0f97', 5, 'user', 'draft', 294326587, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552357, 1711552357, 0, NULL),
 (172, 'f1961b581b171b50dae7f4d747d066be1b76fb7d', '7bd5feff48b36714f5d62f272e3f5a146a0f3228', 5, 'user', 'draft', 135417822, '/', 'audio_file.svg', 2, 276, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzEiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNDoiYXVkaW9fZmlsZS5zdmciO30=\";}', NULL, NULL, 1711375188, 1711375188, 0, NULL),
@@ -14243,7 +14750,8 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (177, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '35de34d6bbcc1439a66132a94b98722d02510796', 5, 'user', 'draft', 686460992, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552438, 1711552438, 0, NULL),
 (178, '73484cc247330ed154033cc723e357fdb0021d64', '201fcfbbdbe8d57ef451c7b41e2f6e240aa196fe', 5, 'user', 'draft', 167505559, '/', 'game.svg', 2, 697, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzQiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo4OiJnYW1lLnN2ZyI7fQ==\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
 (179, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '50d16b304a26b9bdb2d7a78c88fb283938bc839f', 5, 'user', 'draft', 167505559, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552438, 1711552438, 0, NULL),
-(180, '64ee8cfc5ddaab4c08c530ef156758efa94854b7', '2341d01a0abe75bc083f7a183645e2e087856853', 5, 'user', 'draft', 385659135, '/', 'money.svg', 2, 769, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzUiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo5OiJtb25leS5zdmciO30=\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
+(180, '64ee8cfc5ddaab4c08c530ef156758efa94854b7', '2341d01a0abe75bc083f7a183645e2e087856853', 5, 'user', 'draft', 385659135, '/', 'money.svg', 2, 769, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzUiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo5OiJtb25leS5zdmciO30=\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL);
+INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `component`, `filearea`, `itemid`, `filepath`, `filename`, `userid`, `filesize`, `mimetype`, `status`, `source`, `author`, `license`, `timecreated`, `timemodified`, `sortorder`, `referencefileid`) VALUES
 (181, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '784555d8623e9b11bfe138b6d53c50afed7b8302', 5, 'user', 'draft', 385659135, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552438, 1711552438, 0, NULL),
 (182, '5788ad09c89b6d5b13700f8480f5d77b9e502a39', '29fcc107b97e9855975a76d9df1dc8aba78712e9', 5, 'user', 'draft', 948325051, '/', 'slide.svg', 2, 292, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzYiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo5OiJzbGlkZS5zdmciO30=\";}', NULL, NULL, 1711375190, 1711375190, 0, NULL),
 (183, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f0e3be7e69c4f8b7342167aee78ee95be40d872a', 5, 'user', 'draft', 948325051, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711552438, 1711552438, 0, NULL),
@@ -14368,8 +14876,7 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (302, '3ebf0237826cc11349dfc5952e2f8530b4ad9938', '58334feaf8db645b46e3b05698b279fa3139c208', 5, 'user', 'draft', 933498786, '/', 'video_file.svg', 2, 290, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzIiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNDoidmlkZW9fZmlsZS5zdmciO30=\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
 (303, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '51638db1d104d4860698b5af49f5a168ca7dd2a5', 5, 'user', 'draft', 933498786, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553157, 1711553157, 0, NULL),
 (304, 'cf3291283562ea854aa62d9119349cc5b2e9acc4', '6a5e36361efcc9d99af777442bf67cc46b1c68fd', 5, 'user', 'draft', 427009527, '/', 'book.svg', 2, 487, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzMiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo4OiJib29rLnN2ZyI7fQ==\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
-(305, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '886abae29fe6f0eb2fe8148d13d8bbe9602a9335', 5, 'user', 'draft', 427009527, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553157, 1711553157, 0, NULL);
-INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `component`, `filearea`, `itemid`, `filepath`, `filename`, `userid`, `filesize`, `mimetype`, `status`, `source`, `author`, `license`, `timecreated`, `timemodified`, `sortorder`, `referencefileid`) VALUES
+(305, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '886abae29fe6f0eb2fe8148d13d8bbe9602a9335', 5, 'user', 'draft', 427009527, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553157, 1711553157, 0, NULL),
 (306, '73484cc247330ed154033cc723e357fdb0021d64', '70561d938e511f17438ba8cb77464cb3c3851bf8', 5, 'user', 'draft', 740861140, '/', 'game.svg', 2, 697, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzQiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo4OiJnYW1lLnN2ZyI7fQ==\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
 (307, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'a375da7670991907c00b91759a313e4afb8824fb', 5, 'user', 'draft', 740861140, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553157, 1711553157, 0, NULL),
 (308, '64ee8cfc5ddaab4c08c530ef156758efa94854b7', '479f5ed886011c09c3a705ac055bb8d533cfa042', 5, 'user', 'draft', 89051114, '/', 'money.svg', 2, 769, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:240:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzUiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czo5OiJtb25leS5zdmciO30=\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
@@ -14380,7 +14887,8 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (313, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ec3ace257f93770ce44254e5a395c700b84eaaad', 5, 'user', 'draft', 524380207, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553157, 1711553157, 0, NULL),
 (314, 'c1369ab0de85916e0d102a167393e03a024bc1b3', '84f92d1bbde13267e4b80b4944111ecbfb84db5e', 5, 'user', 'draft', 241250721, '/', 'download.svg', 2, 405, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:244:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzgiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMjoiZG93bmxvYWQuc3ZnIjt9\";}', NULL, NULL, 1711375190, 1711375190, 0, NULL),
 (315, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1d7f0c9c538aba3b49e5f5faa4510f7ba7a057a7', 5, 'user', 'draft', 241250721, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553157, 1711553157, 0, NULL),
-(316, 'f1961b581b171b50dae7f4d747d066be1b76fb7d', '9f50c7e131842b9060c55034f251775f28e8f351', 5, 'user', 'draft', 290776342, '/', 'audio_file.svg', 2, 276, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzEiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNDoiYXVkaW9fZmlsZS5zdmciO30=\";}', NULL, NULL, 1711375188, 1711375188, 0, NULL),
+(316, 'f1961b581b171b50dae7f4d747d066be1b76fb7d', '9f50c7e131842b9060c55034f251775f28e8f351', 5, 'user', 'draft', 290776342, '/', 'audio_file.svg', 2, 276, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzEiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNDoiYXVkaW9fZmlsZS5zdmciO30=\";}', NULL, NULL, 1711375188, 1711375188, 0, NULL);
+INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `component`, `filearea`, `itemid`, `filepath`, `filename`, `userid`, `filesize`, `mimetype`, `status`, `source`, `author`, `license`, `timecreated`, `timemodified`, `sortorder`, `referencefileid`) VALUES
 (317, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '813edf4032e04f53409183171b38a920559738ed', 5, 'user', 'draft', 290776342, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553177, 1711553177, 0, NULL),
 (318, '3ebf0237826cc11349dfc5952e2f8530b4ad9938', 'e3a87d473d47c04e8a940d9736a74560b16d5608', 5, 'user', 'draft', 583484303, '/', 'video_file.svg', 2, 290, 'image/svg+xml', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";N;s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjEzOiJ0aGVtZV9kZWdyYWRlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6MjI6InNldHRpbmdzX2ljb25zX2ltYWdlXzIiO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNDoidmlkZW9fZmlsZS5zdmciO30=\";}', NULL, NULL, 1711375189, 1711375189, 0, NULL),
 (319, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '465eaed3e9d0b2f4b00bb476b934061addbff2b5', 5, 'user', 'draft', 583484303, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711553177, 1711553177, 0, NULL),
@@ -14400,7 +14908,7 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (333, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '0d842413a8e4f4cb5855f1295ab79a8d48fcdd45', 5, 'user', 'draft', 33769194, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711559107, 1711559107, 0, NULL),
 (334, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', 'a277bdc42e1d0789b8c00c99bb2b68d1af96330c', 5, 'user', 'draft', 400455137, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:11:\"hexlogo.png\";}', 'Marianne Arif', 'unknown', 1711559928, 1711559928, 0, NULL),
 (335, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '473b7f5046d55acb2d306d10bc85cddd3aaeffef', 5, 'user', 'draft', 400455137, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711559928, 1711559928, 0, NULL),
-(337, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7d2d3bd28ea1be627ad966d2fc0a8bc480355609', 1, 'theme_moove', 'logo', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711559928, 1714558463, 0, NULL),
+(337, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7d2d3bd28ea1be627ad966d2fc0a8bc480355609', 1, 'theme_moove', 'logo', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711559928, 1714570820, 0, NULL),
 (338, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '1981e9c71627be4bdcc712eaceb83a4f389110e9', 5, 'user', 'draft', 53797656, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1711559928, 1711559946, 0, NULL),
 (339, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '0ac62dd383dd817225f0f585c1136df5b7df9b3d', 5, 'user', 'draft', 53797656, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711559947, 1711559947, 0, NULL),
 (340, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '997f1ae535f070ee1abf6593beba9db7ff2158e5', 5, 'user', 'draft', 789590923, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1711559928, 1711559946, 0, NULL),
@@ -14414,8 +14922,6 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (348, '49d1654c995f9d5e293af9c10f83d757b5219bd8', '153237a39d72a089a5bbf1c30f3899b4fe07cfa2', 5, 'user', 'draft', 868365873, '/', 'web.jpg', 2, 105090, 'image/jpeg', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:7:\"web.jpg\";}', 'Marianne Arif', 'unknown', 1711560525, 1711560525, 0, NULL),
 (349, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '51f5a07bb231721005a46b1471bdaf64fb3ec9c6', 5, 'user', 'draft', 868365873, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711560525, 1711560525, 0, NULL),
 (350, '52c06889b742ff3cc5b00bd0f56ce43546e123b6', 'ae2573fe69aec4e6c1e9de7a27698d4ee1d90c75', 1, 'core', 'preview', 0, '/thumb/', '49d1654c995f9d5e293af9c10f83d757b5219bd8', NULL, 13467, 'image/png', 0, NULL, NULL, NULL, 1711560526, 1711560526, 0, NULL),
-(351, '49d1654c995f9d5e293af9c10f83d757b5219bd8', '000d22bde122672b55b715f62ac06c4793805fa8', 33, 'course', 'overviewfiles', 0, '/', 'web.jpg', 2, 105090, 'image/jpeg', 0, 'web.jpg', 'Marianne Arif', 'unknown', 1711560525, 1711560546, 0, NULL),
-(352, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'a508a842d8be42e0d3eb6a0edebc34767653180e', 33, 'course', 'overviewfiles', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711560525, 1711560603, 0, NULL),
 (353, '49d1654c995f9d5e293af9c10f83d757b5219bd8', '7df53cf9331585ae7623d3c118352475bcf08efb', 5, 'user', 'draft', 834284707, '/', 'web.jpg', 2, 105090, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"web.jpg\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTozMztzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6IndlYi5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1711560525, 1711560546, 0, NULL),
 (354, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '9a7ec758264f8c348ddd3d7bdb7a48d73b2fa6d3', 5, 'user', 'draft', 834284707, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1711560603, 1711560603, 0, NULL),
 (355, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', 'f53949b37dd90c225dd2a34e4678b94c284dbbaa', 5, 'user', 'draft', 196005898, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1711559928, 1711559946, 0, NULL),
@@ -14428,7 +14934,7 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (364, 'f53e54b2b1db72255b86de019c15efd3c35169e5', '07f2cdeee459a536b3c07049c6b110a23c673c84', 1, 'core', 'preview', 0, '/thumb/', 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', NULL, 515, 'image/png', 0, NULL, NULL, NULL, 1714557582, 1714557582, 0, NULL),
 (365, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '92d1ab4e51ce80dad6251d1b2fc62ddfe77d3d43', 5, 'user', 'draft', 994373394, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:11:\"hexlogo.png\";}', 'Marianne Arif', 'unknown', 1714557604, 1714557604, 0, NULL),
 (367, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '014de1bd97294d5b3aa763bfe644930f92701fe7', 1, 'theme_moove', 'loginbgimg', 0, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'Artboard.jpg', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
-(368, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '253db534e9a1a7082782e0cda8a86406a72a4f53', 1, 'theme_moove', 'loginbgimg', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557581, 1714558463, 0, NULL),
+(368, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '253db534e9a1a7082782e0cda8a86406a72a4f53', 1, 'theme_moove', 'loginbgimg', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557581, 1714570820, 0, NULL),
 (369, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '9498fb243cb60d2e854346652eab1382acfedff3', 5, 'user', 'draft', 445739510, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714557604, 1714557609, 0, NULL),
 (370, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '292fe56152926a0a67f2792202d9c932d3e2aa0b', 5, 'user', 'draft', 445739510, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557614, 1714557614, 0, NULL),
 (371, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '79eba6d123bb4f28fe30f0085e8e9919209a82de', 5, 'user', 'draft', 662803293, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
@@ -14450,13 +14956,13 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (387, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '8d1fa81fd36528988cb036c794c2a805687aa10e', 5, 'user', 'draft', 701948048, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557970, 1714557970, 0, NULL),
 (388, '49573568088faa12be682cdd604e019d3e0dd7d5', 'fdf6cf8cf9606967136ea51b7083dfcd093de566', 1, 'core', 'preview', 0, '/thumb/', 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', NULL, 11446, 'image/png', 0, NULL, NULL, NULL, 1714557970, 1714557970, 0, NULL),
 (389, 'cc5242a1650cc83248de69fddc9529475aabe623', '3deab43759d9613c77f0dda1168f315f9c16abb7', 1, 'theme_moove', 'marketing1icon', 0, '/', 'mtiny.jpg', 2, 73705, 'image/jpeg', 0, 'mtiny.jpg', 'Marianne Arif', 'unknown', 1714557722, 1714558010, 0, NULL),
-(390, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '4bcc8ef34a6a816138e212c0778986dcae163745', 1, 'theme_moove', 'marketing1icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557722, 1714558463, 0, NULL),
+(390, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '4bcc8ef34a6a816138e212c0778986dcae163745', 1, 'theme_moove', 'marketing1icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557722, 1714570820, 0, NULL),
 (391, '79d7280bbc9d6228820b339f82eea6a3be69f6c9', '66817b6f1da10399e937573ad272a26992cdfb70', 1, 'theme_moove', 'marketing2icon', 0, '/', 'wedo.jpg', 2, 182557, 'image/jpeg', 0, 'wedo.jpg', 'Marianne Arif', 'unknown', 1714557895, 1714558010, 0, NULL),
-(392, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '10de8bf91282f407300626f5d80e27f3322c08b3', 1, 'theme_moove', 'marketing2icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557895, 1714558463, 0, NULL),
+(392, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '10de8bf91282f407300626f5d80e27f3322c08b3', 1, 'theme_moove', 'marketing2icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557895, 1714570820, 0, NULL),
 (393, '9cef01f122231dd24beffb43841a8d7ebfedda77', 'dc72f4ab14559f93d5347ac3d373b1ed510b6299', 1, 'theme_moove', 'marketing3icon', 0, '/', 'ev3.jpg', 2, 51744, 'image/jpeg', 0, 'ev3.jpg', 'Marianne Arif', 'unknown', 1714557929, 1714558010, 0, NULL),
-(394, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7ea397b4fc2e856eb163a731610102585030aaf5', 1, 'theme_moove', 'marketing3icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557929, 1714558463, 0, NULL),
+(394, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7ea397b4fc2e856eb163a731610102585030aaf5', 1, 'theme_moove', 'marketing3icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557929, 1714570820, 0, NULL),
 (395, 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', '350cee831e5e87d6c0d36d1ad89c1793fbecf942', 1, 'theme_moove', 'marketing4icon', 0, '/', 'mblock.jpg', 2, 186921, 'image/jpeg', 0, 'mblock.jpg', 'Marianne Arif', 'unknown', 1714557970, 1714558011, 0, NULL),
-(396, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'eed03df17118b346dbd60d07cbf5b5bdc9af7232', 1, 'theme_moove', 'marketing4icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557970, 1714558463, 0, NULL),
+(396, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'eed03df17118b346dbd60d07cbf5b5bdc9af7232', 1, 'theme_moove', 'marketing4icon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714557970, 1714570820, 0, NULL),
 (397, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '5012a97ad1fd5df6d4df38fbe9fd16c13a5fa579', 5, 'user', 'draft', 887633483, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714557604, 1714557609, 0, NULL),
 (398, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '19775122e331bd5f570c4a2b30b39bde3e5c1d87', 5, 'user', 'draft', 887633483, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558012, 1714558012, 0, NULL),
 (399, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '45caad406c00c68656608a8db666b89b1d431d56', 5, 'user', 'draft', 78227528, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
@@ -14502,7 +15008,6 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (440, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '8a8c4ac37b875674940e29cc6105e793ccab7be3', 5, 'user', 'draft', 95913841, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558399, 1714558399, 0, NULL),
 (441, '5478a2bf9de5df3f61f3df0b2cf40fd2a279efbb', '5248e25b54cc86e9bcdd265fd5b5243d1e4335ac', 5, 'user', 'draft', 877326453, '/', 'logo inverted.png', 2, 91373, 'image/png', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:17:\"logo inverted.png\";}', 'Marianne Arif', 'unknown', 1714558409, 1714558409, 0, NULL),
 (442, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'aa40e6caf7f537ee238a49dce2f2488f0f597bf1', 5, 'user', 'draft', 877326453, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558409, 1714558409, 0, NULL),
-(443, '5478a2bf9de5df3f61f3df0b2cf40fd2a279efbb', '0fa444e4113477087f971104b43b9f1faf3a4761', 1, 'theme_moove', 'logo', 0, '/', 'logo inverted.png', 2, 91373, 'image/png', 0, 'logo inverted.png', 'Marianne Arif', 'unknown', 1714558409, 1714558413, 0, NULL),
 (444, '5478a2bf9de5df3f61f3df0b2cf40fd2a279efbb', '2305e6e6c0ee8b51a7cfcc94a3fe9ec4393bd683', 5, 'user', 'draft', 748259835, '/', 'logo inverted.png', 2, 91373, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:17:\"logo inverted.png\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNzoibG9nbyBpbnZlcnRlZC5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714558409, 1714558413, 0, NULL),
 (445, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '973ab46afd45317e1ac51d86064174776d2b4921', 5, 'user', 'draft', 748259835, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558414, 1714558414, 0, NULL),
 (446, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '4b58cc4d2ab40bd601a4af4a4e45a63257681f2a', 5, 'user', 'draft', 368486173, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
@@ -14518,8 +15023,7 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (456, '5478a2bf9de5df3f61f3df0b2cf40fd2a279efbb', '449ab05c852055440a8926caa900a29744d0e435', 5, 'user', 'draft', 362719592, '/', 'logo inverted.png', 2, 91373, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:17:\"logo inverted.png\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNzoibG9nbyBpbnZlcnRlZC5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714558409, 1714558413, 0, NULL),
 (457, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f924fe8bb26a05737c314e3b4f76f57bf0f1eeb1', 5, 'user', 'draft', 362719592, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558463, 1714558463, 0, NULL),
 (458, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '6da59424eaa016162f31f101932a035298d453f2', 5, 'user', 'draft', 974112310, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
-(459, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '24f3838076922333061298ee9a4f7bd19131b0a5', 5, 'user', 'draft', 974112310, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558463, 1714558463, 0, NULL);
-INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `component`, `filearea`, `itemid`, `filepath`, `filename`, `userid`, `filesize`, `mimetype`, `status`, `source`, `author`, `license`, `timecreated`, `timemodified`, `sortorder`, `referencefileid`) VALUES
+(459, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '24f3838076922333061298ee9a4f7bd19131b0a5', 5, 'user', 'draft', 974112310, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558463, 1714558463, 0, NULL),
 (460, 'cc5242a1650cc83248de69fddc9529475aabe623', '2c745ab82902fbde520e302a22986db44ca7c95b', 5, 'user', 'draft', 378415456, '/', 'mtiny.jpg', 2, 73705, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:9:\"mtiny.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcxaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjk6Im10aW55LmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557722, 1714558010, 0, NULL),
 (461, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'a53d0115e13c41995fa54dfe6e473b1cccb61f9a', 5, 'user', 'draft', 378415456, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558463, 1714558463, 0, NULL),
 (462, '79d7280bbc9d6228820b339f82eea6a3be69f6c9', '76804d340e46983ba19c5aaee90ba5a8f5cb8d0e', 5, 'user', 'draft', 768535808, '/', 'wedo.jpg', 2, 182557, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:8:\"wedo.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcyaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjg6IndlZG8uanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557895, 1714558010, 0, NULL),
@@ -14531,9 +15035,10 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (468, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', 'd0c42c794c042b1203305b246bdab135f3aec58a', 5, 'user', 'draft', 338326899, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:11:\"favicon.ico\";}', 'Marianne Arif', 'unknown', 1714558686, 1714558686, 0, NULL),
 (469, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ac62e616c317f6cafe6a8dc31a7a6fc783a48e3f', 5, 'user', 'draft', 338326899, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558686, 1714558686, 0, NULL),
 (470, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', 'dbb5ee1384219ef9fcbd0e55380fccee274b4214', 1, 'theme_moove', 'favicon', 0, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'favicon.ico', 'Marianne Arif', 'unknown', 1714558686, 1714558689, 0, NULL),
-(471, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'b8a9db73fbfd9447288cdeed4cf892ef804907d1', 1, 'theme_moove', 'favicon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558686, 1714558689, 0, NULL),
+(471, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'b8a9db73fbfd9447288cdeed4cf892ef804907d1', 1, 'theme_moove', 'favicon', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558686, 1714570820, 0, NULL),
 (472, '5478a2bf9de5df3f61f3df0b2cf40fd2a279efbb', 'cf66dd16106914f071b399d2e5f1d2ae6a0f60d5', 5, 'user', 'draft', 878581481, '/', 'logo inverted.png', 2, 91373, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:17:\"logo inverted.png\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxNzoibG9nbyBpbnZlcnRlZC5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714558409, 1714558413, 0, NULL),
-(473, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'e479d8a88e748727afbe89ab4841a57378361feb', 5, 'user', 'draft', 878581481, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558691, 1714558691, 0, NULL),
+(473, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'e479d8a88e748727afbe89ab4841a57378361feb', 5, 'user', 'draft', 878581481, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558691, 1714558691, 0, NULL);
+INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `component`, `filearea`, `itemid`, `filepath`, `filename`, `userid`, `filesize`, `mimetype`, `status`, `source`, `author`, `license`, `timecreated`, `timemodified`, `sortorder`, `referencefileid`) VALUES
 (474, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', '1bf6508162f06305e55162936f222082385a50d6', 5, 'user', 'draft', 651950306, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"favicon.ico\";s:8:\"original\";s:220:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjc6ImZhdmljb24iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiZmF2aWNvbi5pY28iO30=\";}', 'Marianne Arif', 'unknown', 1714558686, 1714558689, 0, NULL),
 (475, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'edc51b061fedefc6926bcb83f3734053e6ead4b1', 5, 'user', 'draft', 651950306, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558691, 1714558691, 0, NULL),
 (476, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '77fc8b9e091de02f4f213b667c9569cddf11c88e', 5, 'user', 'draft', 815885897, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
@@ -14545,7 +15050,125 @@ INSERT INTO `mdl_files` (`id`, `contenthash`, `pathnamehash`, `contextid`, `comp
 (482, '9cef01f122231dd24beffb43841a8d7ebfedda77', 'cc1b10d7b805f5a8d4f9f81ad9569754aee47526', 5, 'user', 'draft', 282084285, '/', 'ev3.jpg', 2, 51744, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"ev3.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmczaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6ImV2My5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714557929, 1714558010, 0, NULL),
 (483, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '8a8758df4ff3b4ea33990e71172b04300a2b7833', 5, 'user', 'draft', 282084285, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558691, 1714558691, 0, NULL),
 (484, 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', '50829b75016582eb1fc1b42cf1db9637378cfbf1', 5, 'user', 'draft', 267654249, '/', 'mblock.jpg', 2, 186921, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:10:\"mblock.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmc0aWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEwOiJtYmxvY2suanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557970, 1714558011, 0, NULL),
-(485, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '803eefa2d5cb877035265e4840c866550817c033', 5, 'user', 'draft', 267654249, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558691, 1714558691, 0, NULL);
+(485, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '803eefa2d5cb877035265e4840c866550817c033', 5, 'user', 'draft', 267654249, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714558691, 1714558691, 0, NULL),
+(486, 'cf89aa3175179408ddceb2b96480431ba0b5693e', 'cbf2ad16fa6f61b3f0d79e91ad902fc828916470', 5, 'user', 'draft', 983830089, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:12:\"IMG_1720.jpg\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559886, 0, NULL),
+(487, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '0d0890f4634a44cfb1465170a4e47a165ab7f314', 5, 'user', 'draft', 983830089, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559886, 1714559886, 0, NULL),
+(488, 'dcb4b9be8baf6e97da5a7aced551f75d1ff265cd', '34d2fa03980f5ab222b3d99462f4adbb7db7efcb', 1, 'core', 'preview', 0, '/thumb/', 'cf89aa3175179408ddceb2b96480431ba0b5693e', NULL, 12655, 'image/png', 0, NULL, NULL, NULL, 1714559889, 1714559889, 0, NULL),
+(489, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '373226428ba17096125ac8b034dc5955458fcee0', 69, 'course', 'overviewfiles', 0, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'IMG_1720.jpg', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(490, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'cf556b217e38edc51c37a34cdd1f5f6d769f4880', 69, 'course', 'overviewfiles', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559886, 1714643143, 0, NULL),
+(491, '49d1654c995f9d5e293af9c10f83d757b5219bd8', '916e9832e784ee2e944ab2f7c3fb00c1c3e91332', 5, 'user', 'draft', 950389513, '/', 'web.jpg', 2, 105090, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"web.jpg\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTozMztzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6IndlYi5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1711560525, 1711560546, 0, NULL),
+(492, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'da9e891ce687b57cd8cf197dd40d61d117bb9ee7', 5, 'user', 'draft', 950389513, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559925, 1714559925, 0, NULL),
+(493, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '17f0529072c3d2f890461ab33f4215d10f71c382', 5, 'user', 'draft', 99220645, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(494, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'b831020eefc19761213c3d3fd46935b192c421ef', 5, 'user', 'draft', 99220645, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559953, 1714559953, 0, NULL),
+(495, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '7bbe96d9fe6ba95bbcf6e53e44b0b2582cab9679', 71, 'mod_resource', 'content', 0, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'Composition - 2nd Session.docx', 'Marianne Arif', 'unknown', 1714559997, 1714559997, 1, NULL),
+(496, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f01ca45bc39a835087384fddccffeaa9db4f9e91', 71, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559997, 1714559997, 0, NULL),
+(497, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '425e011ad12b885c0a00e035741e21ec2ecd2ee2', 72, 'mod_resource', 'content', 0, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'Composition - 2nd Session.docx', 'Marianne Arif', 'unknown', 1714559997, 1714559997, 1, NULL),
+(498, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ad8b77c5764d08721b068f2121b2a4bf0d497fd9', 72, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559997, 1714559997, 0, NULL),
+(499, '546ea79b8ed41ab74c4a9f1262bc837db47aae73', '41b460f600e18183fceeb4c5c7bc7e571630b555', 73, 'mod_resource', 'content', 0, '/', 'Session 1.pptx', 2, 69164483, 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 0, 'Session 1.pptx', 'Marianne Arif', 'unknown', 1714559997, 1714559997, 1, NULL),
+(500, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'dc7fd15d7ff35f13322331848b158541bb09c29d', 73, 'mod_resource', 'content', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714559997, 1714559997, 0, NULL),
+(501, '49d1654c995f9d5e293af9c10f83d757b5219bd8', '6b50cca1407222cc91d9ceff56b786e5340832a0', 5, 'user', 'draft', 868749351, '/', 'web.jpg', 2, 105090, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"web.jpg\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTozMztzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6IndlYi5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1711560525, 1711560546, 0, NULL),
+(502, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'e92050ed95c660679567f4ff25a3fa1e49a657b3', 5, 'user', 'draft', 868749351, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714560126, 1714560126, 0, NULL),
+(507, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '043993625a478a6d604ded1d8dc4ff5ccf16a6fe', 5, 'user', 'draft', 653354497, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(508, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'bde941d97d9f96530e33e430485decc2e02b4681', 5, 'user', 'draft', 653354497, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714560221, 1714560221, 0, NULL),
+(509, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '3f8ec60e3b3b1cbc7dd6b43914eeac0bbc6404bf', 5, 'user', 'draft', 749112680, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(510, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'c04ef1d124f47d93a9eb07242c1ef996841e17b0', 5, 'user', 'draft', 749112680, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714561677, 1714561677, 0, NULL),
+(511, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '0f3fa99f85e64f560b40539baf5ee59a6f501bc7', 5, 'user', 'draft', 971328718, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(512, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '81b52e6bc5855cc7f3c3a924ec8a7873e9bcd071', 5, 'user', 'draft', 971328718, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714561767, 1714561767, 0, NULL),
+(513, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '1dd8fef8db616b8779c9427e365ba6b26fa82af0', 5, 'user', 'draft', 618584053, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(514, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '2d792a1a3b6f44ca81caa52210dcc4c7927a9e10', 5, 'user', 'draft', 618584053, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714561785, 1714561785, 0, NULL),
+(515, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '4194682cb3a4d5c85a78a1630391c7a4c685a2a3', 5, 'user', 'draft', 324363278, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(516, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '68d60c2f25fce37e8c91a002ba1cf522a08e8a72', 5, 'user', 'draft', 324363278, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714561798, 1714561798, 0, NULL),
+(517, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '88e7cffbabaf9922cdc4e52e5c3b03f8ac170394', 5, 'user', 'draft', 861104824, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(518, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '02d890b399cb4e9411b6b6a349a2bf1243453a96', 5, 'user', 'draft', 861104824, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714564938, 1714564938, 0, NULL),
+(519, 'cf89aa3175179408ddceb2b96480431ba0b5693e', 'd694c971a3d0239d1a44bac4b45076021037ad07', 5, 'user', 'draft', 514089820, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(520, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '2aa7c393144be2dd86c18fa8d4caa2fb7740603f', 5, 'user', 'draft', 514089820, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714566544, 1714566544, 0, NULL),
+(521, 'cf89aa3175179408ddceb2b96480431ba0b5693e', 'ee039a0fe87de036a88186f86b1e726d22ad321a', 5, 'user', 'draft', 815769350, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(522, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '98222d9350e9658ca18688110ba7072943946437', 5, 'user', 'draft', 815769350, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714566629, 1714566629, 0, NULL),
+(523, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '3ae5c360287a7ebf850c587b5dfe9a897e9f7024', 5, 'user', 'draft', 806711094, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(524, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'bd06026ba2c1f3d7d89812dd1ef9f228e6e28f2b', 5, 'user', 'draft', 806711094, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714567264, 1714567264, 0, NULL),
+(525, 'd2ae902b0fce92186e9a4b0ced46ac191e28c57b', 'e548125d454f71aee4c97ff9dff5a5b8c2fdd48d', 5, 'user', 'draft', 44350068, '/', 'IMG_1633.jpg', 2, 7746775, 'image/jpeg', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:12:\"IMG_1633.jpg\";}', 'Marianne Arif', 'unknown', 1714567442, 1714567442, 0, NULL),
+(526, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '7fac78f9fa4b69515e9385694485b7431a4c58b8', 5, 'user', 'draft', 44350068, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714567443, 1714567443, 0, NULL),
+(527, '2a1fb6110f254c55773c547f45da887887311edd', 'f7b9df5e801c18d51a963ab08c428f89a108bac6', 1, 'core', 'preview', 0, '/thumb/', 'd2ae902b0fce92186e9a4b0ced46ac191e28c57b', NULL, 13121, 'image/png', 0, NULL, NULL, NULL, 1714567446, 1714567446, 0, NULL),
+(528, 'd2ae902b0fce92186e9a4b0ced46ac191e28c57b', '87de870e33b15b3590d73e3bc12b58c66f839e6b', 80, 'course', 'overviewfiles', 0, '/', 'IMG_1633.jpg', 2, 7746775, 'image/jpeg', 0, 'IMG_1633.jpg', 'Marianne Arif', 'unknown', 1714567442, 1714567451, 0, NULL),
+(529, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '45bc0c45108eeb8436f08ce8d4bc4cfe2f127f5f', 80, 'course', 'overviewfiles', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714567443, 1714567451, 0, NULL),
+(530, 'd2ae902b0fce92186e9a4b0ced46ac191e28c57b', '1beadb3c460975d1b4e794c34efac8e07d6e5852', 5, 'user', 'draft', 525138128, '/', 'IMG_1633.jpg', 2, 7746775, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1633.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo4MDtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTYzMy5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714567442, 1714567451, 0, NULL),
+(531, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '375861726e106d18e9cbecc74388a5913c6375b3', 5, 'user', 'draft', 525138128, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714567742, 1714567742, 0, NULL),
+(532, 'cf89aa3175179408ddceb2b96480431ba0b5693e', 'f2c14c7555ed967975efb189644421348feae765', 5, 'user', 'draft', 25540615, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(533, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '2b923196a3115f6049a0bdd0b4da21dce5753358', 5, 'user', 'draft', 25540615, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570656, 1714570656, 0, NULL),
+(535, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ec7122bf9f8508a0c17459df1d3cb1c60c5b9d8b', 5, 'user', 'draft', 512333865, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(536, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', '02f9ab82a51ade9b4e5cf70e6a97c80461bf5b7a', 5, 'user', 'draft', 69566147, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"favicon.ico\";s:8:\"original\";s:220:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjc6ImZhdmljb24iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiZmF2aWNvbi5pY28iO30=\";}', 'Marianne Arif', 'unknown', 1714558686, 1714558689, 0, NULL),
+(537, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'f9990965346123211399a72654afa77a0dd48de9', 5, 'user', 'draft', 69566147, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(538, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '192c8d32218afb5da982d1ef44af895b771855cc', 5, 'user', 'draft', 496618942, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
+(539, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '5227913b950f09b59164d8e901f6b1503da16464', 5, 'user', 'draft', 496618942, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(540, 'cc5242a1650cc83248de69fddc9529475aabe623', '065f527e7acfc594b3ed1a3ebcf4054f64e421ae', 5, 'user', 'draft', 483577562, '/', 'mtiny.jpg', 2, 73705, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:9:\"mtiny.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcxaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjk6Im10aW55LmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557722, 1714558010, 0, NULL),
+(541, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'e233604e5f06ce6ab5c3d8426920d2bab5c7b8cf', 5, 'user', 'draft', 483577562, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(542, '79d7280bbc9d6228820b339f82eea6a3be69f6c9', '9795a6cd88fcfb0636c54005ce80210204724b10', 5, 'user', 'draft', 141108005, '/', 'wedo.jpg', 2, 182557, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:8:\"wedo.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcyaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjg6IndlZG8uanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557895, 1714558010, 0, NULL),
+(543, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '71a91d8e8f9a6574a7356693b9edf87cf759d2d4', 5, 'user', 'draft', 141108005, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(544, '9cef01f122231dd24beffb43841a8d7ebfedda77', '944a9986c66f40e2cb9a4f588c883b5d0065a07b', 5, 'user', 'draft', 671267980, '/', 'ev3.jpg', 2, 51744, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"ev3.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmczaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6ImV2My5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714557929, 1714558010, 0, NULL),
+(545, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '82b36bd73a47e236960bcaf6156b443b72381916', 5, 'user', 'draft', 671267980, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(546, 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', 'fbfd3453ace0f9db0b2f9e282cc3ccf79f5211e2', 5, 'user', 'draft', 643821091, '/', 'mblock.jpg', 2, 186921, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:10:\"mblock.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmc0aWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEwOiJtYmxvY2suanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557970, 1714558011, 0, NULL),
+(547, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '4e0d0facd3c7fa13efc3db00536a7c4b6215124b', 5, 'user', 'draft', 643821091, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570820, 1714570820, 0, NULL),
+(548, 'be6c139ce9c37d6ea7b0e9caf560a1d5b946f003', '3eb5af37bb9686a54466c3c88137a32ec3717e8c', 5, 'user', 'draft', 186884746, '/', 'Files.zip', 2, 82588, 'application/zip', 0, NULL, NULL, NULL, 1714570839, 1714570839, 0, NULL),
+(549, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '6b3cb3c3549f2a4b86ab7b3ba7ceb37a64e562fc', 5, 'user', 'draft', 186884746, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570839, 1714570839, 0, NULL),
+(550, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '19111f92c82adad7f4779352d619182fd8b23ea9', 5, 'user', 'draft', 512333865, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:11:\"hexlogo.png\";}', 'Marianne Arif', 'unknown', 1714570873, 1714570873, 0, NULL),
+(551, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '590af305401548855cc678c36b4580b2e51ceee6', 1, 'theme_moove', 'logo', 0, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'hexlogo.png', 'Marianne Arif', 'unknown', 1714570873, 1714570878, 0, NULL),
+(552, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', '4950a2ebd338988a3e70982e4af14c8ff85ae9ca', 5, 'user', 'draft', 975759528, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714570873, 1714570878, 0, NULL),
+(553, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '5531d3f5667591a82ccd3bc9b96c10e61a6a2327', 5, 'user', 'draft', 975759528, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(554, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', 'd8a5d9c43ec226f28fbe5d2e74e124ed18718955', 5, 'user', 'draft', 927788579, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"favicon.ico\";s:8:\"original\";s:220:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjc6ImZhdmljb24iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiZmF2aWNvbi5pY28iO30=\";}', 'Marianne Arif', 'unknown', 1714558686, 1714558689, 0, NULL),
+(555, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1a7830635cb073384f930ea7d495de2cd1d8eae9', 5, 'user', 'draft', 927788579, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(556, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '929489fe8a348d7a68ec1d426384c15d2e0b7b6d', 5, 'user', 'draft', 188128486, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
+(557, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '95dc4a89fc2c82a3d289f1c16015b0921e68abca', 5, 'user', 'draft', 188128486, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(558, 'cc5242a1650cc83248de69fddc9529475aabe623', '8bccdde993d0bcec0c52dcc086d32d21767ebcd7', 5, 'user', 'draft', 399622711, '/', 'mtiny.jpg', 2, 73705, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:9:\"mtiny.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcxaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjk6Im10aW55LmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557722, 1714558010, 0, NULL),
+(559, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '5d67931597153681918acbfab03c7b52635330f6', 5, 'user', 'draft', 399622711, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(560, '79d7280bbc9d6228820b339f82eea6a3be69f6c9', '7658822a1cf8103ebfcb0e1a5bfa3f8b80a82df5', 5, 'user', 'draft', 846634618, '/', 'wedo.jpg', 2, 182557, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:8:\"wedo.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcyaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjg6IndlZG8uanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557895, 1714558010, 0, NULL),
+(561, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '4dcfd1e832b9b5a5f5650bbb6e5ab431f80e98f0', 5, 'user', 'draft', 846634618, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(562, '9cef01f122231dd24beffb43841a8d7ebfedda77', '4a7d3f31e33baede731daa780ccf415b77279e21', 5, 'user', 'draft', 151709975, '/', 'ev3.jpg', 2, 51744, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"ev3.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmczaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6ImV2My5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714557929, 1714558010, 0, NULL),
+(563, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'd98d58b5770e2f2e6e4e6504068c438af0174890', 5, 'user', 'draft', 151709975, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(564, 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', '66055af7d2b1e7e4535009a96f3009fdef6b4114', 5, 'user', 'draft', 115102963, '/', 'mblock.jpg', 2, 186921, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:10:\"mblock.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmc0aWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEwOiJtYmxvY2suanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557970, 1714558011, 0, NULL),
+(565, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '22ef3f592ca9e20f77715d11f49e9c44934f0c3e', 5, 'user', 'draft', 115102963, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570880, 1714570880, 0, NULL),
+(566, 'cf89aa3175179408ddceb2b96480431ba0b5693e', 'aeef52e7cb7e25d38a34fdd6e22596172695cd38', 5, 'user', 'draft', 329860317, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(567, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'ed1f7156e308348dffc57ecf58935e2cb94c3c5a', 5, 'user', 'draft', 329860317, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714570945, 1714570945, 0, NULL),
+(568, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', 'c9d6be3e2449ceee4ed30a858cf9de9ba0685aca', 5, 'user', 'draft', 139427475, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714570873, 1714570878, 0, NULL),
+(569, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '9b30ecc6de4faefcc7159e0a28efa4d1e20c4b0d', 5, 'user', 'draft', 139427475, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(570, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', 'fa760359bbe43a6ab9a929d8fb9cbbc5bb22cdb9', 5, 'user', 'draft', 909351462, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"favicon.ico\";s:8:\"original\";s:220:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjc6ImZhdmljb24iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiZmF2aWNvbi5pY28iO30=\";}', 'Marianne Arif', 'unknown', 1714558686, 1714558689, 0, NULL),
+(571, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '0eb286c98c4db9eea7ce706648dd394e0c574108', 5, 'user', 'draft', 909351462, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(572, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '10114fef106ad9170babbba90c75fd603556dacc', 5, 'user', 'draft', 97731054, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
+(573, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'af6ff2be048d8c708699113e977cf4cc336ea71c', 5, 'user', 'draft', 97731054, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(574, 'cc5242a1650cc83248de69fddc9529475aabe623', '0de483f41d10f57cc11ea525cff63984c81ca631', 5, 'user', 'draft', 443907132, '/', 'mtiny.jpg', 2, 73705, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:9:\"mtiny.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcxaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjk6Im10aW55LmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557722, 1714558010, 0, NULL),
+(575, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'e9602bb66b9f2ff9419728f936a602a6e31d615a', 5, 'user', 'draft', 443907132, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(576, '79d7280bbc9d6228820b339f82eea6a3be69f6c9', 'a9e4171ba1e59a197adb03f1663be637d64f4fe0', 5, 'user', 'draft', 134561813, '/', 'wedo.jpg', 2, 182557, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:8:\"wedo.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcyaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjg6IndlZG8uanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557895, 1714558010, 0, NULL),
+(577, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1244bcec629e8f39f21a660ac36022b294fb73ce', 5, 'user', 'draft', 134561813, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(578, '9cef01f122231dd24beffb43841a8d7ebfedda77', '736782f34e3ee3b750738db41bf64ba5375b9ad3', 5, 'user', 'draft', 394821229, '/', 'ev3.jpg', 2, 51744, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"ev3.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmczaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6ImV2My5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714557929, 1714558010, 0, NULL),
+(579, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1521b9d883f17fa0c622609539728ce04b7fb03d', 5, 'user', 'draft', 394821229, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(580, 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', '1f6e07a529d79c1335d0ded2638dd8939c637c25', 5, 'user', 'draft', 726350695, '/', 'mblock.jpg', 2, 186921, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:10:\"mblock.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmc0aWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEwOiJtYmxvY2suanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557970, 1714558011, 0, NULL),
+(581, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1e67c83532f1afd3a2da967df9ab4cbdb74f48a7', 5, 'user', 'draft', 726350695, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714572937, 1714572937, 0, NULL),
+(582, 'cf89aa3175179408ddceb2b96480431ba0b5693e', '611bb18faf3637bc0f697487047d52a67be5e101', 5, 'user', 'draft', 425075099, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(583, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '2643aeca3e698541ff6b5df6eadf13531a218991', 5, 'user', 'draft', 425075099, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714643143, 1714643143, 0, NULL),
+(584, 'cf89aa3175179408ddceb2b96480431ba0b5693e', 'e2359410fdef54eaa5edb1a54537dfb02c93d0e2', 5, 'user', 'draft', 531914554, '/', 'IMG_1720.jpg', 2, 6699565, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"IMG_1720.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo2OTtzOjk6ImNvbXBvbmVudCI7czo2OiJjb3Vyc2UiO3M6NjoiaXRlbWlkIjtpOjA7czo4OiJmaWxlYXJlYSI7czoxMzoib3ZlcnZpZXdmaWxlcyI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEyOiJJTUdfMTcyMC5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714559886, 1714559902, 0, NULL),
+(585, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'dbf62c5ed15c1ce62ed21870ee87a7caeb64f706', 5, 'user', 'draft', 531914554, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714643288, 1714643288, 0, NULL),
+(586, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '664f0e83ff1120f4314cefa0538117b1ec7646dc', 5, 'user', 'draft', 422851663, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:30:\"Composition - 2nd Session.docx\";s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo3MTtzOjk6ImNvbXBvbmVudCI7czoxMjoibW9kX3Jlc291cmNlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6NzoiY29udGVudCI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjMwOiJDb21wb3NpdGlvbiAtIDJuZCBTZXNzaW9uLmRvY3giO30=\";}', 'Marianne Arif', 'unknown', 1714559997, 1714559997, 1, NULL),
+(587, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '9fd13ca90bb216db798d0a737236347f33898cf6', 5, 'user', 'draft', 422851663, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714646825, 1714646825, 0, NULL),
+(588, '15f90dc215360fa1cfbbed8be1425b8bd4d9d788', '82f7c61a38806eb198b3c8699a0e5e7ede9759c0', 5, 'user', 'draft', 57386750, '/', 'Composition - 2nd Session.docx', 2, 15095, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:30:\"Composition - 2nd Session.docx\";s:8:\"original\";s:248:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aTo3MTtzOjk6ImNvbXBvbmVudCI7czoxMjoibW9kX3Jlc291cmNlIjtzOjY6Iml0ZW1pZCI7aTowO3M6ODoiZmlsZWFyZWEiO3M6NzoiY29udGVudCI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjMwOiJDb21wb3NpdGlvbiAtIDJuZCBTZXNzaW9uLmRvY3giO30=\";}', 'Marianne Arif', 'unknown', 1714559997, 1714559997, 1, NULL),
+(589, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '08533144370cc0930172f4878d6eac82d2c37736', 5, 'user', 'draft', 57386750, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714646826, 1714646826, 0, NULL),
+(590, '2cc31260f15b4320eb7ca0d91bc9bdfc86fae270', '981e227f1bcedcc0ee47a7e6bc315c098e462cc2', 5, 'user', 'draft', 376754303, '/', 'IMG_1754.jpg', 2, 8560694, 'image/jpeg', 0, 'O:8:\"stdClass\":1:{s:6:\"source\";s:12:\"IMG_1754.jpg\";}', 'Marianne Arif', 'unknown', 1714647045, 1714647045, 0, NULL),
+(591, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '66e2b651e371679fe3008b7cfa677e96c1672aab', 5, 'user', 'draft', 376754303, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714647045, 1714647045, 0, NULL),
+(592, '2cc31260f15b4320eb7ca0d91bc9bdfc86fae270', '5b0e718f529914ced55a6b30437b3d63f47ae57b', 100, 'course', 'overviewfiles', 0, '/', 'IMG_1754.jpg', 2, 8560694, 'image/jpeg', 0, 'IMG_1754.jpg', 'Marianne Arif', 'unknown', 1714647045, 1714647047, 0, NULL),
+(593, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '6dc525b9e1926440bb2fab4632701aeb6cb829a0', 100, 'course', 'overviewfiles', 0, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714647045, 1714647048, 0, NULL),
+(594, 'd8fc57f0b8385c5191736880ba86a5ab6d5ebfa7', 'd62aa13f492610388fdaeceec435894ccff1f4ea', 1, 'core', 'preview', 0, '/thumb/', '2cc31260f15b4320eb7ca0d91bc9bdfc86fae270', NULL, 14415, 'image/png', 0, NULL, NULL, NULL, 1714647048, 1714647048, 0, NULL),
+(595, '44ab5ae832b056749e12bc37fc1ff9acd60712fd', 'f577e3b666c9a8fb4863114703fb513d06ac4c2b', 5, 'user', 'draft', 435083001, '/', 'hexlogo.png', 2, 11340, 'image/png', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"hexlogo.png\";s:8:\"original\";s:216:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjQ6ImxvZ28iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiaGV4bG9nby5wbmciO30=\";}', 'Marianne Arif', 'unknown', 1714570873, 1714570878, 0, NULL),
+(596, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '823fc97ca0470c9a8c4e85dbad13939059abc013', 5, 'user', 'draft', 435083001, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650180, 1714650180, 0, NULL),
+(597, 'a36b2dc8477d54f1d7e4d8069073fabd540a13bd', '238e161deb4a04123a02b8e04d41ffb014979087', 5, 'user', 'draft', 691106255, '/', 'favicon.ico', 2, 15406, 'image/vnd.microsoft.icon', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:11:\"favicon.ico\";s:8:\"original\";s:220:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjc6ImZhdmljb24iO3M6ODoiZmlsZXBhdGgiO3M6MToiLyI7czo4OiJmaWxlbmFtZSI7czoxMToiZmF2aWNvbi5pY28iO30=\";}', 'Marianne Arif', 'unknown', 1714558686, 1714558689, 0, NULL),
+(598, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '42403774bafeac65f2de44679385dbdfa5fe6f7b', 5, 'user', 'draft', 691106255, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650180, 1714650180, 0, NULL),
+(599, 'a915ce47ed821b1c69f73e44ba5c5525e68a61ca', '720671c24bd75460c568ae71492454c4efb7c515', 5, 'user', 'draft', 988273997, '/', 'Artboard.jpg', 2, 43564, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:12:\"Artboard.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjEwOiJsb2dpbmJnaW1nIjtzOjg6ImZpbGVwYXRoIjtzOjE6Ii8iO3M6ODoiZmlsZW5hbWUiO3M6MTI6IkFydGJvYXJkLmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557581, 1714557609, 0, NULL),
+(600, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '1284236730f58c7d751fc636c684465178d63488', 5, 'user', 'draft', 988273997, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650181, 1714650181, 0, NULL),
+(601, 'cc5242a1650cc83248de69fddc9529475aabe623', 'fb0d8c7424f4aca95eaf1d22b88c21b18a7f0b44', 5, 'user', 'draft', 375263640, '/', 'mtiny.jpg', 2, 73705, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:9:\"mtiny.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcxaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjk6Im10aW55LmpwZyI7fQ==\";}', 'Marianne Arif', 'unknown', 1714557722, 1714558010, 0, NULL),
+(602, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '6716c28bcc7de0110f0ac347e7d70974cc8eabf5', 5, 'user', 'draft', 375263640, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650181, 1714650181, 0, NULL),
+(603, '79d7280bbc9d6228820b339f82eea6a3be69f6c9', '96de8aeefe32e0f3d3bbca5ee900b28dace89c95', 5, 'user', 'draft', 967411108, '/', 'wedo.jpg', 2, 182557, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:8:\"wedo.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmcyaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjg6IndlZG8uanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557895, 1714558010, 0, NULL),
+(604, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '846b27df3b5be365a57199758fa70edb0b4032e5', 5, 'user', 'draft', 967411108, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650181, 1714650181, 0, NULL),
+(605, '9cef01f122231dd24beffb43841a8d7ebfedda77', '78ed7952724b1173c85fdb6535923fac0ed7291f', 5, 'user', 'draft', 402349300, '/', 'ev3.jpg', 2, 51744, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:7:\"ev3.jpg\";s:8:\"original\";s:224:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmczaWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjc6ImV2My5qcGciO30=\";}', 'Marianne Arif', 'unknown', 1714557929, 1714558010, 0, NULL),
+(606, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '51d3c2ff92b4adb867c7a7e869e0cd7c0b294d4c', 5, 'user', 'draft', 402349300, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650181, 1714650181, 0, NULL),
+(607, 'b0f6f6b0bffb2fe0c8f9e15d67a0a08590b55e0e', '04b0c2f1f245871562fad8a5083beb4c6dcf86cb', 5, 'user', 'draft', 380558912, '/', 'mblock.jpg', 2, 186921, 'image/jpeg', 0, 'O:8:\"stdClass\":2:{s:6:\"source\";s:10:\"mblock.jpg\";s:8:\"original\";s:228:\"YTo2OntzOjk6ImNvbnRleHRpZCI7aToxO3M6OToiY29tcG9uZW50IjtzOjExOiJ0aGVtZV9tb292ZSI7czo2OiJpdGVtaWQiO2k6MDtzOjg6ImZpbGVhcmVhIjtzOjE0OiJtYXJrZXRpbmc0aWNvbiI7czo4OiJmaWxlcGF0aCI7czoxOiIvIjtzOjg6ImZpbGVuYW1lIjtzOjEwOiJtYmxvY2suanBnIjt9\";}', 'Marianne Arif', 'unknown', 1714557970, 1714558011, 0, NULL),
+(608, 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '4943c0ecb94ba12c9dc4556ff27732cec362aa7e', 5, 'user', 'draft', 380558912, '/', '.', 2, 0, NULL, 0, NULL, NULL, NULL, 1714650181, 1714650181, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -14700,16 +15323,16 @@ CREATE TABLE IF NOT EXISTS `mdl_forum` (
   `lockdiscussionafter` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mdl_foru_cou_ix` (`course`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Forums contain and structure discussion' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Forums contain and structure discussion' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_forum`
 --
 
 INSERT INTO `mdl_forum` (`id`, `course`, `type`, `name`, `intro`, `introformat`, `duedate`, `cutoffdate`, `assessed`, `assesstimestart`, `assesstimefinish`, `scale`, `grade_forum`, `grade_forum_notify`, `maxbytes`, `maxattachments`, `forcesubscribe`, `trackingtype`, `rsstype`, `rssarticles`, `timemodified`, `warnafter`, `blockafter`, `blockperiod`, `completiondiscussions`, `completionreplies`, `completionposts`, `displaywordcount`, `lockdiscussionafter`) VALUES
-(2, 3, 'news', 'Announcements', '<p>General news and announcements</p>', 1, 0, 0, 1, 0, 0, -2, 0, 0, 0, 1, 1, 1, 0, 0, 1711108551, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 3, 'news', 'Announcements', '<p>General news and announcements</p>', 1, 0, 0, 1, 0, 0, -2, 0, 0, 0, 1, 1, 1, 0, 0, 1711108551, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 1, 'news', 'Site announcements', 'General news and announcements', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1711319502, 0, 0, 0, 0, 0, 0, 0, 0);
+(4, 1, 'news', 'Site announcements', 'General news and announcements', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1711319502, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 4, 'news', 'Announcements', 'General news and announcements', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1714559902, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 5, 'news', 'Announcements', 'General news and announcements', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1714559902, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -14756,7 +15379,14 @@ CREATE TABLE IF NOT EXISTS `mdl_forum_discussions` (
   KEY `mdl_forudisc_cou_ix` (`course`),
   KEY `mdl_forudisc_for_ix` (`forum`),
   KEY `mdl_forudisc_use2_ix` (`usermodified`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Forums are composed of discussions' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Forums are composed of discussions' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_forum_discussions`
+--
+
+INSERT INTO `mdl_forum_discussions` (`id`, `course`, `forum`, `name`, `firstpost`, `userid`, `groupid`, `assessed`, `timemodified`, `usermodified`, `timestart`, `timeend`, `pinned`, `timelocked`) VALUES
+(1, 4, 5, 'Competition Day', 1, 2, -1, 0, 1714650692, 2, 0, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -14832,7 +15462,14 @@ CREATE TABLE IF NOT EXISTS `mdl_forum_posts` (
   KEY `mdl_forupost_pri_ix` (`privatereplyto`),
   KEY `mdl_forupost_dis_ix` (`discussion`),
   KEY `mdl_forupost_par_ix` (`parent`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='All posts are stored in this table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='All posts are stored in this table' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_forum_posts`
+--
+
+INSERT INTO `mdl_forum_posts` (`id`, `discussion`, `parent`, `userid`, `created`, `modified`, `mailed`, `subject`, `message`, `messageformat`, `messagetrust`, `attachment`, `totalscore`, `mailnow`, `deleted`, `privatereplyto`, `wordcount`, `charcount`) VALUES
+(1, 1, 0, 2, 1714650692, 1714650692, 0, 'Competition Day', '<p>Dear All,<br>Exciting news! We\'re launching a new competition, and we want you to be a part of it. Show off your skills and creativity and compete for fantastic prizes.</p>', 1, 0, '', 0, 0, 0, 0, 30, 136);
 
 -- --------------------------------------------------------
 
@@ -15083,15 +15720,16 @@ CREATE TABLE IF NOT EXISTS `mdl_grade_categories` (
   PRIMARY KEY (`id`),
   KEY `mdl_gradcate_cou_ix` (`courseid`),
   KEY `mdl_gradcate_par_ix` (`parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table keeps information about categories, used for grou' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table keeps information about categories, used for grou' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_grade_categories`
 --
 
 INSERT INTO `mdl_grade_categories` (`id`, `courseid`, `parent`, `depth`, `path`, `fullname`, `aggregation`, `keephigh`, `droplow`, `aggregateonlygraded`, `aggregateoutcomes`, `timecreated`, `timemodified`, `hidden`) VALUES
-(2, 3, NULL, 1, '/2/', '?', 13, 0, 0, 1, 0, 1710839980, 1710839981, 0),
-(3, 1, NULL, 1, '/3/', '?', 13, 0, 0, 1, 0, 1711560692, 1711560692, 0);
+(3, 1, NULL, 1, '/3/', '?', 13, 0, 0, 1, 0, 1711560692, 1711560692, 0),
+(4, 4, NULL, 1, '/4/', '?', 13, 0, 0, 1, 0, 1714560255, 1714560255, 0),
+(5, 5, NULL, 1, '/5/', '?', 13, 0, 0, 1, 0, 1714560255, 1714560255, 0);
 
 -- --------------------------------------------------------
 
@@ -15126,7 +15764,7 @@ CREATE TABLE IF NOT EXISTS `mdl_grade_categories_history` (
   KEY `mdl_gradcatehist_cou_ix` (`courseid`),
   KEY `mdl_gradcatehist_par_ix` (`parent`),
   KEY `mdl_gradcatehist_log_ix` (`loggeduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='History of grade_categories' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='History of grade_categories' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_grade_categories_history`
@@ -15139,7 +15777,12 @@ INSERT INTO `mdl_grade_categories_history` (`id`, `action`, `oldid`, `source`, `
 (4, 2, 2, 'system', 1710839981, 2, 3, NULL, 1, '/2/', '?', 13, 0, 0, 1, 0, 0, 0),
 (5, 3, 1, 'coursedelete', 1711032076, 2, 2, NULL, 1, '/1/', '?', 13, 0, 0, 1, 0, 0, 0),
 (6, 1, 3, 'system', 1711560692, 2, 1, NULL, 0, NULL, '?', 13, 0, 0, 1, 0, 0, 0),
-(7, 2, 3, 'system', 1711560692, 2, 1, NULL, 1, '/3/', '?', 13, 0, 0, 1, 0, 0, 0);
+(7, 2, 3, 'system', 1711560692, 2, 1, NULL, 1, '/3/', '?', 13, 0, 0, 1, 0, 0, 0),
+(8, 3, 2, 'coursedelete', 1714560135, 2, 3, NULL, 1, '/2/', '?', 13, 0, 0, 1, 0, 0, 0),
+(9, 1, 4, 'system', 1714560255, 2, 4, NULL, 0, NULL, '?', 13, 0, 0, 1, 0, 0, 0),
+(10, 2, 4, 'system', 1714560255, 2, 4, NULL, 1, '/4/', '?', 13, 0, 0, 1, 0, 0, 0),
+(11, 1, 5, 'system', 1714567583, 2, 5, NULL, 0, NULL, '?', 13, 0, 0, 1, 0, 0, 0),
+(12, 2, 5, 'system', 1714567583, 2, 5, NULL, 1, '/5/', '?', 13, 0, 0, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -15314,17 +15957,33 @@ CREATE TABLE IF NOT EXISTS `mdl_grade_items` (
   KEY `mdl_graditem_cat_ix` (`categoryid`),
   KEY `mdl_graditem_sca_ix` (`scaleid`),
   KEY `mdl_graditem_out_ix` (`outcomeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table keeps information about gradeable items (ie colum' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table keeps information about gradeable items (ie colum' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_grade_items`
 --
 
 INSERT INTO `mdl_grade_items` (`id`, `courseid`, `categoryid`, `itemname`, `itemtype`, `itemmodule`, `iteminstance`, `itemnumber`, `iteminfo`, `idnumber`, `calculation`, `gradetype`, `grademax`, `grademin`, `scaleid`, `outcomeid`, `gradepass`, `multfactor`, `plusfactor`, `aggregationcoef`, `aggregationcoef2`, `sortorder`, `display`, `decimals`, `hidden`, `locked`, `locktime`, `needsupdate`, `weightoverride`, `timecreated`, `timemodified`) VALUES
-(2, 3, NULL, NULL, 'course', NULL, 2, NULL, NULL, NULL, NULL, 1, 4.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, NULL, 0, 0, 0, 0, 0, 1710839980, 1711296857),
-(3, 3, 2, 'Announcements rating', 'mod', 'forum', 2, 0, NULL, '', NULL, 2, 2.00000, 1.00000, 2, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 2, 0, NULL, 0, 0, 0, 0, 0, 1711108551, 1711296857),
-(4, 3, 2, 'Announcements rating', 'mod', 'forum', 3, 0, NULL, NULL, NULL, 2, 2.00000, 1.00000, 2, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 3, 0, NULL, 0, 0, 0, 0, 0, 1711296856, 1711296857),
-(5, 1, NULL, NULL, 'course', NULL, 3, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, NULL, 0, 0, 0, 1, 0, 1711560692, 1711560692);
+(5, 1, NULL, NULL, 'course', NULL, 3, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, NULL, 0, 0, 0, 1, 0, 1711560692, 1711560692),
+(6, 4, NULL, NULL, 'course', NULL, 4, NULL, NULL, NULL, NULL, 1, 1510.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, NULL, 0, 0, 0, 0, 0, 1714560255, 1714644432),
+(7, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 2, 0, NULL, 0, 0, 0, 0, 0, 1714560315, 1714644432),
+(8, 5, NULL, NULL, 'course', NULL, 5, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, NULL, 0, 0, 0, 0, 0, 1714560255, 1714560255),
+(9, 5, 5, 'Attendance', 'mod', 'attendance', 2, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 2, 0, NULL, 0, 0, 0, 0, 0, 1714567583, 1714567583),
+(10, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 3, 0, NULL, 0, 0, 0, 0, 0, 1714643659, 1714644432),
+(11, 4, 4, 'Attendance', 'mod', 'attendance', 4, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 22, 0, NULL, 0, 0, 0, 0, 0, 1714643755, 1714644432),
+(12, 4, 4, 'Attendance', 'mod', 'attendance', 5, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 12, 0, NULL, 0, 0, 0, 0, 0, 1714643768, 1714644432),
+(13, 4, 4, 'Attendance', 'mod', 'attendance', 6, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 27, 0, NULL, 0, 0, 0, 0, 0, 1714643791, 1714644432),
+(14, 4, 4, 'Attendance', 'mod', 'attendance', 7, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 10, 0, NULL, 0, 0, 0, 0, 0, 1714643877, 1714644432),
+(15, 4, 4, 'Attendance', 'mod', 'attendance', 8, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 25, 0, NULL, 0, 0, 0, 0, 0, 1714644044, 1714644432),
+(16, 4, 4, 'Attendance', 'mod', 'attendance', 9, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 6, 0, NULL, 0, 0, 0, 0, 0, 1714644050, 1714644432),
+(17, 4, 4, 'Attendance', 'mod', 'attendance', 10, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 13, 0, NULL, 0, 0, 0, 0, 0, 1714644059, 1714644432),
+(18, 4, 4, 'Attendance', 'mod', 'attendance', 11, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 14, 0, NULL, 0, 0, 0, 0, 0, 1714644101, 1714644432),
+(19, 4, 4, 'Attendance', 'mod', 'attendance', 12, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 15, 0, NULL, 0, 0, 0, 0, 0, 1714644116, 1714644432),
+(20, 4, 4, 'Attendance', 'mod', 'attendance', 13, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 23, 0, NULL, 0, 0, 0, 0, 0, 1714644187, 1714644432),
+(21, 4, 4, 'Attendance', 'mod', 'attendance', 14, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 4, 0, NULL, 0, 0, 0, 0, 0, 1714644194, 1714644432),
+(22, 4, 4, 'Attendance', 'mod', 'attendance', 15, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 7, 0, NULL, 0, 0, 0, 0, 0, 1714644201, 1714644432),
+(23, 4, 4, 'Attendance', 'mod', 'attendance', 16, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 16, 0, NULL, 0, 0, 0, 0, 0, 1714644273, 1714644432),
+(24, 4, 4, 'Quiz 1', 'mod', 'quiz', 1, 0, NULL, '', NULL, 1, 10.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00662, 28, 0, NULL, 0, 0, 0, 0, 0, 1714644432, 1714644432);
 
 -- --------------------------------------------------------
 
@@ -15377,7 +16036,7 @@ CREATE TABLE IF NOT EXISTS `mdl_grade_items_history` (
   KEY `mdl_graditemhist_sca_ix` (`scaleid`),
   KEY `mdl_graditemhist_out_ix` (`outcomeid`),
   KEY `mdl_graditemhist_log_ix` (`loggeduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='History of grade_items' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='History of grade_items' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_grade_items_history`
@@ -15397,7 +16056,88 @@ INSERT INTO `mdl_grade_items_history` (`id`, `action`, `oldid`, `source`, `timem
 (11, 2, 3, NULL, 1711296857, 2, 3, 2, 'Announcements rating', 'mod', 'forum', 2, 0, NULL, '', NULL, 2, 2.00000, 1.00000, 2, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 2, 0, 0, 0, 1, 0, NULL, 0),
 (12, 2, 4, NULL, 1711296857, 2, 3, 2, 'Announcements rating', 'mod', 'forum', 3, 0, NULL, NULL, NULL, 2, 2.00000, 1.00000, 2, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 2, 0, 0, 0, 1, 0, NULL, 0),
 (13, 2, 2, 'aggregation', 1711296857, 2, 3, NULL, NULL, 'course', NULL, 2, NULL, NULL, NULL, NULL, 1, 4.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
-(14, 1, 5, 'system', 1711560692, 2, 1, NULL, NULL, 'course', NULL, 3, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0);
+(14, 1, 5, 'system', 1711560692, 2, 1, NULL, NULL, 'course', NULL, 3, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
+(15, 3, 3, 'coursedelete', 1714560134, 2, 3, 2, 'Announcements rating', 'mod', 'forum', 2, 0, NULL, '', NULL, 2, 2.00000, 1.00000, 2, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 2, 0, 0, 0, 1, 0, NULL, 0),
+(16, 3, 4, 'coursedelete', 1714560135, 2, 3, 2, 'Announcements rating', 'mod', 'forum', 3, 0, NULL, NULL, NULL, 2, 2.00000, 1.00000, 2, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(17, 3, 2, 'coursedelete', 1714560135, 2, 3, NULL, NULL, 'course', NULL, 2, NULL, NULL, NULL, NULL, 1, 4.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 0, 0, NULL, 0),
+(18, 1, 6, 'system', 1714560255, 2, 4, NULL, NULL, 'course', NULL, 4, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
+(19, 1, 7, NULL, 1714560315, 2, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 2, 0, 0, 0, 1, 0, NULL, 0),
+(20, 2, 7, NULL, 1714560315, 2, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 2, 0, 0, 0, 1, 0, NULL, 0),
+(21, 1, 8, 'system', 1714567583, 2, 5, NULL, NULL, 'course', NULL, 5, NULL, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
+(22, 1, 9, 'restore', 1714567583, 2, 5, 5, 'Attendance', 'mod', 'attendance', 2, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 2, 0, 0, 0, 0, 0, NULL, 0),
+(23, 2, 9, 'restore', 1714567583, 2, 5, 5, 'Attendance', 'mod', 'attendance', 2, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 2, 0, 0, 0, 1, 0, NULL, 0),
+(24, 1, 10, NULL, 1714643659, 2, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(25, 2, 10, NULL, 1714643659, 2, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(26, 2, 7, NULL, 1714643659, 2, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 2, 0, 0, 0, 1, 0, NULL, 0),
+(27, 2, 10, NULL, 1714643659, 2, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(28, 2, 6, 'aggregation', 1714643659, 2, 4, NULL, NULL, 'course', NULL, 4, NULL, NULL, NULL, NULL, 1, 200.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
+(29, 1, 11, 'restore', 1714643755, 2, 4, 4, 'Attendance', 'mod', 'attendance', 4, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 4, 0, 0, 0, 0, 0, NULL, 0),
+(30, 2, 11, 'restore', 1714643755, 2, 4, 4, 'Attendance', 'mod', 'attendance', 4, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(31, 1, 12, 'restore', 1714643768, 2, 4, 4, 'Attendance', 'mod', 'attendance', 5, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 5, 0, 0, 0, 0, 0, NULL, 0),
+(32, 2, 12, 'restore', 1714643768, 2, 4, 4, 'Attendance', 'mod', 'attendance', 5, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.50000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(33, 1, 13, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 6, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 7, 0, 0, 0, 1, 0, NULL, 0),
+(34, 2, 13, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 6, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 7, 0, 0, 0, 1, 0, NULL, 0),
+(35, 2, 7, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 2, 0, 0, 0, 1, 0, NULL, 0),
+(36, 2, 10, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(37, 2, 12, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 5, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 4, 0, 0, 0, 1, 0, NULL, 0),
+(38, 2, 11, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 4, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 6, 0, 0, 0, 1, 0, NULL, 0),
+(39, 2, 13, NULL, 1714643791, 2, 4, 4, 'Attendance', 'mod', 'attendance', 6, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 7, 0, 0, 0, 1, 0, NULL, 0),
+(40, 2, 6, 'aggregation', 1714643791, 2, 4, NULL, NULL, 'course', NULL, 4, NULL, NULL, NULL, NULL, 1, 500.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
+(41, 1, 14, 'restore', 1714643877, 2, 4, 4, 'Attendance', 'mod', 'attendance', 7, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 8, 0, 0, 0, 0, 0, NULL, 0),
+(42, 2, 14, 'restore', 1714643877, 2, 4, 4, 'Attendance', 'mod', 'attendance', 7, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(43, 1, 15, 'restore', 1714644044, 2, 4, 4, 'Attendance', 'mod', 'attendance', 8, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 10, 0, 0, 0, 0, 0, NULL, 0),
+(44, 2, 15, 'restore', 1714644044, 2, 4, 4, 'Attendance', 'mod', 'attendance', 8, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 8, 0, 0, 0, 1, 0, NULL, 0),
+(45, 1, 16, 'restore', 1714644050, 2, 4, 4, 'Attendance', 'mod', 'attendance', 9, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 12, 0, 0, 0, 0, 0, NULL, 0),
+(46, 2, 16, 'restore', 1714644050, 2, 4, 4, 'Attendance', 'mod', 'attendance', 9, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(47, 1, 17, 'restore', 1714644059, 2, 4, 4, 'Attendance', 'mod', 'attendance', 10, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 14, 0, 0, 0, 0, 0, NULL, 0),
+(48, 2, 17, 'restore', 1714644059, 2, 4, 4, 'Attendance', 'mod', 'attendance', 10, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 8, 0, 0, 0, 1, 0, NULL, 0),
+(49, 1, 18, 'restore', 1714644101, 2, 4, 4, 'Attendance', 'mod', 'attendance', 11, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 16, 0, 0, 0, 1, 0, NULL, 0),
+(50, 2, 18, 'restore', 1714644101, 2, 4, 4, 'Attendance', 'mod', 'attendance', 11, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 9, 0, 0, 0, 1, 0, NULL, 0),
+(51, 1, 19, 'restore', 1714644116, 2, 4, 4, 'Attendance', 'mod', 'attendance', 12, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 18, 0, 0, 0, 1, 0, NULL, 0),
+(52, 2, 19, 'restore', 1714644116, 2, 4, 4, 'Attendance', 'mod', 'attendance', 12, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 10, 0, 0, 0, 1, 0, NULL, 0),
+(53, 1, 20, 'restore', 1714644187, 2, 4, 4, 'Attendance', 'mod', 'attendance', 13, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 20, 0, 0, 0, 0, 0, NULL, 0),
+(54, 2, 20, 'restore', 1714644187, 2, 4, 4, 'Attendance', 'mod', 'attendance', 13, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 16, 0, 0, 0, 1, 0, NULL, 0),
+(55, 1, 21, 'restore', 1714644194, 2, 4, 4, 'Attendance', 'mod', 'attendance', 14, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 22, 0, 0, 0, 0, 0, NULL, 0),
+(56, 2, 21, 'restore', 1714644194, 2, 4, 4, 'Attendance', 'mod', 'attendance', 14, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 3, 0, 0, 0, 1, 0, NULL, 0),
+(57, 1, 22, 'restore', 1714644201, 2, 4, 4, 'Attendance', 'mod', 'attendance', 15, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 24, 0, 0, 0, 1, 0, NULL, 0),
+(58, 2, 22, 'restore', 1714644201, 2, 4, 4, 'Attendance', 'mod', 'attendance', 15, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 6, 0, 0, 0, 1, 0, NULL, 0),
+(59, 1, 23, 'restore', 1714644273, 2, 4, 4, 'Attendance', 'mod', 'attendance', 16, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 26, 0, 0, 0, 1, 0, NULL, 0),
+(60, 2, 23, 'restore', 1714644273, 2, 4, 4, 'Attendance', 'mod', 'attendance', 16, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.20000, 15, 0, 0, 0, 1, 0, NULL, 0),
+(61, 2, 7, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 2, 0, 0, 0, 1, 0, NULL, 0),
+(62, 2, 10, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 3, 0, 0, 0, 1, 0, NULL, 0),
+(63, 2, 21, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 14, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 4, 0, 0, 0, 1, 0, NULL, 0),
+(64, 2, 16, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 9, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 6, 0, 0, 0, 1, 0, NULL, 0),
+(65, 2, 22, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 15, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 7, 0, 0, 0, 1, 0, NULL, 0),
+(66, 2, 14, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 7, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 10, 0, 0, 0, 1, 0, NULL, 0),
+(67, 2, 12, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 5, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 12, 0, 0, 0, 1, 0, NULL, 0),
+(68, 2, 17, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 10, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 13, 0, 0, 0, 1, 0, NULL, 0),
+(69, 2, 18, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 11, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 14, 0, 0, 0, 1, 0, NULL, 0),
+(70, 2, 19, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 12, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 15, 0, 0, 0, 1, 0, NULL, 0),
+(71, 2, 23, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 16, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 16, 0, 0, 0, 1, 0, NULL, 0),
+(72, 2, 11, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 4, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 22, 0, 0, 0, 1, 0, NULL, 0),
+(73, 2, 20, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 13, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 23, 0, 0, 0, 1, 0, NULL, 0),
+(74, 2, 15, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 8, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 25, 0, 0, 0, 1, 0, NULL, 0),
+(75, 2, 13, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 6, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06667, 27, 0, 0, 0, 1, 0, NULL, 0),
+(76, 2, 6, 'aggregation', 1714644432, 2, 4, NULL, NULL, 'course', NULL, 4, NULL, NULL, NULL, NULL, 1, 1500.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0),
+(77, 1, 24, NULL, 1714644432, 2, 4, 4, 'Quiz 1', 'mod', 'quiz', 1, 0, NULL, '', NULL, 1, 10.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 28, 0, 0, 0, 1, 0, NULL, 0),
+(78, 2, 24, NULL, 1714644432, 2, 4, 4, 'Quiz 1', 'mod', 'quiz', 1, 0, NULL, '', NULL, 1, 10.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 1.00000, 28, 0, 0, 0, 1, 0, NULL, 0),
+(79, 2, 7, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 1, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 2, 0, 0, 0, 1, 0, NULL, 0),
+(80, 2, 10, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 3, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 3, 0, 0, 0, 1, 0, NULL, 0),
+(81, 2, 21, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 14, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 4, 0, 0, 0, 1, 0, NULL, 0),
+(82, 2, 16, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 9, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 6, 0, 0, 0, 1, 0, NULL, 0),
+(83, 2, 22, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 15, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 7, 0, 0, 0, 1, 0, NULL, 0),
+(84, 2, 14, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 7, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 10, 0, 0, 0, 1, 0, NULL, 0),
+(85, 2, 12, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 5, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 12, 0, 0, 0, 1, 0, NULL, 0),
+(86, 2, 17, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 10, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 13, 0, 0, 0, 1, 0, NULL, 0),
+(87, 2, 18, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 11, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 14, 0, 0, 0, 1, 0, NULL, 0),
+(88, 2, 19, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 12, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 15, 0, 0, 0, 1, 0, NULL, 0),
+(89, 2, 23, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 16, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 16, 0, 0, 0, 1, 0, NULL, 0),
+(90, 2, 11, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 4, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 22, 0, 0, 0, 1, 0, NULL, 0),
+(91, 2, 20, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 13, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 23, 0, 0, 0, 1, 0, NULL, 0),
+(92, 2, 15, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 8, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 25, 0, 0, 0, 1, 0, NULL, 0),
+(93, 2, 13, NULL, 1714644432, 2, 4, 4, 'Attendance', 'mod', 'attendance', 6, 0, NULL, NULL, NULL, 1, 100.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.06623, 27, 0, 0, 0, 1, 0, NULL, 0),
+(94, 2, 24, NULL, 1714644432, 2, 4, 4, 'Quiz 1', 'mod', 'quiz', 1, 0, NULL, '', NULL, 1, 10.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00662, 28, 0, 0, 0, 1, 0, NULL, 0),
+(95, 2, 6, 'aggregation', 1714644432, 2, 4, NULL, NULL, 'course', NULL, 4, NULL, NULL, NULL, NULL, 1, 1510.00000, 0.00000, NULL, NULL, 0.00000, 1.00000, 0.00000, 0.00000, 0.00000, 1, 0, 0, 0, 1, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -15705,7 +16445,15 @@ CREATE TABLE IF NOT EXISTS `mdl_groupings` (
   PRIMARY KEY (`id`),
   KEY `mdl_grou_idn2_ix` (`idnumber`),
   KEY `mdl_grou_cou2_ix` (`courseid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='A grouping is a collection of groups. WAS: groups_groupings' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='A grouping is a collection of groups. WAS: groups_groupings' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_groupings`
+--
+
+INSERT INTO `mdl_groupings` (`id`, `courseid`, `name`, `idnumber`, `description`, `descriptionformat`, `configdata`, `timecreated`, `timemodified`) VALUES
+(3, 5, 'Group A', '', '<p>In this course, students have completed two levels in the Kinderbot program.</p>', 1, NULL, 1714563507, 1714566052),
+(4, 5, 'Group B', '', '', 1, NULL, 1714566223, 1714566223);
 
 -- --------------------------------------------------------
 
@@ -15747,7 +16495,14 @@ CREATE TABLE IF NOT EXISTS `mdl_groups` (
   PRIMARY KEY (`id`),
   KEY `mdl_grou_idn_ix` (`idnumber`),
   KEY `mdl_grou_cou_ix` (`courseid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Each record represents a group.' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Each record represents a group.' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_groups`
+--
+
+INSERT INTO `mdl_groups` (`id`, `courseid`, `idnumber`, `name`, `description`, `descriptionformat`, `enrolmentkey`, `picture`, `visibility`, `participation`, `timecreated`, `timemodified`) VALUES
+(1, 4, '', 'Group A', '<p>The students have completed two levels in the KinderBot program.</p>', 1, '', 0, 3, 0, 1714643222, 1714643426);
 
 -- --------------------------------------------------------
 
@@ -15767,7 +16522,22 @@ CREATE TABLE IF NOT EXISTS `mdl_groups_members` (
   UNIQUE KEY `mdl_groumemb_usegro_uix` (`userid`,`groupid`),
   KEY `mdl_groumemb_gro_ix` (`groupid`),
   KEY `mdl_groumemb_use_ix` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Link a user to a group.' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Link a user to a group.' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_groups_members`
+--
+
+INSERT INTO `mdl_groups_members` (`id`, `groupid`, `userid`, `timeadded`, `component`, `itemid`) VALUES
+(1, 1, 14, 1714643242, '', 0),
+(2, 1, 13, 1714643242, '', 0),
+(3, 1, 11, 1714643242, '', 0),
+(4, 1, 10, 1714643242, '', 0),
+(5, 1, 9, 1714643242, '', 0),
+(6, 1, 12, 1714643242, '', 0),
+(7, 1, 15, 1714643242, '', 0),
+(8, 1, 16, 1714643242, '', 0),
+(9, 1, 2, 1714643242, '', 0);
 
 -- --------------------------------------------------------
 
@@ -16397,7 +17167,7 @@ CREATE TABLE IF NOT EXISTS `mdl_logstore_standard_log` (
   KEY `mdl_logsstanlog_cou_ix` (`courseid`),
   KEY `mdl_logsstanlog_rea_ix` (`realuserid`),
   KEY `mdl_logsstanlog_rel_ix` (`relateduserid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2528 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Standard log table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=3146 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Standard log table' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_logstore_standard_log`
@@ -18943,7 +19713,628 @@ INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action
 (2524, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714558737, 'web', '0:0:0:0:0:0:0:1', NULL),
 (2525, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714558748, 'web', '0:0:0:0:0:0:0:1', NULL),
 (2526, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714558876, 'web', '0:0:0:0:0:0:0:1', NULL),
-(2527, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714558894, 'web', '0:0:0:0:0:0:0:1', NULL);
+(2527, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714558894, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2528, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714559377, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2529, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714559386, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2530, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714559391, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2531, '\\core\\event\\course_created', 'core', 'created', 'course', 'course', 4, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"The World Around Us\"}', 1714559762, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2532, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714559773, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2533, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714559820, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2534, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 19, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":0}', 1714559825, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2535, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714559826, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2536, '\\core\\event\\draft_file_added', 'core', 'added', 'draft_file', 'files', 486, 'c', 0, 5, 30, 2, 2, 0, 2, 0, '{\"itemid\":983830089,\"filename\":\"IMG_1720.jpg\",\"filesize\":6699565,\"filepath\":\"\\/\",\"contenthash\":\"cf89aa3175179408ddceb2b96480431ba0b5693e\"}', 1714559886, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2537, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"The World Around Us\",\"updatedfields\":[]}', 1714559902, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2538, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714559905, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2539, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714559912, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2540, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714559915, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2541, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 33, 50, 3, 2, 3, NULL, 0, 'null', 1714559920, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2542, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 33, 50, 3, 2, 3, NULL, 0, 'null', 1714559935, 'web', '0:0:0:0:0:0:0:1', NULL);
+INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action`, `target`, `objecttable`, `objectid`, `crud`, `edulevel`, `contextid`, `contextlevel`, `contextinstanceid`, `userid`, `courseid`, `relateduserid`, `anonymous`, `other`, `timecreated`, `origin`, `ip`, `realuserid`) VALUES
+(2543, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714559938, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2544, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714559941, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2545, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714559945, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2546, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714559948, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2547, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714559950, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2548, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"The World Around Us\",\"updatedfields\":{\"summary_editor\":\"(updated)\"}}', 1714559960, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2549, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714559961, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2550, '\\core\\event\\course_backup_created', 'core', 'created', 'course_backup', 'course', 3, 'c', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"format\":\"moodle2\",\"mode\":20,\"interactive\":true,\"type\":\"course\",\"backupid\":\"43f04b7abc227513b91949ac6aedd75b\"}', 1714559996, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2551, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 19, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"0\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2552, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 20, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"1\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2553, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 21, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"2\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2554, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 22, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"3\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2555, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 23, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"4\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2556, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 24, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"5\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2557, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 25, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"6\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2558, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 26, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"7\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2559, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 27, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"8\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2560, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 28, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"9\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2561, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 29, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"10\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2562, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 30, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"11\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2563, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 31, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"12\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2564, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 32, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"13\"}', 1714559997, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2565, '\\core\\event\\course_restored', 'core', 'restored', 'course', 'course', 4, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"type\":\"course\",\"target\":1,\"mode\":20,\"operation\":\"restore\",\"samesite\":true,\"originalcourseid\":\"3\"}', 1714559998, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2566, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714560002, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2567, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714560006, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2568, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714560009, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2569, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 33, 50, 3, 2, 3, NULL, 0, 'null', 1714560013, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2570, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 5, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560047, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2571, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 6, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560050, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2572, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 7, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560060, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2573, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 8, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560062, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2574, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 9, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560065, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2575, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 10, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560067, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2576, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 11, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560069, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2577, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 12, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560072, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2578, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 13, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560074, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2579, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 14, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560076, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2580, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 15, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560079, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2581, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 16, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560083, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2582, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 17, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"sectionnum\":\"1\",\"sectionname\":\"Topic 1\"}', 1714560089, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2583, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714560104, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2584, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 33, 50, 3, 2, 3, NULL, 0, 'null', 1714560109, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2585, '\\core\\event\\course_backup_created', 'core', 'created', 'course_backup', 'course', 3, 'c', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"format\":\"moodle2\",\"mode\":50,\"interactive\":false,\"type\":\"course\",\"backupid\":\"ad422b04ab8ce92f09c3dfb0b8b478fb\"}', 1714560134, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2586, '\\tool_recyclebin\\event\\category_bin_item_created', 'tool_recyclebin', 'created', 'category_bin_item', 'tool_recyclebin_category', 2, 'c', 0, 27, 40, 2, 2, 0, NULL, 0, 'null', 1714560134, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2587, '\\core\\event\\grade_item_deleted', 'core', 'deleted', 'grade_item', 'grade_items', 3, 'd', 0, 33, 50, 3, 2, 3, NULL, 0, '{\"itemname\":\"Announcements rating\",\"itemtype\":\"mod\",\"itemmodule\":\"forum\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2588, '\\core\\event\\grade_item_deleted', 'core', 'deleted', 'grade_item', 'grade_items', 4, 'd', 0, 33, 50, 3, 2, 3, NULL, 0, '{\"itemname\":\"Announcements rating\",\"itemtype\":\"mod\",\"itemmodule\":\"forum\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2589, '\\core\\event\\grade_item_deleted', 'core', 'deleted', 'grade_item', 'grade_items', 2, 'd', 0, 33, 50, 3, 2, 3, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2590, '\\core\\event\\role_unassigned', 'core', 'unassigned', 'role', 'role', 1, 'd', 0, 33, 50, 3, 2, 3, 2, 0, '{\"id\":\"11\",\"component\":\"\",\"itemid\":\"0\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2591, '\\core\\event\\user_enrolment_deleted', 'core', 'deleted', 'user_enrolment', 'user_enrolments', 2, 'd', 0, 33, 50, 3, 2, 3, 2, 0, '{\"userenrolment\":{\"id\":\"2\",\"status\":\"0\",\"enrolid\":\"4\",\"userid\":\"2\",\"timestart\":\"0\",\"timeend\":\"0\",\"modifierid\":\"2\",\"timecreated\":\"1710696473\",\"timemodified\":\"1710696473\",\"courseid\":\"3\",\"enrol\":\"manual\",\"lastenrol\":true},\"enrol\":\"manual\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2592, '\\core\\event\\role_unassigned', 'core', 'unassigned', 'role', 'role', 5, 'd', 0, 33, 50, 3, 2, 3, 3, 0, '{\"id\":\"3\",\"component\":\"\",\"itemid\":\"0\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2593, '\\core\\event\\user_enrolment_deleted', 'core', 'deleted', 'user_enrolment', 'user_enrolments', 3, 'd', 0, 33, 50, 3, 2, 3, 3, 0, '{\"userenrolment\":{\"id\":\"3\",\"status\":\"0\",\"enrolid\":\"4\",\"userid\":\"3\",\"timestart\":\"1711299599\",\"timeend\":\"0\",\"modifierid\":\"2\",\"timecreated\":\"1711299677\",\"timemodified\":\"1711299677\",\"courseid\":\"3\",\"enrol\":\"manual\",\"lastenrol\":true},\"enrol\":\"manual\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2594, '\\core\\event\\role_unassigned', 'core', 'unassigned', 'role', 'role', 3, 'd', 0, 33, 50, 3, 2, 3, 4, 0, '{\"id\":\"8\",\"component\":\"\",\"itemid\":\"0\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2595, '\\core\\event\\user_enrolment_deleted', 'core', 'deleted', 'user_enrolment', 'user_enrolments', 4, 'd', 0, 33, 50, 3, 2, 3, 4, 0, '{\"userenrolment\":{\"id\":\"4\",\"status\":\"0\",\"enrolid\":\"4\",\"userid\":\"4\",\"timestart\":\"1710712800\",\"timeend\":\"1719264300\",\"modifierid\":\"2\",\"timecreated\":\"1711319166\",\"timemodified\":\"1711319166\",\"courseid\":\"3\",\"enrol\":\"manual\",\"lastenrol\":true},\"enrol\":\"manual\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2596, '\\core\\event\\role_unassigned', 'core', 'unassigned', 'role', 'role', 4, 'd', 0, 33, 50, 3, 2, 3, 5, 0, '{\"id\":\"9\",\"component\":\"\",\"itemid\":\"0\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2597, '\\core\\event\\user_enrolment_deleted', 'core', 'deleted', 'user_enrolment', 'user_enrolments', 5, 'd', 0, 33, 50, 3, 2, 3, 5, 0, '{\"userenrolment\":{\"id\":\"5\",\"status\":\"0\",\"enrolid\":\"4\",\"userid\":\"5\",\"timestart\":\"1711317600\",\"timeend\":\"1719264360\",\"modifierid\":\"2\",\"timecreated\":\"1711319202\",\"timemodified\":\"1711319202\",\"courseid\":\"3\",\"enrol\":\"manual\",\"lastenrol\":true},\"enrol\":\"manual\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2598, '\\core\\event\\role_unassigned', 'core', 'unassigned', 'role', 'role', 5, 'd', 0, 33, 50, 3, 2, 3, 6, 0, '{\"id\":\"10\",\"component\":\"\",\"itemid\":\"0\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2599, '\\core\\event\\user_enrolment_deleted', 'core', 'deleted', 'user_enrolment', 'user_enrolments', 6, 'd', 0, 33, 50, 3, 2, 3, 6, 0, '{\"userenrolment\":{\"id\":\"6\",\"status\":\"0\",\"enrolid\":\"4\",\"userid\":\"6\",\"timestart\":\"1711319299\",\"timeend\":\"0\",\"modifierid\":\"2\",\"timecreated\":\"1711319384\",\"timemodified\":\"1711319384\",\"courseid\":\"3\",\"enrol\":\"manual\",\"lastenrol\":true},\"enrol\":\"manual\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2600, '\\core\\event\\enrol_instance_deleted', 'core', 'deleted', 'enrol_instance', 'enrol', 4, 'd', 0, 33, 50, 3, 2, 3, NULL, 0, '{\"enrol\":\"manual\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2601, '\\core\\event\\enrol_instance_deleted', 'core', 'deleted', 'enrol_instance', 'enrol', 5, 'd', 0, 33, 50, 3, 2, 3, NULL, 0, '{\"enrol\":\"guest\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2602, '\\core\\event\\enrol_instance_deleted', 'core', 'deleted', 'enrol_instance', 'enrol', 6, 'd', 0, 33, 50, 3, 2, 3, NULL, 0, '{\"enrol\":\"self\"}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2603, '\\core\\event\\course_content_deleted', 'core', 'deleted', 'course_content', 'course', 3, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"shortname\":\"Level 1\",\"fullname\":\"Exploration Of Curiosity\",\"options\":[]}', 1714560135, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2604, '\\core\\event\\course_deleted', 'core', 'deleted', 'course', 'course', 3, 'd', 1, 33, 50, 3, 2, 3, NULL, 0, '{\"shortname\":\"Level 1\",\"fullname\":\"Exploration Of Curiosity\",\"idnumber\":\"EOCl1\"}', 1714560136, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2605, '\\tool_recyclebin\\event\\category_bin_item_deleted', 'tool_recyclebin', 'deleted', 'category_bin_item', 'tool_recyclebin_category', 2, 'd', 0, 27, 40, 2, 2, 0, NULL, 0, 'null', 1714560153, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2606, '\\core\\event\\course_category_deleted', 'core', 'deleted', 'course_category', 'course_categories', 2, 'd', 0, 27, 40, 2, 2, 0, NULL, 0, '{\"name\":\"JuniorBot\"}', 1714560154, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2607, '\\tool_recyclebin\\event\\category_bin_item_deleted', 'tool_recyclebin', 'deleted', 'category_bin_item', 'tool_recyclebin_category', 1, 'd', 0, 3, 40, 1, 2, 0, NULL, 0, 'null', 1714560180, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2608, '\\core\\event\\course_category_deleted', 'core', 'deleted', 'course_category', 'course_categories', 1, 'd', 0, 3, 40, 1, 2, 0, NULL, 0, '{\"name\":\"Module\"}', 1714560180, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2609, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"Exploration Of Curiosity\",\"updatedfields\":{\"fullname\":\"Exploration Of Curiosity\"}}', 1714560240, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2610, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714560241, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2611, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 6, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714560255, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2612, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 7, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714560315, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2613, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 15, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":1,\"name\":\"Attendance\"}', 1714560315, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2614, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 7, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714560315, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2615, '\\mod_attendance\\event\\report_viewed', 'mod_attendance', 'viewed', 'report', 'attendance', 1, 'r', 1, 74, 70, 15, 2, 4, NULL, 0, '[]', 1714560335, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2616, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714561623, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2617, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714561629, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2618, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714561635, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2619, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714561638, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2620, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714561683, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2621, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714561701, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2622, '\\gradereport_grader\\event\\grade_report_viewed', 'gradereport_grader', 'viewed', 'grade_report', NULL, NULL, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714561718, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2623, '\\gradereport_grader\\event\\grade_report_viewed', 'gradereport_grader', 'viewed', 'grade_report', NULL, NULL, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714561724, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2624, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714561772, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2625, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714561791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2626, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714561815, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2627, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714561835, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2628, '\\core\\event\\course_category_viewed', 'core', 'viewed', 'course_category', 'course_categories', 7, 'r', 0, 61, 40, 7, 2, 0, NULL, 0, 'null', 1714561850, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2629, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714561852, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2630, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714561975, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2631, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714561984, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2632, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714562024, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2633, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714562030, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2634, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714562032, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2635, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714562038, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2636, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714562044, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2637, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714562124, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2638, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714562129, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2639, '\\core\\event\\user_profile_viewed', 'core', 'viewed', 'user_profile', 'user', 13, 'r', 0, 75, 30, 13, 2, 0, 13, 0, 'null', 1714562525, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2640, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714562557, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2641, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714562567, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2642, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714562570, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2643, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714562594, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2644, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714562598, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2645, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714562642, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2646, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714562648, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2647, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714562724, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2648, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714562733, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2649, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714562752, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2650, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714562754, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2651, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714562757, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2652, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714562763, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2653, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714562854, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2654, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714562988, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2655, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563004, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2656, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563015, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2657, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563021, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2658, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563030, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2659, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563053, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2660, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563085, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2661, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563101, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2662, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563179, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2663, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714563243, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2664, '\\core\\event\\enrol_instance_created', 'core', 'created', 'enrol_instance', 'enrol', 7, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"enrol\":\"manual\"}', 1714563318, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2665, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 7, 'c', 0, 69, 50, 4, 2, 4, 13, 0, '{\"enrol\":\"manual\"}', 1714563332, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2666, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 13, 0, '{\"id\":20,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2667, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 8, 'c', 0, 69, 50, 4, 2, 4, 11, 0, '{\"enrol\":\"manual\"}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2668, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 11, 0, '{\"id\":21,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2669, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 9, 'c', 0, 69, 50, 4, 2, 4, 10, 0, '{\"enrol\":\"manual\"}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2670, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 10, 0, '{\"id\":22,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2671, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 10, 'c', 0, 69, 50, 4, 2, 4, 9, 0, '{\"enrol\":\"manual\"}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2672, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 9, 0, '{\"id\":23,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2673, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 11, 'c', 0, 69, 50, 4, 2, 4, 12, 0, '{\"enrol\":\"manual\"}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2674, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 12, 0, '{\"id\":24,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2675, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 12, 'c', 0, 69, 50, 4, 2, 4, 15, 0, '{\"enrol\":\"manual\"}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2676, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 15, 0, '{\"id\":25,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2677, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 13, 'c', 0, 69, 50, 4, 2, 4, 16, 0, '{\"enrol\":\"manual\"}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2678, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 16, 0, '{\"id\":26,\"component\":\"\",\"itemid\":0}', 1714563333, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2679, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 14, 'c', 0, 69, 50, 4, 2, 4, 14, 0, '{\"enrol\":\"manual\"}', 1714563346, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2680, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 69, 50, 4, 2, 4, 14, 0, '{\"id\":27,\"component\":\"\",\"itemid\":0}', 1714563346, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2681, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714563377, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2682, '\\core\\event\\grouping_created', 'core', 'created', 'grouping', 'groupings', 1, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563507, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2683, '\\core\\event\\grouping_updated', 'core', 'updated', 'grouping', 'groupings', 1, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714563524, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2684, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714563541, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2685, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714563575, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2686, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714563624, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2687, '\\gradereport_grader\\event\\grade_report_viewed', 'gradereport_grader', 'viewed', 'grade_report', NULL, NULL, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714564874, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2688, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714564884, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2689, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714564895, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2690, '\\core_customfield\\event\\category_created', 'core_customfield', 'created', 'category', 'customfield_category', 1, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"Other fields\"}', 1714564915, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2691, '\\core_customfield\\event\\category_deleted', 'core_customfield', 'deleted', 'category', 'customfield_category', 1, 'd', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"Other fields\"}', 1714564921, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2692, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714564940, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2693, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714565048, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2694, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 15, 'c', 0, 69, 50, 4, 2, 4, 2, 0, '{\"enrol\":\"manual\"}', 1714565089, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2695, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 1, 'c', 0, 69, 50, 4, 2, 4, 2, 0, '{\"id\":28,\"component\":\"\",\"itemid\":0}', 1714565089, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2696, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714565158, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2697, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714565699, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2698, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714565710, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2699, '\\mod_attendance\\event\\report_viewed', 'mod_attendance', 'viewed', 'report', 'attendance', 1, 'r', 1, 74, 70, 15, 2, 4, NULL, 0, '[]', 1714565758, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2700, '\\mod_attendance\\event\\status_updated', 'mod_attendance', 'updated', 'status', 'attendance_statuses', 0, 'u', 1, 1, 10, 0, 2, 0, NULL, 0, '{\"acronym\":\"P\",\"description\":\"Present\",\"grade\":2,\"updated\":\"P Present 2 \"}', 1714565802, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2701, '\\mod_attendance\\event\\status_updated', 'mod_attendance', 'updated', 'status', 'attendance_statuses', 0, 'u', 1, 1, 10, 0, 2, 0, NULL, 0, '{\"acronym\":\"L\",\"description\":\"Late\",\"grade\":1,\"updated\":\"L Late 1 \"}', 1714565802, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2702, '\\mod_attendance\\event\\status_updated', 'mod_attendance', 'updated', 'status', 'attendance_statuses', 0, 'u', 1, 1, 10, 0, 2, 0, NULL, 0, '{\"acronym\":\"S\",\"description\":\"Switch\",\"grade\":2,\"updated\":\"S Switch 2 \"}', 1714565802, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2703, '\\mod_attendance\\event\\status_updated', 'mod_attendance', 'updated', 'status', 'attendance_statuses', 0, 'u', 1, 1, 10, 0, 2, 0, NULL, 0, '{\"acronym\":\"A\",\"description\":\"Absent\",\"grade\":0,\"updated\":\"A Absent 0 \"}', 1714565802, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2704, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714565811, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2705, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714565819, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2706, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714565906, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2707, '\\core\\event\\grouping_updated', 'core', 'updated', 'grouping', 'groupings', 1, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566052, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2708, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566167, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2709, '\\core\\event\\grouping_created', 'core', 'created', 'grouping', 'groupings', 2, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566223, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2710, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566230, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2711, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566278, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2712, '\\core\\event\\user_profile_viewed', 'core', 'viewed', 'user_profile', 'user', 14, 'r', 0, 69, 50, 4, 2, 4, 14, 0, '{\"courseid\":\"4\",\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566309, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2713, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566322, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2714, '\\gradereport_grader\\event\\grade_report_viewed', 'gradereport_grader', 'viewed', 'grade_report', NULL, NULL, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566353, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2715, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566359, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2716, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714566436, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2717, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714566457, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2718, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"Exploration Of Curiosity\",\"updatedfields\":{\"groupmode\":\"1\"}}', 1714566567, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2719, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566571, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2720, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566573, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2721, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566624, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2722, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"Exploration Of Curiosity\",\"updatedfields\":{\"groupmodeforce\":\"1\"}}', 1714566654, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2723, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566656, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2724, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566660, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2725, '\\core\\event\\question_category_viewed', 'core', 'viewed', 'question_category', 'question_categories', 6, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566720, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2726, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566730, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2727, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714566746, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2728, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714566910, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2729, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714566970, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2730, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566975, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2731, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714566997, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2732, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714567014, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2733, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714567072, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2734, '\\core\\event\\user_loggedout', 'core', 'loggedout', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"sessionid\":\"ve7efcattpmfoe5dva2ar46js5\"}', 1714567074, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2735, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 0, 1, NULL, 0, 'null', 1714567074, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2736, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1714567257, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2737, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714567259, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2738, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"Exploration Of Curiosity\",\"updatedfields\":[]}', 1714567296, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2739, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714567302, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2740, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714567304, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2741, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714567356, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2742, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714567359, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2743, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714567361, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2744, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714567364, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2745, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714567367, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2746, '\\core\\event\\draft_file_added', 'core', 'added', 'draft_file', 'files', 525, 'c', 0, 5, 30, 2, 2, 0, 2, 0, '{\"itemid\":44350068,\"filename\":\"IMG_1633.jpg\",\"filesize\":7746775,\"filepath\":\"\\/\",\"contenthash\":\"d2ae902b0fce92186e9a4b0ced46ac191e28c57b\"}', 1714567443, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2747, '\\core\\event\\course_created', 'core', 'created', 'course', 'course', 5, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"shortname\":\"Level 1\",\"fullname\":\"Scout Beginnings\"}', 1714567451, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2748, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714567477, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2749, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714567479, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2750, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714567481, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2751, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 33, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":0}', 1714567550, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2752, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 80, 50, 5, 2, 5, NULL, 0, 'null', 1714567550, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2753, '\\core\\event\\course_backup_created', 'core', 'created', 'course_backup', 'course', 4, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"format\":\"moodle2\",\"mode\":20,\"interactive\":true,\"type\":\"course\",\"backupid\":\"580a8df7a6d86bbf1703df22a4afdabe\"}', 1714567582, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2754, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 33, 'u', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"0\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2755, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 34, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"1\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2756, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 8, 'c', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2757, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 9, 'c', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2758, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 9, 'u', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2759, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 35, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"2\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2760, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 36, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"3\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2761, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 37, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"4\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2762, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 38, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"5\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2763, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 39, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"6\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2764, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 40, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"7\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2765, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 41, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"8\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2766, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 42, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"9\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2767, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 43, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"10\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2768, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 44, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"11\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2769, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 45, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"12\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2770, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 46, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"sectionnum\":\"13\"}', 1714567583, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2771, '\\core\\event\\course_restored', 'core', 'restored', 'course', 'course', 5, 'c', 1, 80, 50, 5, 2, 5, NULL, 0, '{\"type\":\"course\",\"target\":1,\"mode\":20,\"operation\":\"restore\",\"samesite\":true,\"originalcourseid\":\"4\"}', 1714567584, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2772, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 80, 50, 5, 2, 5, NULL, 0, 'null', 1714567589, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2773, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 5, 'r', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"courseshortname\":\"Level 1\",\"coursefullname\":\"Scout Beginnings\"}', 1714567590, 'web', '0:0:0:0:0:0:0:1', NULL);
+INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action`, `target`, `objecttable`, `objectid`, `crud`, `edulevel`, `contextid`, `contextlevel`, `contextinstanceid`, `userid`, `courseid`, `relateduserid`, `anonymous`, `other`, `timecreated`, `origin`, `ip`, `realuserid`) VALUES
+(2774, '\\core\\event\\enrol_instance_created', 'core', 'created', 'enrol_instance', 'enrol', 8, 'c', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"enrol\":\"manual\"}', 1714567618, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2775, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 16, 'c', 0, 80, 50, 5, 2, 5, 3, 0, '{\"enrol\":\"manual\"}', 1714567634, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2776, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 80, 50, 5, 2, 5, 3, 0, '{\"id\":29,\"component\":\"\",\"itemid\":0}', 1714567634, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2777, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 17, 'c', 0, 80, 50, 5, 2, 5, 2, 0, '{\"enrol\":\"manual\"}', 1714567642, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2778, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 80, 50, 5, 2, 5, 2, 0, '{\"id\":30,\"component\":\"\",\"itemid\":0}', 1714567642, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2779, '\\core\\event\\user_enrolment_created', 'core', 'created', 'user_enrolment', 'user_enrolments', 18, 'c', 0, 80, 50, 5, 2, 5, 6, 0, '{\"enrol\":\"manual\"}', 1714567645, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2780, '\\core\\event\\role_assigned', 'core', 'assigned', 'role', 'role', 5, 'c', 0, 80, 50, 5, 2, 5, 6, 0, '{\"id\":31,\"component\":\"\",\"itemid\":0}', 1714567645, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2781, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 5, 'r', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"courseshortname\":\"Level 1\",\"coursefullname\":\"Scout Beginnings\"}', 1714567650, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2782, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714567670, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2783, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 80, 50, 5, 2, 5, NULL, 0, 'null', 1714567677, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2784, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 5, 'r', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"courseshortname\":\"Level 1\",\"coursefullname\":\"Scout Beginnings\"}', 1714567697, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2785, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 5, 'r', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"courseshortname\":\"Level 1\",\"coursefullname\":\"Scout Beginnings\"}', 1714567726, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2786, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 80, 50, 5, 2, 5, NULL, 0, 'null', 1714567755, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2787, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 5, 'r', 0, 80, 50, 5, 2, 5, NULL, 0, '{\"courseshortname\":\"Level 1\",\"coursefullname\":\"Scout Beginnings\"}', 1714568337, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2788, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714568343, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2789, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714568354, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2790, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714568362, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2791, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714570427, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2792, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714570447, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2793, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714570460, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2794, '\\gradereport_grader\\event\\grade_report_viewed', 'gradereport_grader', 'viewed', 'grade_report', NULL, NULL, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714570606, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2795, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714570633, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2796, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714570650, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2797, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714570661, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2798, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714570689, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2799, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714570808, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2800, '\\core\\event\\draft_file_deleted', 'core', 'deleted', 'draft_file', 'files', 534, 'd', 0, 5, 30, 2, 2, 0, 2, 0, '{\"itemid\":\"512333865\",\"filename\":\"logo inverted.png\",\"filesize\":\"91373\",\"filepath\":\"\\/\",\"contenthash\":\"5478a2bf9de5df3f61f3df0b2cf40fd2a279efbb\"}', 1714570862, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2801, '\\core\\event\\draft_file_added', 'core', 'added', 'draft_file', 'files', 550, 'c', 0, 5, 30, 2, 2, 0, 2, 0, '{\"itemid\":512333865,\"filename\":\"hexlogo.png\",\"filesize\":11340,\"filepath\":\"\\/\",\"contenthash\":\"44ab5ae832b056749e12bc37fc1ff9acd60712fd\"}', 1714570873, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2802, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2331, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"logo\",\"oldvalue\":\"\\/logo inverted.png\",\"value\":\"\\/hexlogo.png\",\"plugin\":\"theme_moove\"}', 1714570878, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2803, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714570936, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2804, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714570940, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2805, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"Exploration Of Curiosity\",\"updatedfields\":{\"defaultgroupingid\":\"1\"}}', 1714570976, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2806, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714570977, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2807, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714570980, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2808, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714571006, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2809, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714571832, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2810, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714571879, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2811, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714571899, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2812, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714572351, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2813, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714572359, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2814, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714572398, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2815, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714572405, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2816, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714572858, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2817, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714572863, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2818, '\\core_reportbuilder\\event\\report_created', 'core_reportbuilder', 'created', 'report', 'reportbuilder_report', 4, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"report 1\",\"source\":\"mod_attendance\\\\reportbuilder\\\\datasource\\\\attendance\"}', 1714572979, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2819, '\\core_reportbuilder\\event\\report_updated', 'core_reportbuilder', 'updated', 'report', 'reportbuilder_report', 4, 'u', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"report 1\",\"source\":\"mod_attendance\\\\reportbuilder\\\\datasource\\\\attendance\"}', 1714572979, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2820, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 0, 1, NULL, 0, 'null', 1714642722, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2821, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 0, 1, NULL, 0, 'null', 1714642715, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2822, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1714642758, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2823, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714642789, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2824, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714642805, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2825, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714642812, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2826, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714642817, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2827, '\\gradereport_grader\\event\\grade_report_viewed', 'gradereport_grader', 'viewed', 'grade_report', NULL, NULL, 'r', 1, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714642850, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2828, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714643120, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2829, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643124, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2830, '\\core\\event\\course_updated', 'core', 'updated', 'course', 'course', 4, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"shortname\":\"Level 2\",\"fullname\":\"Exploration Of Curiosity\",\"updatedfields\":{\"groupmodeforce\":\"0\"}}', 1714643163, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2831, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643165, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2832, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714643180, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2833, '\\core\\event\\group_created', 'core', 'created', 'group', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643222, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2834, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 14, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2835, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 13, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2836, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 11, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2837, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 10, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2838, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 9, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2839, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 12, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2840, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 15, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2841, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 16, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2842, '\\core\\event\\group_member_added', 'core', 'added', 'group_member', 'groups', 1, 'c', 0, 69, 50, 4, 2, 4, 2, 0, '{\"component\":\"\",\"itemid\":0}', 1714643242, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2843, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 4, 'r', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"courseshortname\":\"Level 2\",\"coursefullname\":\"Exploration Of Curiosity\"}', 1714643290, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2844, '\\core\\event\\grouping_deleted', 'core', 'deleted', 'grouping', 'groupings', 1, 'd', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643309, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2845, '\\core\\event\\grouping_deleted', 'core', 'deleted', 'grouping', 'groupings', 2, 'd', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643315, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2846, '\\core\\event\\group_updated', 'core', 'updated', 'group', 'groups', 1, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643426, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2847, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 15, 'u', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"1\",\"name\":\"Attendance\"}', 1714643467, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2848, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 9, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2849, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 4 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2850, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 10, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2851, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 11 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2852, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 11, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2853, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 18 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2854, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 12, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2855, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 25 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2856, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 13, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2857, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 1 June 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2858, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 14, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2859, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 8 June 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2860, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 15, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2861, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 1, 'c', 1, 74, 70, 15, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 15 June 2024<\\/nobr> 11AM - 1PM\"}', 1714643547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2862, '\\mod_attendance\\event\\report_viewed', 'mod_attendance', 'viewed', 'report', 'attendance', 1, 'r', 1, 74, 70, 15, 2, 4, NULL, 0, '[]', 1714643567, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2863, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714643615, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2864, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714643617, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2865, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643621, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2866, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643637, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2867, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 10, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643659, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2868, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 18, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":3,\"name\":\"Attendance\"}', 1714643659, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2869, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 10, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643659, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2870, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 7, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643659, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2871, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 10, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643659, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2872, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 6, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714643659, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2873, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 16, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2874, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 4 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2875, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 17, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2876, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 11 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2877, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 18, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2878, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 18 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2879, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 19, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2880, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 25 May 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2881, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 20, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2882, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 1 June 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2883, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 21, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2884, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 8 June 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2885, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 22, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2886, '\\mod_attendance\\event\\session_added', 'mod_attendance', 'added', 'session', 'attendance_sessions', 3, 'c', 1, 85, 70, 18, 2, 4, NULL, 0, '{\"info\":\"<nobr>Sat 15 June 2024<\\/nobr> 11AM - 1PM\"}', 1714643688, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2887, '\\mod_attendance\\event\\report_viewed', 'mod_attendance', 'viewed', 'report', 'attendance', 3, 'r', 1, 85, 70, 18, 2, 4, NULL, 0, '[]', 1714643694, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2888, '\\mod_attendance\\event\\report_viewed', 'mod_attendance', 'viewed', 'report', 'attendance', 3, 'r', 1, 85, 70, 18, 2, 4, NULL, 0, '[]', 1714643700, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2889, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643739, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2890, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 23, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2891, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 24, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2892, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 25, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2893, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 26, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2894, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 27, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2895, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 28, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2896, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 29, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2897, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 11, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2898, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 11, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643755, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2899, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 19, 'u', 1, 86, 70, 19, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"4\",\"name\":\"Attendance (copy)\"}', 1714643756, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2900, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 30, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2901, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 31, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2902, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 32, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2903, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 33, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2904, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 34, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2905, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 35, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2906, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 36, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2907, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 12, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2908, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 12, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643768, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2909, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 20, 'u', 1, 87, 70, 20, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"5\",\"name\":\"Attendance (copy)\"}', 1714643768, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2910, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 13, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2911, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 21, 'c', 1, 88, 70, 21, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":6,\"name\":\"Attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2912, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 13, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2913, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 7, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2914, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 10, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2915, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 12, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2916, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 11, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2917, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 13, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2918, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 6, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714643791, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2919, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714643808, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2920, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643812, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2921, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 19, 'u', 1, 86, 70, 19, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"4\",\"name\":\"Attendance\"}', 1714643820, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2922, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 20, 'u', 1, 87, 70, 20, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"5\",\"name\":\"Attendance\"}', 1714643849, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2923, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643860, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2924, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 37, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2925, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 38, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2926, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 39, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2927, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 40, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2928, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 41, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2929, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 42, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2930, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 43, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2931, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 14, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2932, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 14, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714643877, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2933, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 22, 'u', 1, 89, 70, 22, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"7\",\"name\":\"Attendance (copy)\"}', 1714643877, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2934, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714643887, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2935, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714644030, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2936, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644034, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2937, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 44, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2938, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 45, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2939, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 46, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2940, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 47, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2941, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 48, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2942, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 49, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2943, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 50, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2944, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 15, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2945, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 15, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644044, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2946, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 23, 'u', 1, 90, 70, 23, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"8\",\"name\":\"Attendance (copy)\"}', 1714644044, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2947, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 47, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":3}', 1714644049, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2948, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 47, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":3}', 1714644049, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2949, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 51, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2950, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 52, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2951, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 53, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2952, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 54, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2953, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 55, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2954, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 56, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2955, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 57, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2956, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 16, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2957, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 16, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644050, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2958, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 24, 'c', 1, 91, 70, 24, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"9\",\"name\":\"Attendance\"}', 1714644050, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2959, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644053, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2960, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 58, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2961, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 59, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2962, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 60, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2963, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 61, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2964, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 62, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2965, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 63, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2966, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 64, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2967, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 17, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2968, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 17, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644059, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2969, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 25, 'u', 1, 92, 70, 25, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"10\",\"name\":\"Attendance (copy)\"}', 1714644060, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2970, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644085, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2971, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 48, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":8}', 1714644100, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2972, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 48, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":8}', 1714644100, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2973, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 65, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2974, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 66, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2975, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 67, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2976, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 68, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2977, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 69, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2978, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 70, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2979, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 71, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2980, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 18, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2981, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 18, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644101, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2982, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 26, 'c', 1, 93, 70, 26, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"11\",\"name\":\"Attendance (copy)\"}', 1714644101, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2983, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644103, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2984, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 79, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL);
+INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action`, `target`, `objecttable`, `objectid`, `crud`, `edulevel`, `contextid`, `contextlevel`, `contextinstanceid`, `userid`, `courseid`, `relateduserid`, `anonymous`, `other`, `timecreated`, `origin`, `ip`, `realuserid`) VALUES
+(2985, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 80, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2986, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 81, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2987, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 82, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2988, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 83, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2989, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 84, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2990, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 85, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (copy) (Group Group A)\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2991, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 19, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2992, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 19, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644116, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(2993, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 27, 'u', 1, 94, 70, 27, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"12\",\"name\":\"Attendance (copy) (copy)\"}', 1714644117, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2994, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644122, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2995, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 26, 'u', 1, 93, 70, 26, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"11\",\"name\":\"Attendance\"}', 1714644137, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2996, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 27, 'u', 1, 94, 70, 27, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"12\",\"name\":\"Attendance\"}', 1714644144, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2997, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 25, 'u', 1, 92, 70, 25, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"10\",\"name\":\"Attendance\"}', 1714644151, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2998, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 23, 'u', 1, 90, 70, 23, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"8\",\"name\":\"Attendance\"}', 1714644157, 'web', '0:0:0:0:0:0:0:1', NULL),
+(2999, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 22, 'u', 1, 89, 70, 22, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"7\",\"name\":\"Attendance\"}', 1714644164, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3000, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644170, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3001, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 86, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644186, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3002, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 87, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3003, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 88, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3004, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 89, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3005, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 90, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3006, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 91, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3007, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 92, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3008, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 20, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3009, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 20, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644187, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3010, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 28, 'u', 1, 95, 70, 28, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"13\",\"name\":\"Attendance (copy)\"}', 1714644187, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3011, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 93, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3012, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 94, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3013, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 95, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3014, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 96, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3015, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 97, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3016, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 98, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3017, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 99, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3018, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 21, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3019, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 21, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644194, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3020, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 29, 'u', 1, 96, 70, 29, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"14\",\"name\":\"Attendance (copy)\"}', 1714644195, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3021, '\\core\\event\\course_section_created', 'core', 'created', 'course_section', 'course_sections', 49, 'c', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":4}', 1714644200, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3022, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 49, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":4}', 1714644200, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3023, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 100, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3024, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 101, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3025, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 102, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3026, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 103, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3027, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 104, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3028, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 105, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3029, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 106, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3030, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 22, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3031, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 22, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644201, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3032, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 30, 'c', 1, 97, 70, 30, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"15\",\"name\":\"Attendance\"}', 1714644201, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3033, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644206, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3034, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 107, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1714809600,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3035, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 108, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1715414400,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3036, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 109, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716019200,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3037, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 110, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1716624000,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3038, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 111, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717228800,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3039, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 112, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1717833600,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3040, '\\core\\event\\calendar_event_created', 'core', 'created', 'calendar_event', 'event', 113, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"repeatid\":0,\"timestart\":1718438400,\"name\":\"Attendance (Group Group A)\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3041, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 23, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3042, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 23, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644273, 'restore', '0:0:0:0:0:0:0:1', NULL),
+(3043, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 31, 'u', 1, 98, 70, 31, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"16\",\"name\":\"Attendance (copy)\"}', 1714644274, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3044, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 32, 'd', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"16\",\"sectionname\":\"Topic 16\"}', 1714644281, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3045, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 31, 'd', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"15\",\"sectionname\":\"Topic 15\"}', 1714644284, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3046, '\\core\\event\\course_section_deleted', 'core', 'deleted', 'course_section', 'course_sections', 30, 'd', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"14\",\"sectionname\":\"Topic 14\"}', 1714644288, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3047, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644293, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3048, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 31, 'u', 1, 98, 70, 31, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"16\",\"name\":\"Attendance\"}', 1714644309, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3049, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 28, 'u', 1, 95, 70, 28, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"13\",\"name\":\"Attendance\"}', 1714644315, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3050, '\\core\\event\\course_module_updated', 'core', 'updated', 'course_module', 'course_modules', 29, 'u', 1, 96, 70, 29, 2, 4, NULL, 0, '{\"modulename\":\"attendance\",\"instanceid\":\"14\",\"name\":\"Attendance\"}', 1714644321, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3051, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714644326, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3052, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 7, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3053, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 10, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3054, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 21, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3055, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 16, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3056, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 22, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3057, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 14, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3058, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 12, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3059, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 17, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3060, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 18, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3061, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 19, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3062, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 23, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3063, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 11, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3064, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 20, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3065, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 15, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3066, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 13, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3067, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 6, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3068, '\\core\\event\\grade_item_created', 'core', 'created', 'grade_item', 'grade_items', 24, 'c', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Quiz 1\",\"itemtype\":\"mod\",\"itemmodule\":\"quiz\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3069, '\\core\\event\\course_module_created', 'core', 'created', 'course_module', 'course_modules', 32, 'c', 1, 99, 70, 32, 2, 4, NULL, 0, '{\"modulename\":\"quiz\",\"instanceid\":1,\"name\":\"Quiz 1\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3070, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 24, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Quiz 1\",\"itemtype\":\"mod\",\"itemmodule\":\"quiz\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3071, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 7, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3072, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 10, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3073, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 21, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3074, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 16, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3075, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 22, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3076, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 14, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3077, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 12, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3078, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 17, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3079, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 18, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3080, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 19, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3081, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 23, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3082, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 11, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3083, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 20, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3084, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 15, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3085, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 13, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Attendance\",\"itemtype\":\"mod\",\"itemmodule\":\"attendance\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3086, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 24, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":\"Quiz 1\",\"itemtype\":\"mod\",\"itemmodule\":\"quiz\"}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3087, '\\core\\event\\grade_item_updated', 'core', 'updated', 'grade_item', 'grade_items', 6, 'u', 0, 69, 50, 4, 2, 4, NULL, 0, '{\"itemname\":null,\"itemtype\":\"course\",\"itemmodule\":null}', 1714644432, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3088, '\\mod_quiz\\event\\course_module_viewed', 'mod_quiz', 'viewed', 'course_module', 'quiz', 1, 'r', 2, 99, 70, 32, 2, 4, NULL, 0, 'null', 1714644433, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3089, '\\mod_quiz\\event\\edit_page_viewed', 'mod_quiz', 'viewed', 'edit_page', NULL, NULL, 'r', 1, 99, 70, 32, 2, 4, NULL, 0, '{\"quizid\":\"1\"}', 1714646500, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3090, '\\mod_quiz\\event\\edit_page_viewed', 'mod_quiz', 'viewed', 'edit_page', NULL, NULL, 'r', 1, 99, 70, 32, 2, 4, NULL, 0, '{\"quizid\":\"1\"}', 1714646504, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3091, '\\mod_quiz\\event\\report_viewed', 'mod_quiz', 'viewed', 'report', NULL, NULL, 'r', 1, 99, 70, 32, 2, 4, NULL, 0, '{\"quizid\":\"1\",\"reportname\":\"overview\"}', 1714646548, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3092, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714646563, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3093, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 20, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"1\"}', 1714646607, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3094, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 21, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"2\"}', 1714646628, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3095, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 47, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"3\"}', 1714646644, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3096, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 49, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"4\"}', 1714646655, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3097, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 22, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"5\"}', 1714646665, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3098, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 23, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"6\"}', 1714646680, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3099, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 24, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"7\"}', 1714646703, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3100, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 25, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"8\"}', 1714646719, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3101, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 48, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"9\"}', 1714646738, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3102, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 26, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"10\"}', 1714646752, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3103, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 27, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"11\"}', 1714646771, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3104, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 28, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"12\"}', 1714646783, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3105, '\\core\\event\\course_section_updated', 'core', 'updated', 'course_section', 'course_sections', 29, 'u', 1, 69, 50, 4, 2, 4, NULL, 0, '{\"sectionnum\":\"13\"}', 1714646792, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3106, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714646939, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3107, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714646954, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3108, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714646967, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3109, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714646970, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3110, '\\core\\event\\draft_file_added', 'core', 'added', 'draft_file', 'files', 590, 'c', 0, 5, 30, 2, 2, 0, 2, 0, '{\"itemid\":376754303,\"filename\":\"IMG_1754.jpg\",\"filesize\":8560694,\"filepath\":\"\\/\",\"contenthash\":\"2cc31260f15b4320eb7ca0d91bc9bdfc86fae270\"}', 1714647045, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3111, '\\core\\event\\course_created', 'core', 'created', 'course', 'course', 6, 'c', 1, 100, 50, 6, 2, 6, NULL, 0, '{\"shortname\":\"KG\",\"fullname\":\"KinderBot\"}', 1714647048, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3112, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714647052, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3113, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714647072, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3114, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714649055, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3115, '\\core\\event\\user_loggedout', 'core', 'loggedout', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"sessionid\":\"a1gntl4rut9ve58f0occiv8ij6\"}', 1714650148, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3116, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 0, 1, NULL, 0, 'null', 1714650158, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3117, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1714650168, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3118, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650169, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3119, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650454, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3120, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650463, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3121, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650470, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3122, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650502, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3123, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714650526, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3124, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714650537, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3125, '\\mod_forum\\event\\course_module_viewed', 'mod_forum', 'viewed', 'course_module', 'forum', 5, 'r', 2, 70, 70, 11, 2, 4, NULL, 0, 'null', 1714650566, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3126, '\\mod_forum\\event\\assessable_uploaded', 'mod_forum', 'uploaded', 'assessable', 'forum_posts', 1, 'c', 2, 70, 70, 11, 2, 4, NULL, 0, '{\"content\":\"<p>Dear All,<br>Exciting news! We\'re launching a new competition, and we want you to be a part of it. Show off your skills and creativity and compete for fantastic prizes.<\\/p>\",\"pathnamehashes\":[],\"discussionid\":1,\"triggeredfrom\":\"forum_add_discussion\"}', 1714650692, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3127, '\\mod_forum\\event\\discussion_created', 'mod_forum', 'created', 'discussion', 'forum_discussions', 1, 'c', 2, 70, 70, 11, 2, 4, NULL, 0, '{\"forumid\":5}', 1714650692, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3128, '\\mod_forum\\event\\course_module_viewed', 'mod_forum', 'viewed', 'course_module', 'forum', 5, 'r', 2, 70, 70, 11, 2, 4, NULL, 0, 'null', 1714650693, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3129, '\\mod_forum\\event\\course_module_viewed', 'mod_forum', 'viewed', 'course_module', 'forum', 5, 'r', 2, 70, 70, 11, 2, 4, NULL, 0, 'null', 1714650712, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3130, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 69, 50, 4, 2, 4, NULL, 0, 'null', 1714650720, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3131, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650729, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3132, '\\core\\event\\user_loggedout', 'core', 'loggedout', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"sessionid\":\"pflcobha7kllu6pi98pqpdcq3j\"}', 1714650731, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3133, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 0, 1, NULL, 0, 'null', 1714650731, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3134, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 0, 1, NULL, 0, 'null', 1714650737, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3135, '\\core\\event\\user_login_failed', 'core', 'failed', 'user_login', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"reason\":3}', 1714650780, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3136, '\\core\\event\\user_login_failed', 'core', 'failed', 'user_login', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"reason\":3}', 1714650789, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3137, '\\core\\event\\user_login_failed', 'core', 'failed', 'user_login', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"reason\":3}', 1714650797, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3138, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1714650817, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3139, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1714650819, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3140, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1714650926, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3141, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714651031, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3142, '\\core_reportbuilder\\event\\report_created', 'core_reportbuilder', 'created', 'report', 'reportbuilder_report', 7, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"Courses Data\",\"source\":\"core_course\\\\reportbuilder\\\\datasource\\\\participants\"}', 1714651103, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3143, '\\core_reportbuilder\\event\\report_updated', 'core_reportbuilder', 'updated', 'report', 'reportbuilder_report', 7, 'u', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"Courses Data\",\"source\":\"core_course\\\\reportbuilder\\\\datasource\\\\participants\"}', 1714651103, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3144, '\\core_reportbuilder\\event\\report_updated', 'core_reportbuilder', 'updated', 'report', 'reportbuilder_report', 7, 'u', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"Courses Data\",\"source\":\"core_course\\\\reportbuilder\\\\datasource\\\\participants\"}', 1714651339, 'web', '0:0:0:0:0:0:0:1', NULL),
+(3145, '\\core\\event\\mycourses_viewed', 'core', 'viewed', 'mycourses', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, 'null', 1714651436, 'web', '0:0:0:0:0:0:0:1', NULL);
 
 -- --------------------------------------------------------
 
@@ -20356,7 +21747,7 @@ CREATE TABLE IF NOT EXISTS `mdl_my_pages` (
   `sortorder` mediumint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mdl_mypage_usepri_ix` (`userid`,`private`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Extra user pages for the My Moodle system' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Extra user pages for the My Moodle system' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_my_pages`
@@ -20370,7 +21761,8 @@ INSERT INTO `mdl_my_pages` (`id`, `userid`, `name`, `private`, `sortorder`) VALU
 (7, 2, '__default', 0, 0),
 (8, 3, '__default', 0, 0),
 (9, 5, '__default', 0, 0),
-(10, 5, '__default', 1, 0);
+(10, 5, '__default', 1, 0),
+(11, 13, '__default', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -21264,7 +22656,7 @@ CREATE TABLE IF NOT EXISTS `mdl_question_categories` (
   UNIQUE KEY `mdl_quescate_conidn_uix` (`contextid`,`idnumber`),
   KEY `mdl_quescate_con_ix` (`contextid`),
   KEY `mdl_quescate_par_ix` (`parent`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Categories are for grouping questions' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Categories are for grouping questions' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_question_categories`
@@ -21274,7 +22666,17 @@ INSERT INTO `mdl_question_categories` (`id`, `name`, `contextid`, `info`, `infof
 (1, 'top', 2, '', 0, 'localhost+240314210323+TjwUDk', 0, 0, NULL),
 (2, 'Default for Site home', 2, 'The default category for questions shared in context \'Site home\'.', 0, 'localhost+240314210323+012zDB', 1, 999, NULL),
 (3, 'top', 1, '', 0, 'localhost+240314210323+2Z8pdL', 0, 0, NULL),
-(4, 'Default for System', 1, 'The default category for questions shared in context \'System\'.', 0, 'localhost+240314210323+YIIYUC', 3, 999, NULL);
+(4, 'Default for System', 1, 'The default category for questions shared in context \'System\'.', 0, 'localhost+240314210323+YIIYUC', 3, 999, NULL),
+(5, 'top', 69, '', 0, 'localhost+240501123128+NF34DB', 0, 0, NULL),
+(6, 'Default for Level 2', 69, 'The default category for questions shared in context \'Level 2\'.', 0, 'localhost+240501123129+tMIW1H', 5, 999, NULL),
+(7, 'top', 65, '', 0, 'localhost+240501123129+9mToXW', 0, 0, NULL),
+(8, 'Default for Tiny Adventurers', 65, 'The default category for questions shared in context \'Tiny Adventurers\'.', 0, 'localhost+240501123129+4AXGcl', 7, 999, NULL),
+(9, 'top', 61, '', 0, 'localhost+240501123129+UsZmqw', 0, 0, NULL),
+(10, 'Default for Level', 61, 'The default category for questions shared in context \'Level\'.', 0, 'localhost+240501123129+p5AiAM', 9, 999, NULL),
+(11, 'top', 80, '', 0, 'localhost+240501124623+S3fEz6', 0, 0, NULL),
+(12, 'Default for Level 2', 80, 'The default category for questions shared in context \'Level 2\'.', 0, 'localhost+240501123129+tMIW1H', 11, 999, NULL),
+(13, 'top', 99, '', 0, 'localhost+240502104140+LkineC', 0, 0, NULL),
+(14, 'Default for Quiz 1', 99, 'The default category for questions shared in context \'Quiz 1\'.', 0, 'localhost+240502104140+IVqw0p', 13, 999, NULL);
 
 -- --------------------------------------------------------
 
@@ -21670,7 +23072,14 @@ CREATE TABLE IF NOT EXISTS `mdl_quiz` (
   `allowofflineattempts` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mdl_quiz_cou_ix` (`course`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='The settings for each quiz.' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='The settings for each quiz.' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_quiz`
+--
+
+INSERT INTO `mdl_quiz` (`id`, `course`, `name`, `intro`, `introformat`, `timeopen`, `timeclose`, `timelimit`, `overduehandling`, `graceperiod`, `preferredbehaviour`, `canredoquestions`, `attempts`, `attemptonlast`, `grademethod`, `decimalpoints`, `questiondecimalpoints`, `reviewattempt`, `reviewcorrectness`, `reviewmaxmarks`, `reviewmarks`, `reviewspecificfeedback`, `reviewgeneralfeedback`, `reviewrightanswer`, `reviewoverallfeedback`, `questionsperpage`, `navmethod`, `shuffleanswers`, `sumgrades`, `grade`, `timecreated`, `timemodified`, `password`, `subnet`, `browsersecurity`, `delay1`, `delay2`, `showuserpicture`, `showblocks`, `completionattemptsexhausted`, `completionminattempts`, `allowofflineattempts`) VALUES
+(1, 4, 'Quiz 1', '', 1, 0, 0, 0, 'autosubmit', 0, 'deferredfeedback', 0, 0, 0, 1, 2, -1, 69888, 4352, 69888, 4352, 4352, 4352, 4352, 4352, 2, 'free', 1, 0.00000, 10.00000, 1714644432, 1714644432, '', '', '-', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -21785,7 +23194,14 @@ CREATE TABLE IF NOT EXISTS `mdl_quiz_feedback` (
   `maxgrade` decimal(10,5) NOT NULL DEFAULT '0.00000',
   PRIMARY KEY (`id`),
   KEY `mdl_quizfeed_qui_ix` (`quizid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Feedback given to students based on which grade band their o' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Feedback given to students based on which grade band their o' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_quiz_feedback`
+--
+
+INSERT INTO `mdl_quiz_feedback` (`id`, `quizid`, `feedbacktext`, `feedbacktextformat`, `mingrade`, `maxgrade`) VALUES
+(1, 1, '', 1, 0.00000, 11.00000);
 
 -- --------------------------------------------------------
 
@@ -21889,7 +23305,14 @@ CREATE TABLE IF NOT EXISTS `mdl_quiz_sections` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_quizsect_quifir_uix` (`quizid`,`firstslot`),
   KEY `mdl_quizsect_qui_ix` (`quizid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores sections of a quiz with section name (heading), from ' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores sections of a quiz with section name (heading), from ' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_quiz_sections`
+--
+
+INSERT INTO `mdl_quiz_sections` (`id`, `quizid`, `firstslot`, `heading`, `shufflequestions`) VALUES
+(1, 1, 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -22032,7 +23455,45 @@ CREATE TABLE IF NOT EXISTS `mdl_reportbuilder_column` (
   KEY `mdl_repocolu_rep_ix` (`reportid`),
   KEY `mdl_repocolu_use_ix` (`usercreated`),
   KEY `mdl_repocolu_use2_ix` (`usermodified`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table to represent a report column' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table to represent a report column' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_reportbuilder_column`
+--
+
+INSERT INTO `mdl_reportbuilder_column` (`id`, `reportid`, `uniqueidentifier`, `aggregation`, `heading`, `columnorder`, `sortenabled`, `sortdirection`, `sortorder`, `usercreated`, `usermodified`, `timecreated`, `timemodified`) VALUES
+(1, 4, 'course:fullname', NULL, NULL, 1, 0, 4, 1, 2, 2, 1714572979, 1714572979),
+(2, 4, 'attendance:name', NULL, NULL, 2, 0, 4, 2, 2, 2, 1714572979, 1714572979),
+(3, 4, 'user:fullname', NULL, NULL, 3, 0, 4, 3, 2, 2, 1714572979, 1714572979),
+(4, 4, 'attendance:sessiondate', NULL, NULL, 4, 0, 4, 4, 2, 2, 1714572979, 1714572979),
+(5, 4, 'attendance:timetaken', NULL, NULL, 5, 0, 4, 5, 2, 2, 1714572979, 1714572979),
+(6, 4, 'attendance:status', NULL, NULL, 6, 0, 4, 6, 2, 2, 1714572979, 1714572979),
+(7, 4, 'attendance:grade', NULL, NULL, 7, 0, 4, 7, 2, 2, 1714572979, 1714572979),
+(8, 4, 'attendance:name', NULL, NULL, 8, 0, 4, 8, 2, 2, 1714572997, 1714572997),
+(9, 4, 'attendance:sessiondescription', NULL, NULL, 9, 0, 4, 9, 2, 2, 1714572999, 1714572999),
+(10, 4, 'attendance:sessiondate', NULL, NULL, 10, 0, 4, 10, 2, 2, 1714573000, 1714573000),
+(11, 4, 'attendance:status', NULL, NULL, 11, 0, 4, 11, 2, 2, 1714573005, 1714573005),
+(12, 4, 'attendance:timetaken', NULL, NULL, 12, 0, 4, 12, 2, 2, 1714573009, 1714573009),
+(13, 4, 'user:fullname', NULL, NULL, 13, 0, 4, 13, 2, 2, 1714573011, 1714573011),
+(14, 4, 'user:firstname', NULL, NULL, 14, 0, 4, 14, 2, 2, 1714573014, 1714573014),
+(15, 4, 'user:lastname', NULL, NULL, 15, 0, 4, 15, 2, 2, 1714573015, 1714573015),
+(16, 4, 'course:fullname', NULL, NULL, 16, 0, 4, 16, 2, 2, 1714573026, 1714573026),
+(17, 4, 'course:shortname', NULL, NULL, 17, 0, 4, 17, 2, 2, 1714573027, 1714573027),
+(18, 7, 'course:coursefullnamewithlink', NULL, NULL, 1, 1, 4, 1, 2, 2, 1714651103, 1714651103),
+(19, 7, 'user:fullnamewithlink', NULL, NULL, 2, 1, 4, 2, 2, 2, 1714651103, 1714651103),
+(20, 7, 'enrol:name', NULL, NULL, 3, 1, 4, 3, 2, 2, 1714651103, 1714651103),
+(21, 7, 'course:coursefullnamewithlink', NULL, NULL, 4, 0, 4, 4, 2, 2, 1714651114, 1714651114),
+(22, 7, 'course:courseshortnamewithlink', NULL, NULL, 5, 0, 4, 5, 2, 2, 1714651117, 1714651117),
+(23, 7, 'course:fullname', NULL, NULL, 6, 1, 4, 6, 2, 2, 1714651137, 1714651318),
+(24, 7, 'course:shortname', NULL, NULL, 7, 1, 4, 7, 2, 2, 1714651138, 1714651321),
+(25, 7, 'course:summary', NULL, NULL, 8, 0, 4, 8, 2, 2, 1714651144, 1714651144),
+(26, 7, 'course:groupmode', NULL, NULL, 9, 0, 4, 9, 2, 2, 1714651147, 1714651147),
+(27, 7, 'course_category:name', NULL, NULL, 10, 1, 4, 10, 2, 2, 1714651156, 1714651325),
+(28, 7, 'course_category:coursecount', NULL, NULL, 11, 1, 4, 11, 2, 2, 1714651159, 1714651326),
+(29, 7, 'group:name', NULL, NULL, 12, 1, 4, 12, 2, 2, 1714651180, 1714651327),
+(30, 7, 'group:participation', NULL, NULL, 13, 1, 4, 13, 2, 2, 1714651183, 1714651329),
+(31, 7, 'completion:progresspercent', NULL, NULL, 14, 0, 4, 14, 2, 2, 1714651191, 1714651191),
+(32, 7, 'completion:daysuntilcompletion', NULL, NULL, 15, 1, 4, 15, 2, 2, 1714651200, 1714651330);
 
 -- --------------------------------------------------------
 
@@ -22057,7 +23518,18 @@ CREATE TABLE IF NOT EXISTS `mdl_reportbuilder_filter` (
   KEY `mdl_repofilt_rep_ix` (`reportid`),
   KEY `mdl_repofilt_use_ix` (`usercreated`),
   KEY `mdl_repofilt_use2_ix` (`usermodified`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table to represent a report filter/condition' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table to represent a report filter/condition' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_reportbuilder_filter`
+--
+
+INSERT INTO `mdl_reportbuilder_filter` (`id`, `reportid`, `uniqueidentifier`, `heading`, `iscondition`, `filterorder`, `usercreated`, `usermodified`, `timecreated`, `timemodified`) VALUES
+(1, 7, 'user:suspended', NULL, 0, 1, 2, 2, 1714651103, 1714651103),
+(2, 7, 'user:confirmed', NULL, 0, 2, 2, 2, 1714651103, 1714651103),
+(3, 7, 'enrolment:status', NULL, 1, 1, 2, 2, 1714651103, 1714651103),
+(4, 7, 'user:suspended', NULL, 1, 2, 2, 2, 1714651103, 1714651103),
+(5, 7, 'user:confirmed', NULL, 1, 3, 2, 2, 1714651103, 1714651103);
 
 -- --------------------------------------------------------
 
@@ -22086,7 +23558,7 @@ CREATE TABLE IF NOT EXISTS `mdl_reportbuilder_report` (
   KEY `mdl_reporepo_use_ix` (`usercreated`),
   KEY `mdl_reporepo_use2_ix` (`usermodified`),
   KEY `mdl_reporepo_con_ix` (`contextid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table to represent a report' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Table to represent a report' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_reportbuilder_report`
@@ -22094,7 +23566,12 @@ CREATE TABLE IF NOT EXISTS `mdl_reportbuilder_report` (
 
 INSERT INTO `mdl_reportbuilder_report` (`id`, `name`, `source`, `type`, `uniquerows`, `conditiondata`, `settingsdata`, `contextid`, `component`, `area`, `itemid`, `usercreated`, `usermodified`, `timecreated`, `timemodified`) VALUES
 (1, NULL, 'core_cohort\\reportbuilder\\local\\systemreports\\cohorts', 1, 0, NULL, NULL, 3, '', '', 0, 2, 2, 1710450725, 1710450725),
-(2, NULL, 'core_cohort\\reportbuilder\\local\\systemreports\\cohorts', 1, 0, NULL, NULL, 1, '', '', 0, 2, 2, 1711570381, 1711570381);
+(2, NULL, 'core_cohort\\reportbuilder\\local\\systemreports\\cohorts', 1, 0, NULL, NULL, 1, '', '', 0, 2, 2, 1711570381, 1711570381),
+(3, NULL, 'core_reportbuilder\\local\\systemreports\\reports_list', 1, 0, NULL, NULL, 1, '', '', 0, 2, 2, 1714572953, 1714572953),
+(4, 'report 1', 'mod_attendance\\reportbuilder\\datasource\\attendance', 0, 0, '[]', NULL, 1, '', '', 0, 2, 2, 1714572979, 1714572979),
+(5, NULL, 'core_reportbuilder\\local\\systemreports\\report_schedules', 1, 0, NULL, NULL, 1, '', '', 0, 2, 2, 1714573042, 1714573042),
+(6, NULL, 'core_reportbuilder\\local\\systemreports\\report_access_list', 1, 0, NULL, NULL, 1, '', '', 0, 2, 2, 1714573043, 1714573043),
+(7, 'Courses Data', 'core_course\\reportbuilder\\datasource\\participants', 0, 0, '{\"enrolment:status_operator\":1,\"enrolment:status_value\":0}', '{\"cardview_showfirsttitle\":0,\"cardview_visiblecolumns\":1}', 1, '', '', 0, 2, 2, 1714651103, 1714651339);
 
 -- --------------------------------------------------------
 
@@ -22252,19 +23729,16 @@ CREATE TABLE IF NOT EXISTS `mdl_resource` (
   `timemodified` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `mdl_reso_cou_ix` (`course`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Each record is one resource and its config data' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Each record is one resource and its config data' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_resource`
 --
 
 INSERT INTO `mdl_resource` (`id`, `course`, `name`, `intro`, `introformat`, `tobemigrated`, `legacyfiles`, `legacyfileslast`, `display`, `displayoptions`, `filterfiles`, `revision`, `timemodified`) VALUES
-(1, 3, 'Icebreaker: Exploring Technology Together', '<p>Create an inclusive and engaging environment for participants to explore the basics of technology, fostering a sense of curiosity and connection.</p>', 1, 0, 0, NULL, 0, 'a:2:{s:10:\"printintro\";i:1;s:8:\"showtype\";i:1;}', 0, 1, 1710696765),
-(2, 3, 'file', '', 1, 0, 0, NULL, 0, 'a:2:{s:10:\"printintro\";i:1;s:8:\"showtype\";i:1;}', 0, 1, 1710696950),
-(3, 3, 'First session', '<p>first session description</p>', 1, 0, 0, NULL, 4, 'a:2:{s:8:\"showsize\";i:1;s:8:\"showtype\";i:1;}', 0, 2, 1711108426),
-(4, 3, 'Icebreaker: Exploring Technology Together', '<p>Create an inclusive and engaging environment for participants to explore the basics of technology, fostering a sense of curiosity and connection.</p>', 1, 0, 0, NULL, 0, 'a:2:{s:10:\"printintro\";i:1;s:8:\"showtype\";i:1;}', 0, 1, 1710696765),
-(5, 3, 'file', '', 1, 0, 0, NULL, 0, 'a:2:{s:10:\"printintro\";i:1;s:8:\"showtype\";i:1;}', 0, 1, 1710696950),
-(6, 3, 'First session', '<p>first session description</p>', 1, 0, 0, NULL, 4, 'a:2:{s:8:\"showsize\";i:1;s:8:\"showtype\";i:1;}', 0, 2, 1711108426);
+(7, 4, 'Icebreaker: Exploring Technology Together', '<p>Create an inclusive and engaging environment for participants to explore the basics of technology, fostering a sense of curiosity and connection.</p>', 1, 0, 0, NULL, 0, 'a:2:{s:10:\"printintro\";i:1;s:8:\"showtype\";i:1;}', 0, 1, 1710696765),
+(8, 4, 'file', '', 1, 0, 0, NULL, 0, 'a:2:{s:10:\"printintro\";i:1;s:8:\"showtype\";i:1;}', 0, 1, 1710696950),
+(9, 4, 'First session', '<p>first session description</p>', 1, 0, 0, NULL, 4, 'a:2:{s:8:\"showsize\";i:1;s:8:\"showtype\";i:1;}', 0, 2, 1711108426);
 
 -- --------------------------------------------------------
 
@@ -22496,22 +23970,37 @@ CREATE TABLE IF NOT EXISTS `mdl_role_assignments` (
   KEY `mdl_roleassi_rol_ix` (`roleid`),
   KEY `mdl_roleassi_con_ix` (`contextid`),
   KEY `mdl_roleassi_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='assigning roles in different context' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='assigning roles in different context' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_role_assignments`
 --
 
 INSERT INTO `mdl_role_assignments` (`id`, `roleid`, `contextid`, `userid`, `timemodified`, `modifierid`, `component`, `itemid`, `sortorder`) VALUES
-(3, 5, 33, 3, 1711299677, 2, '', 0, 0),
 (4, 5, 2, 3, 1711319044, 2, '', 0, 0),
 (5, 3, 2, 4, 1711319053, 2, '', 0, 0),
 (6, 1, 2, 2, 1711319061, 2, '', 0, 0),
 (7, 4, 2, 5, 1711319079, 2, '', 0, 0),
-(8, 3, 33, 4, 1711319166, 2, '', 0, 0),
-(9, 4, 33, 5, 1711319202, 2, '', 0, 0),
-(10, 5, 33, 6, 1711319384, 2, '', 0, 0),
-(11, 1, 33, 2, 1711319418, 2, '', 0, 0);
+(12, 5, 1, 9, 1714561548, 2, '', 0, 0),
+(13, 5, 1, 10, 1714561548, 2, '', 0, 0),
+(14, 5, 1, 11, 1714561548, 2, '', 0, 0),
+(15, 5, 1, 12, 1714561549, 2, '', 0, 0),
+(16, 5, 1, 13, 1714561549, 2, '', 0, 0),
+(17, 5, 1, 14, 1714561549, 2, '', 0, 0),
+(18, 5, 1, 15, 1714561549, 2, '', 0, 0),
+(19, 5, 1, 16, 1714561550, 2, '', 0, 0),
+(20, 5, 69, 13, 1714563332, 2, '', 0, 0),
+(21, 5, 69, 11, 1714563333, 2, '', 0, 0),
+(22, 5, 69, 10, 1714563333, 2, '', 0, 0),
+(23, 5, 69, 9, 1714563333, 2, '', 0, 0),
+(24, 5, 69, 12, 1714563333, 2, '', 0, 0),
+(25, 5, 69, 15, 1714563333, 2, '', 0, 0),
+(26, 5, 69, 16, 1714563333, 2, '', 0, 0),
+(27, 5, 69, 14, 1714563346, 2, '', 0, 0),
+(28, 1, 69, 2, 1714565089, 2, '', 0, 0),
+(29, 5, 80, 3, 1714567634, 2, '', 0, 0),
+(30, 5, 80, 2, 1714567642, 2, '', 0, 0),
+(31, 5, 80, 6, 1714567645, 2, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -24663,7 +26152,7 @@ CREATE TABLE IF NOT EXISTS `mdl_sessions` (
   KEY `mdl_sess_tim_ix` (`timecreated`),
   KEY `mdl_sess_tim2_ix` (`timemodified`),
   KEY `mdl_sess_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Database based session storage - now recommended' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Database based session storage - now recommended' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_sessions`
@@ -24677,7 +26166,9 @@ INSERT INTO `mdl_sessions` (`id`, `state`, `sid`, `userid`, `sessdata`, `timecre
 (45, 0, 'f34965m6899btempuj49u12jlf', 0, NULL, 1711627107, 1711627107, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
 (47, 0, 'o4uh4e0gi2u0cr1097nngd7de3', 2, NULL, 1711627200, 1711631152, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
 (49, 0, 'nsjbafd9ibhus1f7f2h55fiqt4', 2, NULL, 1713603108, 1713603350, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
-(59, 0, 've7efcattpmfoe5dva2ar46js5', 2, NULL, 1714558719, 1714558875, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1');
+(61, 0, 'qikm68e15bk1a5kp3gsd2as955', 2, NULL, 1714567257, 1714573873, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(62, 0, 'gt5otojui9l9nmp20cjc4kc1md', 0, NULL, 1714642710, 1714642725, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(68, 0, '33f35usdm4s9ujm7tg5qnchg89', 2, NULL, 1714650817, 1714651468, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1');
 
 -- --------------------------------------------------------
 
@@ -25134,7 +26625,7 @@ CREATE TABLE IF NOT EXISTS `mdl_task_adhoc` (
   KEY `mdl_taskadho_nex_ix` (`nextruntime`),
   KEY `mdl_taskadho_tim_ix` (`timestarted`),
   KEY `mdl_taskadho_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='List of adhoc tasks waiting to run.' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='List of adhoc tasks waiting to run.' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_task_adhoc`
@@ -25148,7 +26639,27 @@ INSERT INTO `mdl_task_adhoc` (`id`, `component`, `classname`, `nextruntime`, `fa
 (5, '', '\\core_course\\task\\course_delete_modules', 1711299715, 0, '{\"cms\":[{\"id\":\"7\",\"course\":\"3\",\"module\":\"19\",\"instance\":\"4\",\"section\":\"5\",\"idnumber\":\"\",\"added\":\"1710696765\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"0\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"1\",\"availability\":null,\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1711299716, NULL, NULL, NULL),
 (6, '', '\\core_course\\task\\course_delete_modules', 1711299719, 0, '{\"cms\":[{\"id\":\"8\",\"course\":\"3\",\"module\":\"19\",\"instance\":\"5\",\"section\":\"5\",\"idnumber\":\"\",\"added\":\"1710696950\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"0\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"0\",\"availability\":null,\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1711299720, NULL, NULL, NULL),
 (7, '', '\\core_course\\task\\course_delete_modules', 1711299733, 0, '{\"cms\":[{\"id\":\"9\",\"course\":\"3\",\"module\":\"19\",\"instance\":\"6\",\"section\":\"5\",\"idnumber\":\"\",\"added\":\"1711108404\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"0\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"0\",\"availability\":null,\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1711299734, NULL, NULL, NULL),
-(8, '', '\\core_course\\task\\course_delete_modules', 1711552203, 0, '{\"cms\":[{\"id\":\"6\",\"course\":\"3\",\"module\":\"10\",\"instance\":\"3\",\"section\":\"4\",\"idnumber\":null,\"added\":\"1710696473\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"0\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"0\",\"availability\":null,\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1711552204, NULL, NULL, NULL);
+(8, '', '\\core_course\\task\\course_delete_modules', 1711552203, 0, '{\"cms\":[{\"id\":\"6\",\"course\":\"3\",\"module\":\"10\",\"instance\":\"3\",\"section\":\"4\",\"idnumber\":null,\"added\":\"1710696473\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"0\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"0\",\"availability\":null,\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1711552204, NULL, NULL, NULL),
+(9, '', '\\core\\task\\refresh_mod_calendar_events_task', 1714559996, 0, '{\"courseid\":\"4\"}', NULL, 0, 1714559997, NULL, NULL, NULL),
+(10, '', '\\core_course\\task\\course_delete_modules', 1714560046, 0, '{\"cms\":{\"3\":{\"id\":\"3\"},\"4\":{\"id\":\"4\"},\"5\":{\"id\":\"5\"}},\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560047, NULL, NULL, NULL),
+(11, '', '\\core_course\\task\\course_delete_modules', 1714560049, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560050, NULL, NULL, NULL),
+(12, '', '\\core_course\\task\\course_delete_modules', 1714560059, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560060, NULL, NULL, NULL),
+(13, '', '\\core_course\\task\\course_delete_modules', 1714560061, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560062, NULL, NULL, NULL),
+(14, '', '\\core_course\\task\\course_delete_modules', 1714560063, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560064, NULL, NULL, NULL),
+(15, '', '\\core_course\\task\\course_delete_modules', 1714560066, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560067, NULL, NULL, NULL),
+(16, '', '\\core_course\\task\\course_delete_modules', 1714560068, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560069, NULL, NULL, NULL),
+(17, '', '\\core_course\\task\\course_delete_modules', 1714560070, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560071, NULL, NULL, NULL),
+(18, '', '\\core_course\\task\\course_delete_modules', 1714560073, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560074, NULL, NULL, NULL),
+(19, '', '\\core_course\\task\\course_delete_modules', 1714560075, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560076, NULL, NULL, NULL),
+(20, '', '\\core_course\\task\\course_delete_modules', 1714560078, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560079, NULL, NULL, NULL),
+(21, '', '\\core_course\\task\\course_delete_modules', 1714560082, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560083, NULL, NULL, NULL),
+(22, '', '\\core_course\\task\\course_delete_modules', 1714560088, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714560089, NULL, NULL, NULL),
+(23, '', '\\core\\task\\refresh_mod_calendar_events_task', 1714567582, 0, '{\"courseid\":\"5\"}', NULL, 0, 1714567583, NULL, NULL, NULL),
+(24, '', '\\core_course\\task\\course_delete_modules', 1714643745, 0, '{\"cms\":[{\"id\":\"15\",\"course\":\"4\",\"module\":\"27\",\"instance\":\"1\",\"section\":\"20\",\"idnumber\":\"\",\"added\":\"1714560315\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"1\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"0\",\"availability\":\"{\\\"op\\\":\\\"&\\\",\\\"c\\\":[{\\\"type\\\":\\\"group\\\",\\\"id\\\":1}],\\\"showc\\\":[false]}\",\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714643746, NULL, NULL, NULL),
+(25, '', '\\core_course\\task\\course_delete_modules', 1714643832, 0, '{\"cms\":[{\"id\":\"21\",\"course\":\"4\",\"module\":\"27\",\"instance\":\"6\",\"section\":\"20\",\"idnumber\":\"\",\"added\":\"1714643791\",\"score\":\"0\",\"indent\":\"0\",\"visible\":\"1\",\"visibleoncoursepage\":\"1\",\"visibleold\":\"1\",\"groupmode\":\"1\",\"groupingid\":\"0\",\"completion\":\"0\",\"completiongradeitemnumber\":null,\"completionview\":\"0\",\"completionexpected\":\"0\",\"completionpassgrade\":\"0\",\"showdescription\":\"0\",\"availability\":null,\"deletioninprogress\":\"1\",\"downloadcontent\":\"1\",\"lang\":\"\"}],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714643833, NULL, NULL, NULL),
+(26, '', '\\core_course\\task\\course_delete_modules', 1714644280, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714644281, NULL, NULL, NULL),
+(27, '', '\\core_course\\task\\course_delete_modules', 1714644283, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714644284, NULL, NULL, NULL),
+(28, '', '\\core_course\\task\\course_delete_modules', 1714644287, 0, '{\"cms\":[],\"userid\":\"2\",\"realuserid\":\"2\"}', NULL, 0, 1714644288, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -25359,7 +26870,7 @@ CREATE TABLE IF NOT EXISTS `mdl_tiny_autosave` (
   `timemodified` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_tinyauto_eleconusepag_uix` (`elementid`,`contextid`,`userid`,`pagehash`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='The content of the textarea saved during autosave operations' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=141 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='The content of the textarea saved during autosave operations' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_tiny_autosave`
@@ -25374,7 +26885,6 @@ INSERT INTO `mdl_tiny_autosave` (`id`, `elementid`, `contextid`, `pagehash`, `us
 (33, 'id_message', 34, '723c99ce91a47c541e05a796cbbd8d670b97a847', 2, '', 630904505, 'fe418658f187f9a7cc7372105d0dd3e5', 1711296897),
 (34, 'id_summary_editor', 33, 'a43c82f561e87f47663a86c36f38f622d3bad7e4', 2, '', 277224209, 'ad2c01bc858f0335eda3dcad58f27f71', 1711108586),
 (36, 'id_message', 44, '63545090f82cc3e41898b6ba7ecf885ebe0bf30d', 2, '', 958177544, '924502e9a814481c8c38308ed78f26bd', 1711296891),
-(39, 'id_s__summary', 2, '', 2, '', NULL, '', 1711548781),
 (45, 'id_description_editor', 48, 'b3bd84d3839d15f69f1faf83bbcab0360e37132e', 2, '', 48094720, '54a0804c4f65420b1d0d1b9238960539', 1711570763),
 (47, 'id_description_editor', 50, 'a5b86c869ecb88648a52d2d6f6df2d94112351d7', 2, '', 749629498, '63f7b1796ba5665370ec3722f88a9493', 1711318300),
 (48, 'id_summary_editor', 3, 'e6b2531715e7c710d732dc4faf058eade81213ed', 2, '', 32244435, '2dfd77d8ecc04e58c20823bb42fbcf0e', 1711318432),
@@ -25383,7 +26893,16 @@ INSERT INTO `mdl_tiny_autosave` (`id`, `elementid`, `contextid`, `pagehash`, `us
 (83, 'id_s_theme_degrade_frontpage_about_description', 1, '', 2, '', NULL, '', 1711553206),
 (84, 'id_s_theme_degrade_login_signup_description', 1, '', 2, '', NULL, '', 1711553206),
 (85, 'id_s_theme_degrade_login_forgot_description', 1, '', 2, '', NULL, '', 1711553206),
-(86, 'id_s_theme_degrade_login_login_description', 1, '', 2, '', NULL, '', 1711553206);
+(86, 'id_s_theme_degrade_login_login_description', 1, '', 2, '', NULL, '', 1711553206),
+(107, 'id_summary_editor', 65, '57980f4650ac236703d801bf6e20734c6b710c1a', 2, '', 338376453, 'cabad70de2dc39330d3e41b09cc53743', 1714560216),
+(113, 'id_description_editor', 75, '923bd62bc82cb359cf41c78e7be3968dde8804b4', 2, '', 260842711, '1f4955de49c33fd3ddb5195e4b4ce8ab', 1714566426),
+(116, 'id_introeditor', 74, '64f4d29b86a28348d1fb0e2c5e2f3c1b5891ac49', 2, '', 871974425, '44079a68bb89ca14f4222f1d102ee79d', 1714565734),
+(119, 'id_summary_editor', 67, 'a8f5853e814307b4a69d37a728b8f859a5ee955a', 2, '', 76569548, '60108e7ccf395c48f655cb6a9a29684b', 1714567474),
+(121, 'id_description_editor', 69, 'fc0bea78973ebfc33bcf00b6329b5a9dc86f8002', 2, '', 667743897, 'c9913e416ca7a1ddc7fca59b20cc958b', 1714571863),
+(125, 'id_introeditor', 74, '13f58ed25eba4b832539745e1c253b7887f308e8', 2, '', 443895252, '98dcf803ea6b339007f147d984d4acb2', 1714643581),
+(134, 'id_introeditor', 71, 'c7400a14b15dda0ba682313fc6ef3b14da729aea', 2, '<p>Create an inclusive and engaging environment for participants to explore the basics of technology, fostering a sense of curiosity and connection.</p>', NULL, '490d6f49af73fab074ab7bc7bd136962', 1714646879),
+(137, 'id_s__summary', 2, '', 2, '', NULL, '', 1714650310),
+(139, 'id_message', 70, '830d2c27f04287cc2fdd2ddf1df280706e2326bb', 2, '', 304710287, '1e99549cf3436287be32db01e7f3b659', 1714650713);
 
 -- --------------------------------------------------------
 
@@ -26148,14 +27667,7 @@ CREATE TABLE IF NOT EXISTS `mdl_tool_recyclebin_category` (
   PRIMARY KEY (`id`),
   KEY `mdl_toolrecycate_tim_ix` (`timecreated`),
   KEY `mdl_toolrecycate_cat_ix` (`categoryid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='A list of items in the category recycle bin' ROW_FORMAT=COMPRESSED;
-
---
--- Dumping data for table `mdl_tool_recyclebin_category`
---
-
-INSERT INTO `mdl_tool_recyclebin_category` (`id`, `categoryid`, `shortname`, `fullname`, `timecreated`) VALUES
-(1, 1, 'Session 1', 'Icebreaker: Exploring Technology Together', 1711032076);
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='A list of items in the category recycle bin' ROW_FORMAT=COMPRESSED;
 
 -- --------------------------------------------------------
 
@@ -28358,7 +29870,7 @@ CREATE TABLE IF NOT EXISTS `mdl_user` (
   KEY `mdl_user_alt_ix` (`alternatename`),
   KEY `date_of_birth` (`date_of_birth`),
   KEY `grade_level` (`grade_level`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='One record for each person' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='One record for each person' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_user`
@@ -28366,13 +29878,21 @@ CREATE TABLE IF NOT EXISTS `mdl_user` (
 
 INSERT INTO `mdl_user` (`id`, `auth`, `confirmed`, `policyagreed`, `deleted`, `suspended`, `mnethostid`, `username`, `password`, `idnumber`, `firstname`, `lastname`, `email`, `emailstop`, `phone1`, `phone2`, `institution`, `department`, `address`, `city`, `country`, `lang`, `calendartype`, `theme`, `timezone`, `firstaccess`, `lastaccess`, `lastlogin`, `currentlogin`, `lastip`, `secret`, `picture`, `description`, `descriptionformat`, `mailformat`, `maildigest`, `maildisplay`, `autosubscribe`, `trackforums`, `timecreated`, `timemodified`, `trustbitmask`, `imagealt`, `lastnamephonetic`, `firstnamephonetic`, `middlename`, `alternatename`, `moodlenetprofile`, `date_of_birth`, `grade_level`) VALUES
 (1, 'manual', 1, 0, 0, 0, 1, 'guest', '$6$rounds=10000$O2devXOvc8C19nna$ik2ZWZRXBq7Xf.ZtB3JHiDuCHQRMCWx54iWxEqE9lzhO3ia04YQgvfL1Iyil1y1iaJar87HM4Pph4E45IBEQs.', '', 'Guest user', ' ', 'root@localhost', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, 'This user is a special user that allows read-only access to some courses.', 1, 1, 0, 2, 1, 0, 0, 1710415266, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'manual', 1, 0, 0, 0, 1, 'admin', '$6$rounds=10000$DV3Q3.bGrQ3bCvRL$qcbEU6TfCF75QAQdnCUp.q3zM6vATb1ulQsn4Dqm3M.BpSPcVDxoGJKe1Te7icjXrutqAR/HEIckQWS3Ye6vE.', '', 'Marianne', 'Arif', 'marianne.arif5@gmail.com', 0, '', '', '', '', '', 'jbeil', 'LB', 'en', 'gregorian', '', '99', 1710415464, 1714558875, 1714558436, 1714558719, '0:0:0:0:0:0:0:1', '', 0, NULL, 1, 1, 0, 1, 1, 0, 0, 1710415604, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'manual', 1, 0, 0, 0, 1, 'admin', '$6$rounds=10000$DV3Q3.bGrQ3bCvRL$qcbEU6TfCF75QAQdnCUp.q3zM6vATb1ulQsn4Dqm3M.BpSPcVDxoGJKe1Te7icjXrutqAR/HEIckQWS3Ye6vE.', '', 'Marianne', 'Arif', 'marianne.arif5@gmail.com', 0, '', '', '', '', '', 'jbeil', 'LB', 'en', 'gregorian', '', '99', 1710415464, 1714651436, 1714650168, 1714650817, '0:0:0:0:0:0:0:1', '', 0, NULL, 1, 1, 0, 1, 1, 0, 0, 1710415604, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 'manual', 1, 0, 0, 0, 1, 'student1', '$6$rounds=10000$vvYqk49R6qAnas6i$Ae8h69MJA90vKVJCTOX9SVC6HuXANPZe8gZ1DvMzKd01ONumUJweUPeqWnmS2rAxwZPhrQKqEgxR7vLC5dvPE1', '', 'student', '1', 'student1@gmail.com', 0, '', '', '', '', '', 'batroun', 'LB', 'en', 'gregorian', '', 'Asia/Beirut', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711298973, 1711298973, 0, '', '', '', '', '', '', '2024-03-24', NULL),
 (4, 'manual', 1, 0, 0, 0, 1, 'teacher1', '$6$rounds=10000$KoVP1M7gZPyYY72Y$SWXoMKcy6skL09.OvMswNhopJkA8Gx9.CXjVt/YZzR4Chr4etemO6rNLJQjkwzUz9T4LRkaaYsO6LQvhz58l2/', '', 'teacher', '1', 'teacher1@gmail.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711315891, 1711315891, 0, '', '', '', '', '', '', '2024-03-24', NULL),
 (5, 'manual', 1, 0, 0, 0, 1, 'non-edit-teacher1', '$6$rounds=10000$YPeDdEMlwJd4Nlma$Aft9ZabbL45AknWGXzsUCEfd9wCfgjzPxa6CX3nXltW5QZmx4E0dM3fPdbiiXHYen0ati8egnkJaKNsETdMqt.', '', 'non-edit', 'teacher 1', 'nonteacher1@gmail.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711315990, 1711315990, 0, '', '', '', '', '', '', '2024-03-24', NULL),
 (6, 'manual', 1, 0, 0, 0, 1, 'student2', '$6$rounds=10000$khkK/vwTpVJXvNHB$iatP4y4qArehPreJeKYeSY6Noqq83NsUvpWkN0iRaEWaxUwW7.L7p24XoHgvw3Djfhz7vqvxFR4fZI92TlKFK0', '', 'student', '2', 'student2@gmail.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711319330, 1711319330, 0, '', '', '', '', '', '', '2024-03-25', NULL),
 (7, 'emailadmin', 1, 0, 0, 0, 1, 'student3', '$6$rounds=10000$M6EFZri./SamrsEW$ErGbJRfr/xvcnwBFOYJsavjx.D8SAsfjqn7yVyrLdknmTphNYYKhhA9HuM7p67Km0avnQV65MlWLQkmd0pPs4/', '', 'student', '3', 'student3@gmail.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 1711319708, 0, 0, 0, '', 'mC3mUFuqMVZ8cvZ', 0, NULL, 1, 1, 0, 2, 1, 0, 1711319559, 0, 0, NULL, '', '', '', '', NULL, '2024-03-25', NULL),
-(8, 'emailadmin', 1, 0, 0, 0, 1, 'student4', '$6$rounds=10000$oZLTlEw92l3xwCf4$7tOYcS2cNgH14iBl/x4NyEmuHW4k42MobaMP957jUlSoiidtKI4kYB1sLOGwmvEQPRIklOSWDEoXYxYWjLyFi/', '', 'student', '4', 'student4@gmail.com', 0, '', '', '', '', '', 'Beirut', 'LB', 'en', 'gregorian', '', '99', 1711319717, 0, 0, 0, '', 'IWVlaLvUEXX5llN', 0, NULL, 1, 1, 0, 2, 1, 0, 1711319659, 0, 0, NULL, '', '', '', '', NULL, '2024-03-25', NULL);
+(8, 'emailadmin', 1, 0, 0, 0, 1, 'student4', '$6$rounds=10000$oZLTlEw92l3xwCf4$7tOYcS2cNgH14iBl/x4NyEmuHW4k42MobaMP957jUlSoiidtKI4kYB1sLOGwmvEQPRIklOSWDEoXYxYWjLyFi/', '', 'student', '4', 'student4@gmail.com', 0, '', '', '', '', '', 'Beirut', 'LB', 'en', 'gregorian', '', '99', 1711319717, 0, 0, 0, '', 'IWVlaLvUEXX5llN', 0, NULL, 1, 1, 0, 2, 1, 0, 1711319659, 0, 0, NULL, '', '', '', '', NULL, '2024-03-25', NULL),
+(9, 'manual', 1, 0, 0, 0, 1, 'chrishouwayek', '$2b$12$Flk7RpUrs/lFalwl7HBOPu2AfBilzdfCpA39AQkAPNRcHrv7TlsDC', '', 'Chris', 'Houwayek', 'chris@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(10, 'manual', 1, 0, 0, 0, 1, 'lukehawat', '$2b$12$jicMhtu7qT4EOj1zf89FwenbFDopti0eNdwKGBsCqMKsIFIsT04Bq', '', 'Luke', 'Hawat', 'luke@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(11, 'manual', 1, 0, 0, 0, 1, 'cesarghanem', '$2b$12$AovRLpO9oCbU4kJEJVK1heuG5zfRYulCWzwPAtSsmJPaToCyehJJ2', '', 'Cesar', 'Ghanem', 'cesar@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(12, 'manual', 1, 0, 0, 0, 1, 'ghadimouawad', '$2b$12$h2XIQix/Xv5SrIr4AlE1uOEq5NJXfYCZ8kty1bFOoPgTZyNIzs2Ra', '', 'Ghadi', 'Mouawad', 'ghadi@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(13, 'manual', 1, 0, 0, 0, 1, 'angydaou', '$2b$12$9To7DO1q98S/FE/zHpwMbOfig/PeCgxhds9wyCdapzil9dr8gSYLW', '', 'Angy', 'Daou', 'angy@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(14, 'manual', 1, 0, 0, 0, 1, 'simonabi younes', '$2b$12$hiFAslBDUIgS6/v80Grf0.53.Waz3uvErlvZHnXz2BqXW4SRsNj4a', '', 'Simon', 'Abi Younes', 'simon@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(15, 'manual', 1, 0, 0, 0, 1, 'lucastarabay', '$2b$12$wMJPKgfCf/cZtDGxTp09kOI8.F78aaYKx2ajz/vf41fNDps3TwYr2', '', 'Lucas', 'Tarabay', 'lucas@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(16, 'manual', 1, 0, 0, 0, 1, 'thomastarabay', '$2b$12$YWP07wWP9CIUkwZ5vvVFyePiFYNfTacIOpMDKVbcLksxzyneTGws.', '', 'Thomas', 'Tarabay', 'thomas@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL);
 
 --
 -- Triggers `mdl_user`
@@ -28435,18 +29955,25 @@ CREATE TABLE IF NOT EXISTS `mdl_user_enrolments` (
   KEY `mdl_userenro_enr_ix` (`enrolid`),
   KEY `mdl_userenro_use_ix` (`userid`),
   KEY `mdl_userenro_mod_ix` (`modifierid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Users participating in courses (aka enrolled users) - everyb' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Users participating in courses (aka enrolled users) - everyb' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_user_enrolments`
 --
 
 INSERT INTO `mdl_user_enrolments` (`id`, `status`, `enrolid`, `userid`, `timestart`, `timeend`, `modifierid`, `timecreated`, `timemodified`) VALUES
-(2, 0, 4, 2, 0, 0, 2, 1710696473, 1710696473),
-(3, 0, 4, 3, 1711299599, 0, 2, 1711299677, 1711299677),
-(4, 0, 4, 4, 1710712800, 1719264300, 2, 1711319166, 1711319166),
-(5, 0, 4, 5, 1711317600, 1719264360, 2, 1711319202, 1711319202),
-(6, 0, 4, 6, 1711319299, 0, 2, 1711319384, 1711319384);
+(7, 0, 7, 13, 1714563299, 0, 2, 1714563332, 1714563332),
+(8, 0, 7, 11, 1714563299, 0, 2, 1714563333, 1714563333),
+(9, 0, 7, 10, 1714563299, 0, 2, 1714563333, 1714563333),
+(10, 0, 7, 9, 1714563299, 0, 2, 1714563333, 1714563333),
+(11, 0, 7, 12, 1714563299, 0, 2, 1714563333, 1714563333),
+(12, 0, 7, 15, 1714563299, 0, 2, 1714563333, 1714563333),
+(13, 0, 7, 16, 1714563299, 0, 2, 1714563333, 1714563333),
+(14, 0, 7, 14, 1714563299, 0, 2, 1714563346, 1714563346),
+(15, 0, 7, 2, 1714564999, 0, 2, 1714565089, 1714565089),
+(16, 0, 8, 3, 1714567599, 0, 2, 1714567634, 1714567634),
+(17, 0, 8, 2, 1714567599, 0, 2, 1714567642, 1714567642),
+(18, 0, 8, 6, 1714567599, 0, 2, 1714567645, 1714567645);
 
 -- --------------------------------------------------------
 
@@ -28587,14 +30114,15 @@ CREATE TABLE IF NOT EXISTS `mdl_user_lastaccess` (
   UNIQUE KEY `mdl_userlast_usecou_uix` (`userid`,`courseid`),
   KEY `mdl_userlast_use_ix` (`userid`),
   KEY `mdl_userlast_cou_ix` (`courseid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='To keep track of course page access times, used in online pa' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='To keep track of course page access times, used in online pa' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_user_lastaccess`
 --
 
 INSERT INTO `mdl_user_lastaccess` (`id`, `userid`, `courseid`, `timeaccess`) VALUES
-(2, 2, 3, 1713603328);
+(3, 2, 4, 1714650692),
+(4, 2, 5, 1714568337);
 
 -- --------------------------------------------------------
 
@@ -28644,7 +30172,7 @@ CREATE TABLE IF NOT EXISTS `mdl_user_preferences` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_userpref_usenam_uix` (`userid`,`name`),
   KEY `mdl_userpref_nam_ix` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Allows modules to store arbitrary user preferences' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Allows modules to store arbitrary user preferences' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_user_preferences`
@@ -28668,7 +30196,6 @@ INSERT INTO `mdl_user_preferences` (`id`, `userid`, `name`, `value`) VALUES
 (16, 2, 'ifirst', ''),
 (17, 2, 'ilast', ''),
 (18, 2, 'tool_usertours_tour_completion_time_1', '1710696180'),
-(19, 2, 'coursesectionspreferences_3', '{\"indexcollapsed\":[],\"contentcollapsed\":[7,8,9,10,11,12,13,14,15,16,17]}'),
 (21, 2, 'block_myoverview_user_grouping_preference', 'allincludinghidden'),
 (22, 2, 'block_myoverview_user_view_preference', 'card'),
 (23, 3, 'auth_forcepasswordchange', '0'),
@@ -28689,7 +30216,8 @@ INSERT INTO `mdl_user_preferences` (`id`, `userid`, `name`, `value`) VALUES
 (38, 6, 'auth_forcepasswordchange', '0'),
 (39, 6, 'email_bounce_count', '1'),
 (40, 6, 'email_send_count', '1'),
-(41, 2, 'tool_dataprivacy_request-filters', '[]');
+(41, 2, 'tool_dataprivacy_request-filters', '[]'),
+(42, 2, 'coursesectionspreferences_4', '{\"indexcollapsed\":[],\"contentcollapsed\":[]}');
 
 -- --------------------------------------------------------
 
