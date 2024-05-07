@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Apr 23, 2024 at 01:32 PM
+-- Host: 127.0.0.1:3308
+-- Generation Time: May 07, 2024 at 09:15 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -213,15 +213,20 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `phone` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `dateOfBirth` date DEFAULT NULL,
-  `role` int UNSIGNED NOT NULL,
   `experience` float NOT NULL,
   `status` varchar(45) DEFAULT 'working',
-  `education_ideducation` int UNSIGNED NOT NULL,
+  `role` int UNSIGNED NOT NULL,
   PRIMARY KEY (`idemployee`),
   UNIQUE KEY `idemployee_UNIQUE` (`idemployee`),
-  KEY `role_idx` (`role`),
-  KEY `fk_employee_education1_idx` (`education_ideducation`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `role_idx` (`role`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`idemployee`, `first_name`, `last_name`, `address`, `phone`, `email`, `dateOfBirth`, `experience`, `status`, `role`) VALUES
+(1, 'Perla', 'Arif', 'Jbeil', '70286149', 'perla.arif02@gmail.com', '2002-06-11', 0, 'working', 4);
 
 -- --------------------------------------------------------
 
@@ -231,10 +236,20 @@ CREATE TABLE IF NOT EXISTS `employee` (
 
 DROP TABLE IF EXISTS `employee_role`;
 CREATE TABLE IF NOT EXISTS `employee_role` (
-  `idemployee_role` int UNSIGNED NOT NULL,
+  `idemployee_role` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `role` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idemployee_role`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee_role`
+--
+
+INSERT INTO `employee_role` (`idemployee_role`, `role`) VALUES
+(1, 'manager'),
+(2, 'coursecreator'),
+(3, 'editingteacher'),
+(4, 'teacher');
 
 -- --------------------------------------------------------
 
@@ -409,22 +424,6 @@ CREATE TABLE IF NOT EXISTS `material` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
---
-
-DROP TABLE IF EXISTS `payment`;
-CREATE TABLE IF NOT EXISTS `payment` (
-  `idpayment` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `amount` int DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `idRegistration` int UNSIGNED DEFAULT NULL,
-  PRIMARY KEY (`idpayment`),
-  KEY `idRegistartion_idx` (`idRegistration`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `registration`
 --
 
@@ -534,7 +533,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `phoneNb` varchar(45) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`idStudent`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
@@ -544,26 +543,15 @@ INSERT INTO `student` (`idStudent`, `studentFirstName`, `studentLastName`, `Date
 (1, 'Chris', 'Houwayek', '2018-08-30', '1', NULL, ''),
 (2, 'Luke', 'Hawat', '2017-07-07', '', NULL, ''),
 (3, 'Cesar', 'Ghanem', '2018-07-03', '', NULL, ''),
-(4, 'Ghadi', 'Mouawad', '2017-03-08', '', NULL, '');
+(4, 'Ghadi', 'Mouawad', '2017-03-08', '', NULL, ''),
+(5, 'Angy', 'Daou', '2017-07-24', '', NULL, ''),
+(6, 'Simon', 'Abi Younes', '2018-03-14', '', NULL, 'abiyounes.elie@gmail.com'),
+(7, 'Lucas', 'Tarabay', '2016-09-11', '', NULL, ''),
+(8, 'Thomas', 'Tarabay', '2017-12-21', '', NULL, '');
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `assessment`
---
-ALTER TABLE `assessment`
-  ADD CONSTRAINT `inds` FOREIGN KEY (`idIndicator`) REFERENCES `indicators` (`idindicators`),
-  ADD CONSTRAINT `indSessipon` FOREIGN KEY (`idSession`) REFERENCES `schedule` (`idschedule`),
-  ADD CONSTRAINT `indstuident` FOREIGN KEY (`idStudent`) REFERENCES `student` (`idStudent`);
-
---
--- Constraints for table `attendance`
---
-ALTER TABLE `attendance`
-  ADD CONSTRAINT `session` FOREIGN KEY (`idSession`) REFERENCES `schedule` (`idschedule`),
-  ADD CONSTRAINT `student` FOREIGN KEY (`idStudent`) REFERENCES `student` (`idStudent`);
 
 --
 -- Constraints for table `course`
@@ -579,56 +567,16 @@ ALTER TABLE `course_type`
   ADD CONSTRAINT `domain` FOREIGN KEY (`idDomain`) REFERENCES `domain` (`iddomain`);
 
 --
--- Constraints for table `education`
---
-ALTER TABLE `education`
-  ADD CONSTRAINT `fk_education_Education_Type1` FOREIGN KEY (`Education_Type_idEdType`) REFERENCES `education_type` (`idEdType`),
-  ADD CONSTRAINT `fk_education_student1` FOREIGN KEY (`student_idStudent`) REFERENCES `student` (`idStudent`);
-
---
--- Constraints for table `education_type`
---
-ALTER TABLE `education_type`
-  ADD CONSTRAINT `fk_Education_Type_Institution1` FOREIGN KEY (`Institution_idInstitution`) REFERENCES `institution` (`idInstitution`),
-  ADD CONSTRAINT `fk_school_location1` FOREIGN KEY (`location_idlocation`) REFERENCES `location` (`idlocation`);
-
---
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `fk_employee_education1` FOREIGN KEY (`education_ideducation`) REFERENCES `education` (`ideducation`),
-  ADD CONSTRAINT `role` FOREIGN KEY (`role`) REFERENCES `employee_role` (`idemployee_role`);
-
---
--- Constraints for table `experience`
---
-ALTER TABLE `experience`
-  ADD CONSTRAINT `idEmployeee` FOREIGN KEY (`idemployee`) REFERENCES `employee` (`idemployee`);
-
---
--- Constraints for table `guardians_students`
---
-ALTER TABLE `guardians_students`
-  ADD CONSTRAINT `idStudent` FOREIGN KEY (`idStudent`) REFERENCES `student` (`idStudent`),
-  ADD CONSTRAINT `legalGuardian` FOREIGN KEY (`idLegalGuardians`) REFERENCES `legal_guardians` (`idLegalGuardians`);
-
---
--- Constraints for table `indicators`
---
-ALTER TABLE `indicators`
-  ADD CONSTRAINT `typeInd` FOREIGN KEY (`type`) REFERENCES `indicator_types` (`idindicator_types`);
+  ADD CONSTRAINT `fk_employee_role` FOREIGN KEY (`role`) REFERENCES `employee_role` (`idemployee_role`);
 
 --
 -- Constraints for table `material`
 --
 ALTER TABLE `material`
   ADD CONSTRAINT `course` FOREIGN KEY (`courseID`) REFERENCES `course` (`idcourse`);
-
---
--- Constraints for table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `idRegistartion` FOREIGN KEY (`idRegistration`) REFERENCES `registration` (`idregistration`);
 
 --
 -- Constraints for table `registration`
