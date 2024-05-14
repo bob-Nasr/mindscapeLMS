@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: May 07, 2024 at 09:15 PM
+-- Generation Time: May 14, 2024 at 12:48 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -178,7 +178,7 @@ INSERT INTO `education` (`ideducation`, `startDate`, `endDate`, `Education_Type_
 DROP TABLE IF EXISTS `education_type`;
 CREATE TABLE IF NOT EXISTS `education_type` (
   `idEdType` int UNSIGNED NOT NULL AUTO_INCREMENT,
-  `EductaionType_name` varchar(45) NOT NULL,
+  `EducationType_name` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `location_idlocation` int UNSIGNED NOT NULL,
   `Institution_idInstitution` int UNSIGNED NOT NULL,
   PRIMARY KEY (`idEdType`),
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `education_type` (
 -- Dumping data for table `education_type`
 --
 
-INSERT INTO `education_type` (`idEdType`, `EductaionType_name`, `location_idlocation`, `Institution_idInstitution`) VALUES
+INSERT INTO `education_type` (`idEdType`, `EducationType_name`, `location_idlocation`, `Institution_idInstitution`) VALUES
 (1, 'Beit Hebbak', 1, 1),
 (2, 'College des Soeurs du Rosaire', 1, 1),
 (3, 'Freres Maristes', 1, 1),
