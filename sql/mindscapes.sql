@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: May 14, 2024 at 12:48 PM
+-- Generation Time: Jun 14, 2024 at 08:58 AM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `education_type` (
   UNIQUE KEY `idSchool_UNIQUE` (`idEdType`),
   KEY `fk_school_location1_idx` (`location_idlocation`),
   KEY `fk_Education_Type_Institution1_idx` (`Institution_idInstitution`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `education_type`
@@ -196,7 +196,9 @@ INSERT INTO `education_type` (`idEdType`, `EducationType_name`, `location_idloca
 (2, 'College des Soeurs du Rosaire', 1, 1),
 (3, 'Freres Maristes', 1, 1),
 (4, 'Saint Joseph', 1, 1),
-(5, 'Monsif International School', 7, 1);
+(5, 'Monsif International School', 7, 1),
+(6, 'Antonine Sisters School', 8, 1),
+(7, 'Lycee', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -286,7 +288,7 @@ CREATE TABLE IF NOT EXISTS `guardians_students` (
   UNIQUE KEY `idguardians_students_UNIQUE` (`idguardians_students`),
   KEY `idLegalGuardian_idx` (`idLegalGuardians`),
   KEY `idStudent_idx` (`idStudent`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guardians_students`
@@ -296,7 +298,8 @@ INSERT INTO `guardians_students` (`idguardians_students`, `idLegalGuardians`, `r
 (1, 1, 'Mother', 1),
 (2, 2, 'Mother', 2),
 (3, 3, 'Mother', 3),
-(4, 4, 'Mother', 4);
+(4, 4, 'Mother', 4),
+(5, 5, 'Mother', 9);
 
 -- --------------------------------------------------------
 
@@ -365,7 +368,7 @@ CREATE TABLE IF NOT EXISTS `legal_guardians` (
   `Emergency` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idLegalGuardians`),
   UNIQUE KEY `idContact_UNIQUE` (`idLegalGuardians`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `legal_guardians`
@@ -375,7 +378,8 @@ INSERT INTO `legal_guardians` (`idLegalGuardians`, `nameLegalGuardians`, `phoneN
 (1, 'Reine', '70216053', '', NULL),
 (2, 'Tamara', '03468483', '', NULL),
 (3, 'Elise', '03944521', '', '70934575'),
-(4, 'Eveline', '03533405', '', NULL);
+(4, 'Eveline', '03533405', '', NULL),
+(5, 'Sylvie', '03687893', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -389,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `locationName` varchar(45) NOT NULL,
   PRIMARY KEY (`idlocation`),
   UNIQUE KEY `idlocation_UNIQUE` (`idlocation`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `location`
@@ -402,7 +406,9 @@ INSERT INTO `location` (`idlocation`, `locationName`) VALUES
 (4, 'Batroun'),
 (5, 'Achrafieh'),
 (6, 'Keserwan'),
-(7, 'Monsif');
+(7, 'Monsif'),
+(8, 'Ghazir'),
+(9, 'Nahr Ibrahim');
 
 -- --------------------------------------------------------
 
@@ -533,7 +539,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   `phoneNb` varchar(45) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`idStudent`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
@@ -547,7 +553,8 @@ INSERT INTO `student` (`idStudent`, `studentFirstName`, `studentLastName`, `Date
 (5, 'Angy', 'Daou', '2017-07-24', '', NULL, ''),
 (6, 'Simon', 'Abi Younes', '2018-03-14', '', NULL, 'abiyounes.elie@gmail.com'),
 (7, 'Lucas', 'Tarabay', '2016-09-11', '', NULL, ''),
-(8, 'Thomas', 'Tarabay', '2017-12-21', '', NULL, '');
+(8, 'Thomas', 'Tarabay', '2017-12-21', '', NULL, ''),
+(9, 'Chloe', 'Saad', '2015-06-12', '3', NULL, '');
 
 --
 -- Constraints for dumped tables
