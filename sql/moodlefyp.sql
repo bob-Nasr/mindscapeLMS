@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Jun 14, 2024 at 08:58 AM
+-- Generation Time: Jul 18, 2024 at 12:58 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -2372,7 +2372,7 @@ CREATE TABLE IF NOT EXISTS `mdl_block` (
   `visible` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_bloc_nam_uix` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='contains all installed blocks' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='contains all installed blocks' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block`
@@ -2426,7 +2426,8 @@ INSERT INTO `mdl_block` (`id`, `name`, `cron`, `lastcron`, `visible`) VALUES
 (45, 'openai_chat', 0, 0, 1),
 (46, 'exacomp', 0, 0, 1),
 (47, 'my_enrolled_courses', 0, 0, 1),
-(48, 'exastud', 0, 0, 1);
+(48, 'exastud', 0, 0, 1),
+(49, 'payments', 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -3911,7 +3912,7 @@ CREATE TABLE IF NOT EXISTS `mdl_block_instances` (
   KEY `mdl_blocinst_tim_ix` (`timemodified`),
   KEY `mdl_blocinst_blo_ix` (`blockname`),
   KEY `mdl_blocinst_par_ix` (`parentcontextid`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table stores block instances. The type of block this is' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='This table stores block instances. The type of block this is' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_block_instances`
@@ -3939,7 +3940,8 @@ INSERT INTO `mdl_block_instances` (`id`, `blockname`, `parentcontextid`, `showin
 (43, 'calendar_month', 110, 0, 0, 'my-index', '12', 'content', 1, '', 1715113108, 1715113108),
 (46, 'exacomp', 100, 0, 0, 'course-view-*', NULL, 'content', 0, '', 1714562762, 1714562762),
 (47, 'exastud', 100, 0, 0, 'course-view-*', NULL, 'content', 2, '', 1715152672, 1715152672),
-(48, 'news_items', 100, 0, 0, 'course-view-*', NULL, 'content', 2, '', 1714650535, 1714650535);
+(48, 'news_items', 100, 0, 0, 'course-view-*', NULL, 'content', 2, '', 1714650535, 1714650535),
+(51, 'payments', 5, 0, 0, 'my-index', '6', 'content', -5, '', 1720696525, 1720696539);
 
 -- --------------------------------------------------------
 
@@ -4300,7 +4302,7 @@ CREATE TABLE IF NOT EXISTS `mdl_cache_flags` (
 --
 
 INSERT INTO `mdl_cache_flags` (`id`, `flagtype`, `name`, `timemodified`, `value`, `expiry`) VALUES
-(1, 'userpreferenceschanged', '2', 1718354109, '1', 1718382909),
+(1, 'userpreferenceschanged', '2', 1721307343, '1', 1721336143),
 (2, 'accesslib/dirtyusers', '2', 1717148352, '1', 1717177152),
 (3, 'accesslib/dirtycontexts', '/1/3/31', 1711032076, '1', 1711060876),
 (4, 'userpreferenceschanged', '3', 1711298973, '1', 1711327773),
@@ -4348,7 +4350,7 @@ CREATE TABLE IF NOT EXISTS `mdl_capabilities` (
   `riskbitmask` bigint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_capa_nam_uix` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=801 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='this defines all capabilities' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=803 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='this defines all capabilities' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_capabilities`
@@ -5155,7 +5157,9 @@ INSERT INTO `mdl_capabilities` (`id`, `name`, `captype`, `contextlevel`, `compon
 (797, 'mod/attendance:managetemporaryusers', 'write', 70, 'mod_attendance', 32),
 (798, 'mod/attendance:viewsummaryreports', 'read', 40, 'mod_attendance', 8),
 (799, 'mod/attendance:warningemails', 'write', 70, 'mod_attendance', 32),
-(800, 'mod/attendance:manualautomark', 'write', 50, 'mod_attendance', 4);
+(800, 'mod/attendance:manualautomark', 'write', 50, 'mod_attendance', 4),
+(801, 'block/payments:myaddinstance', 'write', 80, 'block_payments', 0),
+(802, 'block/payments:addinstance', 'write', 80, 'block_payments', 20);
 
 -- --------------------------------------------------------
 
@@ -6060,7 +6064,7 @@ CREATE TABLE IF NOT EXISTS `mdl_config` (
   `value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_conf_nam_uix` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=616 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Moodle configuration variables' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=617 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Moodle configuration variables' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_config`
@@ -6089,9 +6093,9 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (21, 'mnet_all_hosts_id', '2'),
 (22, 'siteguest', '1'),
 (23, 'siteadmins', '2'),
-(24, 'themerev', '1718270301'),
-(25, 'jsrev', '1718270302'),
-(26, 'templaterev', '1718270302'),
+(24, 'themerev', '1721294678'),
+(25, 'jsrev', '1721294678'),
+(26, 'templaterev', '1721294678'),
 (27, 'gdversion', '2'),
 (28, 'licenses', 'unknown,allrightsreserved,public,cc-4.0,cc-nc-4.0,cc-nd-4.0,cc-nc-nd-4.0,cc-nc-sa-4.0,cc-sa-4.0'),
 (29, 'sitedefaultlicense', 'unknown'),
@@ -6225,7 +6229,7 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (158, 'autolangusercreation', '1'),
 (159, 'langmenu', '1'),
 (160, 'langlist', ''),
-(161, 'langrev', '1718270302'),
+(161, 'langrev', '1721294678'),
 (162, 'langcache', '1'),
 (163, 'langstringcache', '1'),
 (164, 'locale', ''),
@@ -6483,7 +6487,7 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (417, 'enablecourserelativedates', '0'),
 (418, 'enablesharingtomoodlenet', '0'),
 (419, 'enablecommunicationsubsystem', '0'),
-(420, 'debug', '0'),
+(420, 'debug', '32767'),
 (421, 'debugdisplay', '0'),
 (422, 'perfdebug', '7'),
 (423, 'debugstringids', '0'),
@@ -6501,11 +6505,11 @@ INSERT INTO `mdl_config` (`id`, `name`, `value`) VALUES
 (435, 'profilinglifetime', '1440'),
 (436, 'profilingimportprefix', '(I)'),
 (437, 'release', '4.3.3 (Build: 20240212)'),
-(438, 'localcachedirpurged', '1718270306'),
-(439, 'scheduledtaskreset', '1718270306'),
+(438, 'localcachedirpurged', '1721294679'),
+(439, 'scheduledtaskreset', '1721294679'),
 (440, 'paygw_plugins_sortorder', 'paypal'),
-(441, 'allversionshash', '9b68e18420dc1d22225bf2337ac9c943eca141cb'),
-(442, 'allcomponenthash', '5e372744d64d940ad71b2842880dda600ecbb723'),
+(441, 'allversionshash', '9e8d8c262f96ce49d5bb2dcabad43be5c0f438db'),
+(442, 'allcomponenthash', '1cce9e0d3e298d2c04657731a0449568d822c5f2'),
 (444, 'registrationpending', '0'),
 (445, 'branch', '403'),
 (446, 'enableaccessibilitytools', '1'),
@@ -6660,7 +6664,7 @@ CREATE TABLE IF NOT EXISTS `mdl_config_log` (
   PRIMARY KEY (`id`),
   KEY `mdl_conflog_tim_ix` (`timemodified`),
   KEY `mdl_conflog_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2371 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Changes done in server configuration through admin UI' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2388 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Changes done in server configuration through admin UI' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_config_log`
@@ -9039,7 +9043,24 @@ INSERT INTO `mdl_config_log` (`id`, `userid`, `timemodified`, `plugin`, `name`, 
 (2367, 2, 1715211858, 'local_ganalytics', 'metriccount', '0', NULL),
 (2368, 2, 1715281801, 'local_ganalytics', 'propertyid', 'G-P98CN6FSSK', ''),
 (2369, 2, 1715282029, NULL, 'additionalhtmlhead', '<!-- Google tag (gtag.js) -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-P98CN6FSSK\"></script>\r\n<script>\r\n  window.dataLayer = window.dataLayer || [];\r\n  function gtag(){dataLayer.push(arguments);}\r\n  gtag(\'js\', new Date());\r\n\r\n  gtag(\'config\', \'G-P98CN6FSSK\');\r\n</script>', ''),
-(2370, 2, 1717191293, 'exacomp', 'assessment_childcomp_scheme', '2', '1');
+(2370, 2, 1717191293, 'exacomp', 'assessment_childcomp_scheme', '2', '1'),
+(2371, 2, 1720696484, 'auth_cas', 'field_map_profile_field_place_of_birth', '', NULL),
+(2372, 2, 1720696485, 'auth_cas', 'field_updatelocal_profile_field_place_of_birth', 'oncreate', NULL),
+(2373, 2, 1720696485, 'auth_cas', 'field_updateremote_profile_field_place_of_birth', '0', NULL),
+(2374, 2, 1720696485, 'auth_cas', 'field_lock_profile_field_place_of_birth', 'unlocked', NULL),
+(2375, 2, 1720696485, 'auth_db', 'field_map_profile_field_place_of_birth', '', NULL),
+(2376, 2, 1720696485, 'auth_db', 'field_updatelocal_profile_field_place_of_birth', 'oncreate', NULL),
+(2377, 2, 1720696485, 'auth_db', 'field_updateremote_profile_field_place_of_birth', '0', NULL),
+(2378, 2, 1720696485, 'auth_db', 'field_lock_profile_field_place_of_birth', 'unlocked', NULL),
+(2379, 2, 1720696485, 'auth_ldap', 'field_map_profile_field_place_of_birth', '', NULL),
+(2380, 2, 1720696485, 'auth_ldap', 'field_updatelocal_profile_field_place_of_birth', 'oncreate', NULL),
+(2381, 2, 1720696485, 'auth_ldap', 'field_updateremote_profile_field_place_of_birth', '0', NULL),
+(2382, 2, 1720696485, 'auth_ldap', 'field_lock_profile_field_place_of_birth', 'unlocked', NULL),
+(2383, 2, 1720696485, 'auth_oauth2', 'field_lock_profile_field_place_of_birth', 'unlocked', NULL),
+(2384, 2, 1720696485, 'auth_shibboleth', 'field_map_profile_field_place_of_birth', '', NULL),
+(2385, 2, 1720696485, 'auth_shibboleth', 'field_updatelocal_profile_field_place_of_birth', 'oncreate', NULL),
+(2386, 2, 1720696485, 'auth_shibboleth', 'field_lock_profile_field_place_of_birth', 'unlocked', NULL),
+(2387, 2, 1720703403, NULL, 'debug', '32767', '0');
 
 -- --------------------------------------------------------
 
@@ -9055,7 +9076,7 @@ CREATE TABLE IF NOT EXISTS `mdl_config_plugins` (
   `value` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mdl_confplug_plunam_uix` (`plugin`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2694 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Moodle modules and plugins configuration variables' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=2711 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Moodle modules and plugins configuration variables' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_config_plugins`
@@ -11665,7 +11686,24 @@ INSERT INTO `mdl_config_plugins` (`id`, `plugin`, `name`, `value`) VALUES
 (2690, 'local_ganalytics', 'propertyid', 'G-P98CN6FSSK'),
 (2691, 'local_ganalytics', 'template', 'analyticsjs'),
 (2692, 'local_ganalytics', 'dimensioncount', '0'),
-(2693, 'local_ganalytics', 'metriccount', '0');
+(2693, 'local_ganalytics', 'metriccount', '0'),
+(2694, 'block_payments', 'version', '2024010100'),
+(2695, 'auth_cas', 'field_map_profile_field_place_of_birth', ''),
+(2696, 'auth_cas', 'field_updatelocal_profile_field_place_of_birth', 'oncreate'),
+(2697, 'auth_cas', 'field_updateremote_profile_field_place_of_birth', '0'),
+(2698, 'auth_cas', 'field_lock_profile_field_place_of_birth', 'unlocked'),
+(2699, 'auth_db', 'field_map_profile_field_place_of_birth', ''),
+(2700, 'auth_db', 'field_updatelocal_profile_field_place_of_birth', 'oncreate'),
+(2701, 'auth_db', 'field_updateremote_profile_field_place_of_birth', '0'),
+(2702, 'auth_db', 'field_lock_profile_field_place_of_birth', 'unlocked'),
+(2703, 'auth_ldap', 'field_map_profile_field_place_of_birth', ''),
+(2704, 'auth_ldap', 'field_updatelocal_profile_field_place_of_birth', 'oncreate'),
+(2705, 'auth_ldap', 'field_updateremote_profile_field_place_of_birth', '0'),
+(2706, 'auth_ldap', 'field_lock_profile_field_place_of_birth', 'unlocked'),
+(2707, 'auth_oauth2', 'field_lock_profile_field_place_of_birth', 'unlocked'),
+(2708, 'auth_shibboleth', 'field_map_profile_field_place_of_birth', ''),
+(2709, 'auth_shibboleth', 'field_updatelocal_profile_field_place_of_birth', 'oncreate'),
+(2710, 'auth_shibboleth', 'field_lock_profile_field_place_of_birth', 'unlocked');
 
 -- --------------------------------------------------------
 
@@ -11712,7 +11750,7 @@ CREATE TABLE IF NOT EXISTS `mdl_context` (
   UNIQUE KEY `mdl_cont_conins_uix` (`contextlevel`,`instanceid`),
   KEY `mdl_cont_ins_ix` (`instanceid`),
   KEY `mdl_cont_pat_ix` (`path`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='one of these must be set' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='one of these must be set' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_context`
@@ -11841,7 +11879,8 @@ INSERT INTO `mdl_context` (`id`, `contextlevel`, `instanceid`, `path`, `depth`, 
 (164, 70, 72, '/1/63/157/158/164', 5, 0),
 (165, 70, 73, '/1/63/157/158/165', 5, 0),
 (166, 70, 74, '/1/63/157/158/166', 5, 0),
-(167, 70, 75, '/1/63/157/158/167', 5, 0);
+(167, 70, 75, '/1/63/157/158/167', 5, 0),
+(168, 80, 51, '/1/5/168', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -11916,11 +11955,11 @@ CREATE TABLE IF NOT EXISTS `mdl_course` (
 --
 
 INSERT INTO `mdl_course` (`id`, `category`, `sortorder`, `fullname`, `shortname`, `idnumber`, `summary`, `summaryformat`, `format`, `showgrades`, `newsitems`, `startdate`, `enddate`, `relativedatesmode`, `marker`, `maxbytes`, `legacyfiles`, `showreports`, `visible`, `visibleold`, `downloadcontent`, `groupmode`, `groupmodeforce`, `defaultgroupingid`, `lang`, `calendartype`, `theme`, `timecreated`, `timemodified`, `requested`, `enablecompletion`, `completionnotify`, `cacherev`, `originalcourseid`, `showactivitydates`, `showcompletionconditions`, `pdfexportfont`) VALUES
-(1, 0, 1, 'Mindscape-lb', 'Mindscape', '', '', 0, 'site', 1, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1710415266, 1714650307, 0, 0, 0, 1718270302, NULL, 0, NULL, NULL),
-(4, 9, 30001, 'Exploration Of Curiosity', 'Level 2', '', '<ul>\r\n<li>This program is 13 lessons long.</li>\r\n<li>Each lesson unfolds over 2 hours.</li>\r\n</ul>', 1, 'topics', 1, 5, 1714597200, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 1, 0, 0, '', '', '', 1714559762, 1714643163, 0, 1, 0, 1718270302, NULL, 1, 1, NULL),
-(5, 11, 50001, 'Scout Beginnings', 'Level 1', '', '', 1, 'topics', 1, 5, 1714597200, 1746133200, 0, 0, 0, 0, 0, 1, 1, NULL, 1, 0, 0, '', '', '', 1714567451, 1714567451, 0, 1, 0, 1718270302, NULL, 1, 1, NULL),
-(6, 8, 20001, 'KinderBot 1', 'KG', '', '', 1, 'topics', 1, 5, 1714683600, 1746219600, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1714647047, 1717222788, 0, 1, 0, 1718270302, NULL, 1, 1, NULL),
-(7, 15, 90001, 'Wedo', '6-9 yo', '', '<p>This 13-week summer camp offers a unique opportunity for young minds to explore different themes each week, engaging in activities such as robotics, crafts, 3D animation, and gaming. </p>', 1, 'weeks', 1, 5, 1718658000, 1724101200, 0, 0, 0, 0, 0, 1, 1, NULL, 2, 0, 0, '', '', '', 1718190355, 1718220075, 0, 1, 0, 1718270302, NULL, 1, 1, NULL);
+(1, 0, 1, 'Mindscape-lb', 'Mindscape', '', '', 0, 'site', 1, 3, 0, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1710415266, 1714650307, 0, 0, 0, 1721294678, NULL, 0, NULL, NULL),
+(4, 9, 30001, 'Exploration Of Curiosity', 'Level 2', '', '<ul>\r\n<li>This program is 13 lessons long.</li>\r\n<li>Each lesson unfolds over 2 hours.</li>\r\n</ul>', 1, 'topics', 1, 5, 1714597200, 0, 0, 0, 0, 0, 0, 1, 1, NULL, 1, 0, 0, '', '', '', 1714559762, 1714643163, 0, 1, 0, 1721294678, NULL, 1, 1, NULL),
+(5, 11, 50001, 'Scout Beginnings', 'Level 1', '', '', 1, 'topics', 1, 5, 1714597200, 1746133200, 0, 0, 0, 0, 0, 1, 1, NULL, 1, 0, 0, '', '', '', 1714567451, 1714567451, 0, 1, 0, 1721294678, NULL, 1, 1, NULL),
+(6, 8, 20001, 'KinderBot 1', 'KG', '', '', 1, 'topics', 1, 5, 1714683600, 1746219600, 0, 0, 0, 0, 0, 1, 1, NULL, 0, 0, 0, '', '', '', 1714647047, 1717222788, 0, 1, 0, 1721294678, NULL, 1, 1, NULL),
+(7, 15, 90001, 'Wedo', '6-9 yo', '', '<p>This 13-week summer camp offers a unique opportunity for young minds to explore different themes each week, engaging in activities such as robotics, crafts, 3D animation, and gaming. </p>', 1, 'weeks', 1, 5, 1718658000, 1724101200, 0, 0, 0, 0, 0, 1, 1, NULL, 2, 0, 0, '', '', '', 1718190355, 1718220075, 0, 1, 0, 1721294678, NULL, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -18933,7 +18972,7 @@ CREATE TABLE IF NOT EXISTS `mdl_logstore_standard_log` (
   KEY `mdl_logsstanlog_cou_ix` (`courseid`),
   KEY `mdl_logsstanlog_rea_ix` (`realuserid`),
   KEY `mdl_logsstanlog_rel_ix` (`relateduserid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4566 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Standard log table' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=4801 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Standard log table' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_logstore_standard_log`
@@ -23527,7 +23566,243 @@ INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action
 (4562, '\\core\\event\\user_list_viewed', 'core', 'viewed', 'user_list', 'course', 7, 'r', 0, 158, 50, 7, 2, 7, NULL, 0, '{\"courseshortname\":\"6-9 yo\",\"coursefullname\":\"Wedo\"}', 1718273663, 'web', '0:0:0:0:0:0:0:1', NULL),
 (4563, '\\core\\event\\enrol_instance_created', 'core', 'created', 'enrol_instance', 'enrol', 10, 'c', 0, 158, 50, 7, 2, 7, NULL, 0, '{\"enrol\":\"manual\"}', 1718273692, 'web', '0:0:0:0:0:0:0:1', NULL),
 (4564, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1718354109, 'web', '0:0:0:0:0:0:0:1', NULL),
-(4565, '\\core\\event\\user_login_failed', 'core', 'failed', 'user_login', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"reason\":3}', 1718354188, 'web', '0:0:0:0:0:0:0:1', NULL);
+(4565, '\\core\\event\\user_login_failed', 'core', 'failed', 'user_login', NULL, NULL, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"reason\":3}', 1718354188, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4566, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1720695934, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4567, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720695934, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4568, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696177, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4569, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696211, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4570, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696214, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4571, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696224, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4572, '\\core\\event\\user_profile_viewed', 'core', 'viewed', 'user_profile', 'user', 2, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696226, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4573, '\\core\\event\\capability_assigned', 'core', 'assigned', 'capability', 'role_capabilities', 7, 'u', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"capability\":\"block\\/payments:myaddinstance\",\"oldpermission\":0,\"permission\":1}', 1720696433, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4574, '\\core\\event\\capability_assigned', 'core', 'assigned', 'capability', 'role_capabilities', 3, 'u', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"capability\":\"block\\/payments:addinstance\",\"oldpermission\":0,\"permission\":\"1\"}', 1720696433, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4575, '\\core\\event\\capability_assigned', 'core', 'assigned', 'capability', 'role_capabilities', 1, 'u', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"capability\":\"block\\/payments:addinstance\",\"oldpermission\":0,\"permission\":\"1\"}', 1720696433, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4576, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2371, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_map_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"\",\"plugin\":\"auth_cas\"}', 1720696484, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4577, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2372, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updatelocal_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"oncreate\",\"plugin\":\"auth_cas\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4578, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2373, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updateremote_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"0\",\"plugin\":\"auth_cas\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4579, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2374, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_lock_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"unlocked\",\"plugin\":\"auth_cas\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4580, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2375, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_map_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"\",\"plugin\":\"auth_db\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4581, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2376, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updatelocal_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"oncreate\",\"plugin\":\"auth_db\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4582, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2377, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updateremote_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"0\",\"plugin\":\"auth_db\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4583, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2378, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_lock_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"unlocked\",\"plugin\":\"auth_db\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4584, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2379, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_map_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"\",\"plugin\":\"auth_ldap\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4585, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2380, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updatelocal_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"oncreate\",\"plugin\":\"auth_ldap\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4586, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2381, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updateremote_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"0\",\"plugin\":\"auth_ldap\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4587, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2382, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_lock_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"unlocked\",\"plugin\":\"auth_ldap\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4588, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2383, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_lock_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"unlocked\",\"plugin\":\"auth_oauth2\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4589, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2384, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_map_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"\",\"plugin\":\"auth_shibboleth\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4590, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2385, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_updatelocal_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"oncreate\",\"plugin\":\"auth_shibboleth\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4591, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2386, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"field_lock_profile_field_place_of_birth\",\"oldvalue\":null,\"value\":\"unlocked\",\"plugin\":\"auth_shibboleth\"}', 1720696485, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4592, '\\core\\event\\course_viewed', 'core', 'viewed', 'course', NULL, NULL, 'r', 2, 2, 50, 1, 2, 1, NULL, 0, 'null', 1720696501, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4593, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696515, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4594, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696519, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4595, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696526, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4596, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696541, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4597, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720696867, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4598, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697132, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4599, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697196, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4600, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697217, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4601, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697366, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4602, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697373, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4603, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697384, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4604, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697413, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4605, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697455, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4606, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697475, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4607, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697518, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4608, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697967, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4609, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720697994, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4610, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720698129, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4611, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720698178, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4612, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720698621, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4613, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720698650, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4614, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720698672, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4615, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720698924, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4616, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703371, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4617, '\\core\\event\\config_log_created', 'core', 'created', 'config_log', 'config_log', 2387, 'c', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"name\":\"debug\",\"oldvalue\":\"0\",\"value\":\"32767\",\"plugin\":null}', 1720703403, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4618, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703547, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4619, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703650, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4620, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703752, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4621, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703864, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4622, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703908, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4623, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720703943, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4624, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704114, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4625, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704143, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4626, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704183, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4627, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704193, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4628, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704201, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4629, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704218, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4630, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704263, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4631, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704284, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4632, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704322, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4633, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704329, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4634, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704356, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4635, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704396, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4636, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704408, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4637, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704598, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4638, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704676, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4639, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704680, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4640, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704711, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4641, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704732, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4642, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704755, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4643, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704762, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4644, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704767, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4645, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704771, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4646, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704774, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4647, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704778, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4648, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704782, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4649, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704785, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4650, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704807, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4651, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704811, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4652, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704852, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4653, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704856, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4654, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704876, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4655, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704962, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4656, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704967, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4657, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704971, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4658, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720704975, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4659, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705006, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4660, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705011, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4661, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705029, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4662, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705065, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4663, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705125, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4664, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705142, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4665, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705152, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4666, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705225, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4667, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705233, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4668, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705239, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4669, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705298, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4670, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705303, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4671, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705308, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4672, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705542, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4673, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705546, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4674, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705551, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4675, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705556, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4676, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705562, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4677, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720705567, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4678, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707252, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4679, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707280, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4680, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707345, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4681, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707354, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4682, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707358, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4683, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707380, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4684, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707385, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4685, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707389, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4686, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707392, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4687, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707396, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4688, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707399, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4689, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720707983, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4690, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708014, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4691, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708021, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4692, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708162, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4693, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708197, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4694, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708262, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4695, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708271, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4696, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708352, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4697, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708403, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4698, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708479, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4699, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708483, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4700, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708645, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4701, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1720708757, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4702, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1721294083, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4703, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294090, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4704, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294097, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4705, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294613, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4706, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294618, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4707, '\\core\\event\\user_profile_viewed', 'core', 'viewed', 'user_profile', 'user', 2, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294639, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4708, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294754, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4709, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294855, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4710, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294937, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4711, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294938, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4712, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721294990, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4713, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721295051, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4714, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721295228, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4715, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721295311, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4716, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721295335, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4717, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721296653, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4718, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721296666, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4719, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721296846, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4720, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721296952, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4721, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297025, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4722, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297051, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4723, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297256, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4724, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297303, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4725, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297339, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4726, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297351, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4727, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297419, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4728, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297426, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4729, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297441, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4730, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297542, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4731, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721297551, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4732, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301212, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4733, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301233, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4734, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301251, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4735, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301442, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4736, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301845, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4737, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301900, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4738, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301907, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4739, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721301983, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4740, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721302275, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4741, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721302516, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4742, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721302523, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4743, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721302952, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4744, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721302976, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4745, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303020, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4746, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303085, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4747, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303146, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4748, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303203, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4749, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303261, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4750, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303390, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4751, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303444, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4752, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303701, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4753, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303797, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4754, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303833, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4755, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721303857, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4756, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304087, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4757, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304317, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4758, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304340, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4759, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304468, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4760, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304500, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4761, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304675, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4762, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304705, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4763, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304795, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4764, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304891, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4765, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304937, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4766, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721304947, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4767, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305006, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4768, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305049, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4769, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305063, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4770, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305302, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4771, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305508, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4772, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305604, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4773, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721305768, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4774, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306030, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4775, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306130, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4776, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306145, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4777, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306302, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4778, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306404, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4779, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306444, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4780, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306480, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4781, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306522, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4782, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306588, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4783, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306747, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4784, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306771, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4785, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306857, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4786, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306877, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4787, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306907, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4788, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306922, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4789, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306970, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4790, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721306984, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4791, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307013, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4792, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307047, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4793, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307078, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4794, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307082, 'web', '0:0:0:0:0:0:0:1', NULL);
+INSERT INTO `mdl_logstore_standard_log` (`id`, `eventname`, `component`, `action`, `target`, `objecttable`, `objectid`, `crud`, `edulevel`, `contextid`, `contextlevel`, `contextinstanceid`, `userid`, `courseid`, `relateduserid`, `anonymous`, `other`, `timecreated`, `origin`, `ip`, `realuserid`) VALUES
+(4795, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307085, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4796, '\\core\\event\\user_loggedin', 'core', 'loggedin', 'user', 'user', 2, 'r', 0, 1, 10, 0, 2, 0, NULL, 0, '{\"username\":\"admin\",\"extrauserinfo\":[]}', 1721307343, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4797, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307344, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4798, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307418, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4799, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307457, 'web', '0:0:0:0:0:0:0:1', NULL),
+(4800, '\\core\\event\\dashboard_viewed', 'core', 'viewed', 'dashboard', NULL, NULL, 'r', 0, 5, 30, 2, 2, 0, 2, 0, 'null', 1721307468, 'web', '0:0:0:0:0:0:0:1', NULL);
 
 -- --------------------------------------------------------
 
@@ -25223,7 +25498,18 @@ CREATE TABLE IF NOT EXISTS `mdl_payments` (
   KEY `mdl_paym_compayite_ix` (`component`,`paymentarea`,`itemid`),
   KEY `mdl_paym_use_ix` (`userid`),
   KEY `mdl_paym_acc_ix` (`accountid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores information about payments' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Stores information about payments' ROW_FORMAT=COMPRESSED;
+
+--
+-- Dumping data for table `mdl_payments`
+--
+
+INSERT INTO `mdl_payments` (`id`, `component`, `paymentarea`, `itemid`, `userid`, `amount`, `currency`, `accountid`, `gateway`, `timecreated`, `timemodified`) VALUES
+(1, 'course', 'enrollment', 101, 9, '50.00', 'USD', 1, 'PayPal', 1720703746, 1720703746),
+(2, 'course', 'enrollment', 102, 11, '75.00', 'LBP', 2, 'Stripe', 1720703746, 1720703746),
+(3, 'module', 'subscription', 103, 10, '100.00', 'USD', 1, 'Square', 1720703746, 1720703746),
+(4, 'module', 'subscription', 104, 9, '200.00', 'LBP', 2, 'Authorize.Net', 1720703746, 1720703746),
+(19, 'block_payments', 'Registratyion 3', 0, 10, '10', 'LBP', 1, 'manual', 1721307466, 1721307466);
 
 -- --------------------------------------------------------
 
@@ -27277,7 +27563,7 @@ CREATE TABLE IF NOT EXISTS `mdl_role_capabilities` (
   KEY `mdl_rolecapa_con_ix` (`contextid`),
   KEY `mdl_rolecapa_mod_ix` (`modifierid`),
   KEY `mdl_rolecapa_cap_ix` (`capability`)
-) ENGINE=InnoDB AUTO_INCREMENT=1696 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='permission has to be signed, overriding a capability for a p' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=1699 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='permission has to be signed, overriding a capability for a p' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_role_capabilities`
@@ -28978,7 +29264,11 @@ INSERT INTO `mdl_role_capabilities` (`id`, `contextid`, `roleid`, `capability`, 
 (1692, 39, 3, 'block/testblock:addinstance', -1, 1717223646, 2),
 (1693, 39, 3, 'moodle/block:edit', -1, 1717223648, 2),
 (1694, 39, 1, 'moodle/block:view', -1000, 1717223652, 2),
-(1695, 39, 3, 'moodle/block:view', -1, 1717223655, 2);
+(1695, 39, 3, 'moodle/block:view', -1, 1717223655, 2),
+(1696, 1, 7, 'block/payments:myaddinstance', 1, 1720696433, 2),
+(1697, 1, 3, 'block/payments:addinstance', 1, 1720696433, 2);
+INSERT INTO `mdl_role_capabilities` (`id`, `contextid`, `roleid`, `capability`, `permission`, `timemodified`, `modifierid`) VALUES
+(1698, 1, 1, 'block/payments:addinstance', 1, 1720696433, 2);
 
 -- --------------------------------------------------------
 
@@ -29447,7 +29737,7 @@ CREATE TABLE IF NOT EXISTS `mdl_sessions` (
   KEY `mdl_sess_tim_ix` (`timecreated`),
   KEY `mdl_sess_tim2_ix` (`timemodified`),
   KEY `mdl_sess_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Database based session storage - now recommended' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Database based session storage - now recommended' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_sessions`
@@ -29455,7 +29745,12 @@ CREATE TABLE IF NOT EXISTS `mdl_sessions` (
 
 INSERT INTO `mdl_sessions` (`id`, `state`, `sid`, `userid`, `sessdata`, `timecreated`, `timemodified`, `firstip`, `lastip`) VALUES
 (180, 0, 'jkosr5f2h8mqvgooh19p7e1ojl', 2, NULL, 1718269227, 1718278638, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
-(182, 0, 's6852kb2el0prtbdokip8omi0i', 2, NULL, 1718354109, 1718354188, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1');
+(182, 0, 's6852kb2el0prtbdokip8omi0i', 2, NULL, 1718354109, 1718354188, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(184, 0, '5dc0gbn8d4g2b9gfmvdk6v8iok', 2, NULL, 1720695934, 1720708757, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(186, 0, 'o3rngpmqdicjupojis4cpbjsfh', 2, NULL, 1721294083, 1721307077, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(187, 0, '63iumcav77ed7cn5ou1lg9pq9a', 0, NULL, 1721306345, 1721306345, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(188, 0, '521ip5dbersflkcq9b7410to49', 0, NULL, 1721306345, 1721306345, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1'),
+(190, 0, '265hgu24u6q7qgblbto0vjo5si', 2, NULL, 1721307343, 1721307456, '0:0:0:0:0:0:0:1', '0:0:0:0:0:0:0:1');
 
 -- --------------------------------------------------------
 
@@ -31684,7 +31979,7 @@ CREATE TABLE IF NOT EXISTS `mdl_upgrade_log` (
   KEY `mdl_upgrlog_tim_ix` (`timemodified`),
   KEY `mdl_upgrlog_typtim_ix` (`type`,`timemodified`),
   KEY `mdl_upgrlog_use_ix` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1457 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Upgrade logging' ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=1460 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Upgrade logging' ROW_FORMAT=COMPRESSED;
 
 --
 -- Dumping data for table `mdl_upgrade_log`
@@ -33149,7 +33444,10 @@ INSERT INTO `mdl_upgrade_log` (`id`, `type`, `plugin`, `version`, `targetversion
 (1453, 0, 'local_education', '2023042301', '2023042301', 'Plugin installed', NULL, '', 2, 1714556975),
 (1454, 0, 'local_ganalytics', NULL, '2018052063', 'Starting plugin installation', NULL, '', 2, 1715211444),
 (1455, 0, 'local_ganalytics', '2018052063', '2018052063', 'Upgrade savepoint reached', NULL, '', 2, 1715211444),
-(1456, 0, 'local_ganalytics', '2018052063', '2018052063', 'Plugin installed', NULL, '', 2, 1715211445);
+(1456, 0, 'local_ganalytics', '2018052063', '2018052063', 'Plugin installed', NULL, '', 2, 1715211445),
+(1457, 0, 'block_payments', NULL, '2024010100', 'Starting plugin installation', NULL, '', 2, 1720696433),
+(1458, 0, 'block_payments', '2024010100', '2024010100', 'Upgrade savepoint reached', NULL, '', 2, 1720696433),
+(1459, 0, 'block_payments', '2024010100', '2024010100', 'Plugin installed', NULL, '', 2, 1720696433);
 
 -- --------------------------------------------------------
 
@@ -33263,16 +33561,16 @@ CREATE TABLE IF NOT EXISTS `mdl_user` (
 
 INSERT INTO `mdl_user` (`id`, `auth`, `confirmed`, `policyagreed`, `deleted`, `suspended`, `mnethostid`, `username`, `password`, `idnumber`, `firstname`, `lastname`, `email`, `emailstop`, `phone1`, `phone2`, `institution`, `department`, `address`, `city`, `country`, `lang`, `calendartype`, `theme`, `timezone`, `firstaccess`, `lastaccess`, `lastlogin`, `currentlogin`, `lastip`, `secret`, `picture`, `description`, `descriptionformat`, `mailformat`, `maildigest`, `maildisplay`, `autosubscribe`, `trackforums`, `timecreated`, `timemodified`, `trustbitmask`, `imagealt`, `lastnamephonetic`, `firstnamephonetic`, `middlename`, `alternatename`, `moodlenetprofile`, `date_of_birth`, `grade_level`) VALUES
 (1, 'manual', 1, 0, 0, 0, 1, 'guest', '$6$rounds=10000$O2devXOvc8C19nna$ik2ZWZRXBq7Xf.ZtB3JHiDuCHQRMCWx54iWxEqE9lzhO3ia04YQgvfL1Iyil1y1iaJar87HM4Pph4E45IBEQs.', '', 'Guest user', ' ', 'root@localhost', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, 'This user is a special user that allows read-only access to some courses.', 1, 1, 0, 2, 1, 0, 0, 1710415266, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'manual', 1, 0, 0, 0, 1, 'admin', '$6$rounds=10000$DV3Q3.bGrQ3bCvRL$qcbEU6TfCF75QAQdnCUp.q3zM6vATb1ulQsn4Dqm3M.BpSPcVDxoGJKe1Te7icjXrutqAR/HEIckQWS3Ye6vE.', '', 'Marianne', 'Arif', 'marianne.arif5@gmail.com', 0, '', '', '', '', '', 'jbeil', 'LB', 'en', 'gregorian', '', '99', 1710415464, 1718354109, 1718269227, 1718354109, '0:0:0:0:0:0:0:1', '', 0, NULL, 1, 1, 0, 1, 1, 0, 0, 1718270132, 0, NULL, NULL, NULL, 'Nemer', NULL, NULL, NULL, NULL),
+(2, 'manual', 1, 0, 0, 0, 1, 'admin', '$6$rounds=10000$DV3Q3.bGrQ3bCvRL$qcbEU6TfCF75QAQdnCUp.q3zM6vATb1ulQsn4Dqm3M.BpSPcVDxoGJKe1Te7icjXrutqAR/HEIckQWS3Ye6vE.', '', 'Marianne', 'Arif', 'marianne.arif5@gmail.com', 0, '', '', '', '', '', 'jbeil', 'LB', 'en', 'gregorian', '', '99', 1710415464, 1721307417, 1721294083, 1721307343, '0:0:0:0:0:0:0:1', '', 0, NULL, 1, 1, 0, 1, 1, 0, 0, 1718270132, 0, NULL, NULL, NULL, 'Nemer', NULL, NULL, NULL, NULL),
 (3, 'manual', 1, 0, 1, 0, 1, 'student1@gmail.com.1715209286', '$6$rounds=10000$vvYqk49R6qAnas6i$Ae8h69MJA90vKVJCTOX9SVC6HuXANPZe8gZ1DvMzKd01ONumUJweUPeqWnmS2rAxwZPhrQKqEgxR7vLC5dvPE1', '', 'student', '1', '5e5545d38a68148a2d5bd5ec9a89e327', 0, '', '', '', '', '', 'batroun', 'LB', 'en', 'gregorian', '', 'Asia/Beirut', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711298973, 1715209286, 0, '', '', '', '', '', '', '2024-03-24', NULL),
 (4, 'manual', 1, 0, 1, 0, 1, 'teacher1@gmail.com.1715209302', '$6$rounds=10000$KoVP1M7gZPyYY72Y$SWXoMKcy6skL09.OvMswNhopJkA8Gx9.CXjVt/YZzR4Chr4etemO6rNLJQjkwzUz9T4LRkaaYsO6LQvhz58l2/', '', 'teacher', '1', '41c8949aa55b8cb5dbec662f34b62df3', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711315891, 1715209302, 0, '', '', '', '', '', '', '2024-03-24', NULL),
 (5, 'manual', 1, 0, 1, 0, 1, 'nonteacher1@gmail.com.1715209422', '$6$rounds=10000$YPeDdEMlwJd4Nlma$Aft9ZabbL45AknWGXzsUCEfd9wCfgjzPxa6CX3nXltW5QZmx4E0dM3fPdbiiXHYen0ati8egnkJaKNsETdMqt.', '', 'non-edit', 'teacher 1', '1ea91addf9333bc3a042aea09085a15d', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711315990, 1715209422, 0, '', '', '', '', '', '', '2024-03-24', NULL),
 (6, 'manual', 1, 0, 1, 0, 1, 'student2@gmail.com.1715209293', '$6$rounds=10000$khkK/vwTpVJXvNHB$iatP4y4qArehPreJeKYeSY6Noqq83NsUvpWkN0iRaEWaxUwW7.L7p24XoHgvw3Djfhz7vqvxFR4fZI92TlKFK0', '', 'student', '2', '213ee683360d88249109c2f92789dbc3', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, '', 1, 1, 0, 2, 1, 0, 1711319330, 1715209293, 0, '', '', '', '', '', '', '2024-03-25', NULL),
 (7, 'emailadmin', 1, 0, 1, 0, 1, 'student3@gmail.com.1715209309', '$6$rounds=10000$M6EFZri./SamrsEW$ErGbJRfr/xvcnwBFOYJsavjx.D8SAsfjqn7yVyrLdknmTphNYYKhhA9HuM7p67Km0avnQV65MlWLQkmd0pPs4/', '', 'student', '3', '8e4947690532bc44a8e41e9fb365b76a', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 1711319708, 0, 0, 0, '', 'mC3mUFuqMVZ8cvZ', 0, NULL, 1, 1, 0, 2, 1, 0, 1711319559, 1715209309, 0, NULL, '', '', '', '', NULL, '2024-03-25', NULL),
 (8, 'emailadmin', 1, 0, 1, 0, 1, 'student4@gmail.com.1715209278', '$6$rounds=10000$oZLTlEw92l3xwCf4$7tOYcS2cNgH14iBl/x4NyEmuHW4k42MobaMP957jUlSoiidtKI4kYB1sLOGwmvEQPRIklOSWDEoXYxYWjLyFi/', '', 'student', '4', '166a50c910e390d922db4696e4c7747b', 0, '', '', '', '', '', 'Beirut', 'LB', 'en', 'gregorian', '', '99', 1711319717, 0, 0, 0, '', 'IWVlaLvUEXX5llN', 0, NULL, 1, 1, 0, 2, 1, 0, 1711319659, 1715209278, 0, NULL, '', '', '', '', NULL, '2024-03-25', NULL),
-(9, 'manual', 1, 0, 0, 0, 1, 'chrishouwayek', '$2b$12$Flk7RpUrs/lFalwl7HBOPu2AfBilzdfCpA39AQkAPNRcHrv7TlsDC', '', 'Chris', 'Houwayek', 'chris@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
-(10, 'manual', 1, 0, 0, 0, 1, 'lukehawat', '$2b$12$jicMhtu7qT4EOj1zf89FwenbFDopti0eNdwKGBsCqMKsIFIsT04Bq', '', 'Luke', 'Hawat', 'luke@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
-(11, 'manual', 1, 0, 0, 0, 1, 'cesarghanem', '$2b$12$AovRLpO9oCbU4kJEJVK1heuG5zfRYulCWzwPAtSsmJPaToCyehJJ2', '', 'Cesar', 'Ghanem', 'cesar@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(9, 'manual', 1, 0, 0, 0, 1, 'chrishouwayek', '$2b$12$Flk7RpUrs/lFalwl7HBOPu2AfBilzdfCpA39AQkAPNRcHrv7TlsDC', '', 'Chris', 'Houwayek', 'chris@example.com', 0, '123', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(10, 'manual', 1, 0, 0, 0, 1, 'lukehawat', '$2b$12$jicMhtu7qT4EOj1zf89FwenbFDopti0eNdwKGBsCqMKsIFIsT04Bq', '', 'Luke', 'Hawat', 'luke@example.com', 0, '456', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
+(11, 'manual', 1, 0, 0, 0, 1, 'cesarghanem', '$2b$12$AovRLpO9oCbU4kJEJVK1heuG5zfRYulCWzwPAtSsmJPaToCyehJJ2', '', 'Cesar', 'Ghanem', 'cesar@example.com', 0, '789', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
 (12, 'manual', 1, 0, 0, 0, 1, 'ghadimouawad', '$2b$12$h2XIQix/Xv5SrIr4AlE1uOEq5NJXfYCZ8kty1bFOoPgTZyNIzs2Ra', '', 'Ghadi', 'Mouawad', 'ghadi@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
 (13, 'manual', 1, 0, 0, 0, 1, 'angydaou', '$2b$12$9To7DO1q98S/FE/zHpwMbOfig/PeCgxhds9wyCdapzil9dr8gSYLW', '', 'Angy', 'Daou', 'angy@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 1718270233, 0, NULL, NULL, NULL, 'William', NULL, NULL, '2024-05-01', NULL),
 (14, 'manual', 1, 0, 0, 0, 1, 'simonabi younes', '$2b$12$hiFAslBDUIgS6/v80Grf0.53.Waz3uvErlvZHnXz2BqXW4SRsNj4a', '', 'Simon', 'Abi Younes', 'simon@example.com', 0, '', '', '', '', '', '', '', 'en', 'gregorian', '', '99', 0, 0, 0, 0, '', '', 0, NULL, 1, 1, 0, 2, 1, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-01', NULL),
